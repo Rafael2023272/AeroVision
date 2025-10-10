@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <link rel="stylesheet" href="index.css">
+      <link rel="stylesheet" href="index.js">
+    <title>AeroVision - The Future of Aviation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sansation:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Raleway+Dots&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-left">
+            <div class="logo">AeroVision</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="comparison.html">Comparison</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <div class="search-container">
+        <!-- Search Icon -->
+        <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+        
+        <!-- Search Input -->
+        <input type="text" class="search-input" placeholder="Search here" id="searchInput">
+    </div>
+            <button class="btn btn-login">Login</button>
+            <button class="btn btn-register">Register</button>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <video autoplay muted loop>
+            <source src="Frontend/Airbus Video.mp4" type="video/mp4">
+        </video>
+        <div class="hero-content">
+            <h1>The World of Aviation</h1>
+            <p>Explore the innovation, rivalry, and technology shaping the skies</p>
+            <button class="hero-btn">Start Exploring</button>
+        </div>
+    </section>
+
+    <!-- Welcome Section -->
+    <section class="welcome">
+        <div class="welcome-text">
+            <h2>Welcome to the World of Aviation</h2>
+            <p>"Aviation is more than just travel—it is a symbol of human progress, connecting people and cultures across the globe. In this journey through the skies, we'll explore the leading industry giants, Airbus and Boeing. From their pioneering aircraft to their visions for sustainable skies, you'll discover how these companies innovate, compete, and direct our world where they are headed in the future."</p>
+        </div>
+        <div class="welcome-image"></div>
+    </section>
+
+    <!-- Excellence Section -->
+     <div class="container">
+        <header>
+            <h1>Leading Aviation Excellence</h1>
+            <p class="subtitle">Discover the innovations and technologies that shape modern aviation through the world's premier aircraft manufacturers.</p>
+        </header>
+
+        <div class="cards-container">
+            <div class="card">
+                <div class="card-image">
+                    <img src="Frontend/Airbus-Family-formation-flight1.avif" alt="Airbus Aircraft">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Airbus</h2>
+                    <p class="card-description">European innovation leading the future of aviation.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="Frontend/ba-commercial-twin-aisle-family-source-ba.jpg" alt="Boeing Aircraft">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Boeing</h2>
+                    <p class="card-description">American aerospace excellence since 1916.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-image">
+                    <img src="Frontend/A350.jpeg" alt="Future Aviation Technology">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Future Technology</h2>
+                    <p class="card-description">Exploring next generation aviation technologies, and the future of air travel.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Comparison Section -->
+    <section class="comparison">
+        <h2>Comparison: Airbus vs Boeing: A Rivalry in the Skies</h2>
+        <p class="comparison-subtitle">Which manufacturer is leading the way? Compare Airbus and Boeing by capacity, range, fuel efficiency, and technology. Get a side-by-side look at how they stack up.</p>
+        <div class="comparison-table">
+            <div class="table-header">
+                <div>Aircraft Model</div>
+                <div>Airbus A350 - 900</div>
+                <div>Boeing 787 - 9</div>
+            </div>
+            <div class="table-row">
+                <div>Passenger Capacity</div>
+                <div>315 passengers</div>
+                <div>290 passengers</div>
+            </div>
+            <div class="table-row">
+                <div>Maximum Range</div>
+                <div>8,100 nautical miles</div>
+                <div>7,635 nautical miles</div>
+            </div>
+            <div class="table-row">
+                <div>Fuel Efficiency</div>
+                <div>2.9L per 100km per passenger</div>
+                <div>3.6L per 100km per passenger</div>
+            </div>
+            <div class="table-row">
+                <div>Cruise Speed</div>
+                <div>Mach 0.85</div>
+                <div>Mach 0.85</div>
+            </div>
+            <div class="table-row">
+                <div>Wing Span</div>
+                <div>64.75 meters</div>
+                <div>60.12 meters</div>
+            </div>
+        </div>
+        <button class="compare-btn" onclick="window.location.href='comparison.html'">Compare More</button>
+    </section>
+
+    <!-- Why Aviation Matters -->
+    <section class="why-matters">
+        <h2>Why Aviation Matters?</h2>
+        <p class="why-matters-intro">Every day, over 100,000 flights connect millions of people across continents. Airplanes are not just machines—they are bridges between cultures, businesses, and families. But it comes at a cost. The aviation industry is also at a turning point, balancing growth with sustainability. Airbus and Boeing are leading this change, shaping the skies of tomorrow.</p>
+        <div class="matters-cards">
+            <div class="matter-card">
+                <div class="matter-icon">🌍</div>
+                <h3>Global Connectivity</h3>
+                <p>Aviation connects the world, enabling trade, tourism, and cultural exchange across continents, enabling unprecedented global collaboration</p>
+            </div>
+            <div class="matter-card">
+                <div class="matter-icon">⚡</div>
+                <h3>Innovation Driver</h3>
+                <p>Aerospace technology drives innovation in engineering, materials science, and sustainable aviation fuels</p>
+            </div>
+            <div class="matter-card">
+                <div class="matter-icon">🛡️</div>
+                <h3>Safety Excellence</h3>
+                <p>Commercial aviation maintains exceptional safety records through continuous innovation and regulatory improvements</p>
+            </div>
+            <div class="matter-card">
+                <div class="matter-icon">💼</div>
+                <h3>Economic Impact</h3>
+                <p>The aviation industry supports millions of jobs and facilitates trillions in global trade annually</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section class="news">
+        <h2>Latest News & Updates</h2>
+        <div class="news-grid">
+            <div class="news-card">
+                <div class="news-image"></div>
+                <div class="news-content">
+                    <h3>Philippine Airline takes their 1st delivery of A350-1000</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    <div class="news-meta">September 22, 2025 • 3 mins read</div>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-image"></div>
+                <div class="news-content">
+                    <h3>Philippine Airline takes their 1st delivery of A350-1000</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    <div class="news-meta">September 22, 2025 • 3 mins read</div>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-image"></div>
+                <div class="news-content">
+                    <h3>Philippine Airline takes their 1st delivery of A350-1000</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    <div class="news-meta">September 15, 2025 • 4 mins read</div>
+                </div>
+            </div>
+            <div class="news-card">
+                <div class="news-image"></div>
+                <div class="news-content">
+                    <h3>Philippine Airline takes their 1st delivery of A350-1000</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    <div class="news-meta">September 15, 2025 • 5 mins read</div>
+                </div>
+            </div>
+        </div>
+        <button class="news-btn" onclick="window.location.href='news.html'">Find Out More</button>
+
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>AeroVision</h3>
+                <p>Your premium source for aircraft information and comprehensive analysis</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#">About Us</a>
+                <a href="#">Compare</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Disclaimer</a>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2025 AeroVision. All rights reserved. | Explore the future of aviation systems.
+        </div>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            const navLinks = document.getElementById('navLinks');
+            navLinks.classList.toggle('active');
+        }
+
+        // Close menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const nav = document.querySelector('nav');
+            const navLinks = document.getElementById('navLinks');
+            if (!nav.contains(event.target)) {
+                navLinks.classList.remove('active');
+            }
+        });
+    </script>
+
+<script>
+        // Add parallax effect to cards
+        document.addEventListener('mousemove', (e) => {
+            const cards = document.querySelectorAll('.card');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+
+            cards.forEach((card, index) => {
+                const speed = (index + 1) * 2;
+                const xMove = (x - 0.5) * speed;
+                const yMove = (y - 0.5) * speed;
+                
+                card.style.transform = `translateX(${xMove}px) translateY(${yMove}px)`;
+            });
+        });
+
+        // Reset transform on mouse leave
+        document.addEventListener('mouseleave', () => {
+            const cards = document.querySelectorAll('.card');
+            cards.forEach(card => {
+                card.style.transform = '';
+            });
+        });
+
+        // Add click animation
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('click', function() {
+                this.style.animation = 'none';
+                setTimeout(() => {
+                    this.style.animation = '';
+                }, 10);
+                
+                // Pulse effect
+                this.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    this.style.transform = '';
+                }, 200);
+            });
+        });
+    </script>
+
+    <script>
+  document.querySelector('.news-btn').addEventListener('click', () => {
+    // Add fade-out class
+    document.body.classList.add('fade-out');
+    
+    // Wait for fade to finish, then redirect
+    setTimeout(() => {
+      window.location.href = 'news.html';
+    }, 600); // same as CSS transition duration
+  });
+</script>
+
+    
+</body>
+</html>
