@@ -12,6 +12,26 @@
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Raleway+Dots&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
+     <!-- Glowing Background -->
+    <div class="glow-bg">
+        <div class="glow-orb orb1"></div>
+        <div class="glow-orb orb2"></div>
+        <div class="glow-orb orb3"></div>
+    </div>
+
+    <!-- Particles -->
+    <div class="particles">
+        <div class="particle" style="left: 10%; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 20%; animation-delay: 3s;"></div>
+        <div class="particle" style="left: 30%; animation-delay: 6s;"></div>
+        <div class="particle" style="left: 40%; animation-delay: 2s;"></div>
+        <div class="particle" style="left: 50%; animation-delay: 5s;"></div>
+        <div class="particle" style="left: 60%; animation-delay: 8s;"></div>
+        <div class="particle" style="left: 70%; animation-delay: 4s;"></div>
+        <div class="particle" style="left: 80%; animation-delay: 7s;"></div>
+        <div class="particle" style="left: 90%; animation-delay: 1s;"></div>
+    </div>
+
     <!-- Navigation -->
     <nav>
         <div class="nav-left">
@@ -52,6 +72,7 @@
 
         <div class="comparison-grid">
             <div class="aircraft-card">
+                 <div class="glass">
                 <div class="card-label">First Aircraft</div>
                 <select class="aircraft-select" id="aircraft1">
                     <option value="">Select aircraft...</option>
@@ -60,8 +81,10 @@
                     <i class="fas fa-plane placeholder-icon"></i>
                 </div>
             </div>
+            </div>
 
             <div class="aircraft-card">
+                <div class="glass">
                 <div class="card-label">Second Aircraft</div>
                 <select class="aircraft-select" id="aircraft2">
                     <option value="">Select aircraft...</option>
@@ -71,6 +94,7 @@
                 </div>
             </div>
         </div>
+    </div>
 
         <div id="emptyState" class="empty-state">
             <i class="fas fa-chart-line"></i>
@@ -338,5 +362,7 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('aircraft2').addEventListener('change', handleSelectionChange);
 });
 </script>
+
+
 </body>
 </html>
