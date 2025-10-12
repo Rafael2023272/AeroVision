@@ -311,15 +311,275 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
-        /* Excellence Section */
-        .container {
-      
+        .scroll-section {
+            height: 300vh;
+            position: relative;
+        }
+
+        .sticky-container {
+            position: sticky;
+            top: 0;
+            height: 100vh;
             width: 100%;
-            animation: fadeIn 1s ease-out;
+            overflow: hidden;
+            display: flex;
             align-items: center;
             justify-content: center;
-           
+            flex-direction: column;
+        }
 
+        .aircraft-container {
+            position: relative;
+            width: 80%;
+            max-width: 1400px;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 2000px;
+            cursor: grab;
+            user-select: none;
+        }
+
+        .aircraft-container:active {
+            cursor: grabbing;
+        }
+
+        .aircraft-image {
+            width: 100%;
+            height: auto;
+            opacity: 0;
+            transform: scale(0.3) translateY(100px) rotateY(-45deg) rotateX(15deg);
+            filter: blur(20px) brightness(0.5);
+            transition: opacity 2.5s cubic-bezier(0.16, 1, 0.3, 1),
+                        filter 2.5s cubic-bezier(0.16, 1, 0.3, 1);
+            transform-style: preserve-3d;
+            pointer-events: none;
+        }
+
+        .aircraft-image.revealed {
+            opacity: 1;
+            filter: blur(0) brightness(1);
+        }
+
+        .aircraft-image.interactive {
+           transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+        /* Annotation styles - NO LINES */
+        .specs-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .annotation {
+            position: absolute;
+            opacity: 0;
+            transform: translateY(20px) scale(0.9);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), 
+                        transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .annotation.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .annotation-label {
+            background: transparent;
+            padding: 0;
+            white-space: nowrap;
+        }
+
+        .annotation-value {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #474747;
+            margin-bottom: 2px;
+            letter-spacing: 0.5px;
+        }
+
+        .annotation-text {
+            font-size: 0.7rem;
+            color: #474747;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 400;
+        }
+
+        /* Positioning */
+        .wingspan-annotation { top: 7%; right: 15%; }
+        .passenger-annotation { top: 20%; left: 5%; }
+        .length-annotation { bottom: 50%; left: 15%; }
+        .speed-annotation { top: 50%; right: 25%; }
+        .range-annotation { bottom: 18%; right: 18%; }
+        .weight-annotation { bottom: 22%; left: 25%; }
+        .height-annotation { top: 2%; left: 5%; }
+
+
+        /* Featured Header */
+        .featured-header {
+            position: absolute;
+            top: -2%;
+            left: 1%;
+            transition: opacity 1.5s ease;
+            z-index: 5;
+        }
+
+        .featured-header h2 {
+            font-size: 3rem;
+            font-weight: 400;
+            color: #272727;
+            letter-spacing: 4px;
+            margin: 10%;
+        }
+
+        /* Title */
+        .title-section {
+            position: absolute;
+            top: 8%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1.5s ease;
+            z-index: 5;
+        }
+
+        .title-section.visible {
+            opacity: 1;
+        }
+
+        .title-section h1 {
+            font-size: 5.5rem;
+            font-weight: 700;
+            letter-spacing: -3px;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .title-section .subtitle {
+            font-size: 1.1rem;
+            color: #474747;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        /* Interaction hint */
+        .interaction-hint {
+            position: absolute;
+            bottom: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s ease;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        .interaction-hint.visible {
+            opacity: 0.7;
+        }
+
+        .interaction-hint.hidden {
+            opacity: 0;
+        }
+
+        .interaction-hint p {
+            font-size: 0.9rem;
+            color: #474747;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-10px); }
+        }
+
+        /* Description Section */
+        .description-section {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 800px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s ease;
+            padding: 0 20px;
+        }
+
+        .description-section.visible {
+            opacity: 1;
+        }
+
+        .description-section p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #474747;
+            font-weight: 300;
+        }
+
+        @media (max-width: 1024px) {
+            .aircraft-container {
+                width: 90%;
+                height: 50vh;
+            }
+
+            .annotation-value {
+                font-size: 1.6rem;
+            }
+
+            .title-section h1 {
+                font-size: 4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .featured-header h2 {
+                font-size: 1.2rem;
+            }
+
+            .title-section h1 {
+                font-size: 2.5rem;
+            }
+
+            .title-section .subtitle {
+                font-size: 0.9rem;
+            }
+
+            .annotation-value {
+                font-size: 1.3rem;
+            }
+
+            .annotation-text {
+                font-size: 0.6rem;
+            }
+
+            .description-section {
+                bottom: 3%;
+            }
+
+            .description-section p {
+                font-size: 0.85rem;
+            }
+        }
+
+        /* Excellence Section */
+        .container {
+            width: 100%;
+            animation: fadeIn 8s ease-out;
+            align-items: center;
+            justify-content: center;
         }
 
         @keyframes fadeIn {
@@ -336,7 +596,7 @@
         header {
             text-align: center;
             margin-bottom: 60px;
-            animation: slideDown 2.5s ease-out;
+            animation: slideDown 6.5s ease-out;
         }
 
         @keyframes slideDown {
@@ -350,11 +610,12 @@
             }
         }
 
-        h1 {
+        .container h1 {
             font-size: 3.5rem;
             color: #000000;
             letter-spacing: 8px;
             margin-bottom: 20px;
+            margin-top: 20px;
             text-shadow: none;
             font-weight: 300;
         }
@@ -662,7 +923,9 @@
             margin: 2rem auto 0;
             padding: 1rem 3rem;
             background: #ffffff;
-            color: rgb(36, 36, 36);
+            color: rgb(0, 0, 0);
+            font-weight: bold;
+            font-size: 1rem;
             border: none;
             border-radius: 30px;
             cursor: pointer;
@@ -809,7 +1072,6 @@
         }
 
         /* Footer */
-
         .footer {
              background: linear-gradient(
                 to bottom,       /* direction */
