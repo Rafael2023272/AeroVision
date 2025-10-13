@@ -14,7 +14,6 @@
             transition: opacity 0.6s ease; /* adjust speed here */
         }
         
-
         /* Navigation */
        nav {
             display: flex;
@@ -341,24 +340,38 @@
             user-select: none;
         }
 
-        .aircraft-container:active {
-            cursor: grabbing;
+        .aircraft-image.active {
+            display: block;
+            position: relative;
+        }
+
+        .aircraft-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.1s ease-out;
+            transform-style: preserve-3d;
         }
 
         .aircraft-image {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: contain;
             opacity: 0;
-            transform: scale(0.3) translateY(100px) rotateY(-45deg) rotateX(15deg);
-            filter: blur(20px) brightness(0.5);
-            transition: opacity 2.5s cubic-bezier(0.16, 1, 0.3, 1),
-                        filter 2.5s cubic-bezier(0.16, 1, 0.3, 1);
-            transform-style: preserve-3d;
+            transform: scale(0.5) translateY(100px);
+            filter: blur(15px) brightness(0.6);
+            transition: opacity 0.5s ease, transform 2.5s cubic-bezier(0.16, 1, 0.3, 1), filter 2.5s cubic-bezier(0.16, 1, 0.3, 1);
             pointer-events: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
         }
 
-        .aircraft-image.revealed {
+
+        .aircraft-image.revealed.active {
             opacity: 1;
+            transform: scale(1) translateY(0);
             filter: blur(0) brightness(1);
         }
 
@@ -366,7 +379,82 @@
            transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
         }
 
-        /* Annotation styles - NO LINES */
+  /* Navigation Arrows */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(0, 0, 0, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            backdrop-filter: blur(10px);
+            z-index: 10;
+        }
+
+        .nav-arrow.visible {
+            opacity: 1;
+        }
+
+        .nav-arrow:hover {
+            background: rgba(5, 5, 5, 0.2);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .nav-arrow.left {
+            left: 5%;
+        }
+
+        .nav-arrow.right {
+            right: 5%;
+        }
+
+        .nav-arrow svg {
+            width: 24px;
+            height: 24px;
+            fill: #000000;
+        }
+
+        /* Image indicators */
+        .image-indicators {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .image-indicators.visible {
+            opacity: 1;
+        }
+
+        .indicator-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator-dot.active {
+            background: #000000;
+            width: 30px;
+            border-radius: 5px;
+        }
+
+
+        /* Annotation styles  */
         .specs-overlay {
             position: absolute;
             width: 100%;
@@ -417,8 +505,8 @@
         .length-annotation { bottom: 50%; left: 15%; }
         .speed-annotation { top: 50%; right: 25%; }
         .range-annotation { bottom: 18%; right: 18%; }
-        .weight-annotation { bottom: 22%; left: 25%; }
-        .height-annotation { top: 2%; left: 5%; }
+        .weight-annotation { bottom: 22%; left: 35%; }
+        .height-annotation { top: 2%; left: 15%; }
 
 
         /* Featured Header */
@@ -473,37 +561,7 @@
             text-transform: uppercase;
         }
 
-        /* Interaction hint */
-        .interaction-hint {
-            position: absolute;
-            bottom: 15%;
-            left: 50%;
-            transform: translateX(-50%);
-            text-align: center;
-            opacity: 0;
-            transition: opacity 1s ease;
-            animation: bounce 2s ease-in-out infinite;
-        }
-
-        .interaction-hint.visible {
-            opacity: 0.7;
-        }
-
-        .interaction-hint.hidden {
-            opacity: 0;
-        }
-
-        .interaction-hint p {
-            font-size: 0.9rem;
-            color: #474747;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translateX(-50%) translateY(0); }
-            50% { transform: translateX(-50%) translateY(-10px); }
-        }
+       
 
         /* Description Section */
         .description-section {
@@ -525,7 +583,7 @@
         .description-section p {
             font-size: 1rem;
             line-height: 1.7;
-            color: #474747;
+            color: #2b2b2b;
             font-weight: 300;
         }
 
@@ -541,6 +599,11 @@
 
             .title-section h1 {
                 font-size: 4rem;
+            }
+
+            .nav-arrow {
+                width: 50px;
+                height: 50px;
             }
         }
 

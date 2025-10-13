@@ -67,41 +67,90 @@
         });
 
 
-        const aircraftImage = document.getElementById('aircraftImage');
+        const aircraftImages = document.querySelectorAll('.aircraft-image');
+        const aircraftWrapper = document.getElementById('aircraftWrapper');
         const aircraftContainer = document.getElementById('aircraftContainer');
         const featuredHeader = document.getElementById('featuredHeader');
         const titleSection = document.getElementById('titleSection');
         const annotations = document.querySelectorAll('.annotation');
-        const interactionHint = document.getElementById('interactionHint');
         const descriptionSection = document.getElementById('descriptionSection');
         const scrollSection = document.querySelector('.scroll-section');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        const indicatorsContainer = document.getElementById('indicators');
 
-        let isDragging = false;
-        let startX = 0;
-        let currentRotationY = 0;
-        let targetRotationY = 0;
-        let isInteractive = false;
-        let sectionStartOffset = 0;
+        let currentImageIndex = 0;
         let sectionInView = false;
-
+        let isInteractive = false;
         let ticking = false;
+
+        // Create indicators based on number of images
+        function createIndicators() {
+            aircraftImages.forEach((_, index) => {
+                const dot = document.createElement('div');
+                dot.className = 'indicator-dot';
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => changeImage(index));
+                indicatorsContainer.appendChild(dot);
+            });
+        }
+
+        // Change image
+        function changeImage(index) {
+            if (index < 0) index = aircraftImages.length - 1;
+            if (index >= aircraftImages.length) index = 0;
+            
+            // Hide all images
+            aircraftImages.forEach(img => {
+                img.classList.remove('active');
+            });
+            
+            // Show selected image
+            currentImageIndex = index;
+            aircraftImages[currentImageIndex].classList.add('active');
+            
+            // Update indicators
+            document.querySelectorAll('.indicator-dot').forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentImageIndex);
+            });
+        }
+
+        // Navigation
+        prevBtn.addEventListener('click', () => changeImage(currentImageIndex - 1));
+        nextBtn.addEventListener('click', () => changeImage(currentImageIndex + 1));
+
+        // Mouse movement parallax
+        aircraftContainer.addEventListener('mousemove', (e) => {
+            if (!isInteractive) return;
+            
+            const rect = aircraftContainer.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width - 0.5;
+            const y = (e.clientY - rect.top) / rect.height - 0.5;
+            
+            const moveX = x * 30;
+            const moveY = y * 30;
+            const rotateX = y * -10;
+            const rotateY = x * 10;
+            
+            aircraftWrapper.style.transform = `translateX(${moveX}px) translateY(${moveY}px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+
+        // Reset position when mouse leaves
+        aircraftContainer.addEventListener('mouseleave', () => {
+            if (!isInteractive) return;
+            aircraftWrapper.style.transform = 'translateX(0) translateY(0) rotateX(0) rotateY(0)';
+        });
 
         // Detect when section enters viewport
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    sectionInView = true;
-                    sectionStartOffset = window.pageYOffset;
-                } else {
-                    sectionInView = false;
-                }
+                sectionInView = entry.isIntersecting;
             });
         }, { threshold: 0.1 });
 
         observer.observe(scrollSection);
 
         function updateAnimation() {
-            // Only animate when section is in view
             if (!sectionInView) {
                 ticking = false;
                 return;
@@ -111,12 +160,11 @@
             const sectionTop = scrollSection.getBoundingClientRect().top + scrollTop;
             const sectionHeight = scrollSection.offsetHeight;
             
-            // Calculate scroll position relative to THIS section
             const relativeScroll = scrollTop - sectionTop + window.innerHeight;
             const maxScroll = sectionHeight;
             const scrollFraction = Math.max(0, Math.min(relativeScroll / maxScroll, 1));
 
-            // Phase 1: Show featured header and title (0-15%)
+            // Phase 1: Show headers (5%+)
             if (scrollFraction > 0.05) {
                 featuredHeader.classList.add('visible');
                 titleSection.classList.add('visible');
@@ -125,50 +173,33 @@
                 titleSection.classList.remove('visible');
             }
 
-            // Phase 2: Reveal aircraft (15-40%)
-            if (scrollFraction > 0.15 && scrollFraction < 0.4) {
-                aircraftImage.classList.add('revealed');
-                
-                if (!isInteractive) {
-                    const revealProgress = (scrollFraction - 0.15) / 0.25;
-                    const scale = 0.3 + (revealProgress * 0.7);
-                    const translateY = 100 - (revealProgress * 100);
-                    const rotateY = -45 + (revealProgress * 45);
-                    const rotateX = 15 - (revealProgress * 15);
-                    
-                    aircraftImage.style.transform = `scale(${scale}) translateY(${translateY}px) rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
-                }
+            // Phase 2: Reveal aircraft (15%+)
+            if (scrollFraction > 0.15) {
+                aircraftImages.forEach(img => img.classList.add('revealed'));
             }
 
-            // Phase 3: Make interactive (40%+)
-            if (scrollFraction >= 0.4) {
+            // Phase 3: Make interactive and show controls (35%+)
+            if (scrollFraction >= 0.35) {
                 isInteractive = true;
-                aircraftImage.classList.add('interactive');
-                interactionHint.classList.add('visible');
+                prevBtn.classList.add('visible');
+                nextBtn.classList.add('visible');
+                indicatorsContainer.classList.add('visible');
             } else {
                 isInteractive = false;
-                aircraftImage.classList.remove('interactive');
-                interactionHint.classList.remove('visible');
+                prevBtn.classList.remove('visible');
+                nextBtn.classList.remove('visible');
+                indicatorsContainer.classList.remove('visible');
             }
 
             // Phase 4: Show annotations (50%+)
             const annotationDelay = 0.06;
             annotations.forEach((annotation, index) => {
                 const showAt = 0.5 + (index * annotationDelay);
-                
-                if (scrollFraction > showAt) {
-                    annotation.classList.add('visible');
-                } else {
-                    annotation.classList.remove('visible');
-                }
+                annotation.classList.toggle('visible', scrollFraction > showAt);
             });
 
             // Phase 5: Show description (70%+)
-            if (scrollFraction > 0.7) {
-                descriptionSection.classList.add('visible');
-            } else {
-                descriptionSection.classList.remove('visible');
-            }
+            descriptionSection.classList.toggle('visible', scrollFraction > 0.7);
 
             ticking = false;
         }
@@ -180,45 +211,9 @@
             }
         }
 
-        // Mouse/Touch rotation controls
-        function startDrag(e) {
-            if (!isInteractive) return;
-            isDragging = true;
-            startX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-            interactionHint.classList.add('hidden');
-        }
-
-        function drag(e) {
-            if (!isDragging || !isInteractive) return;
-            e.preventDefault();
-            
-            const currentX = e.type.includes('mouse') ? e.clientX : e.touches[0].clientX;
-            const deltaX = currentX - startX;
-            
-            targetRotationY = currentRotationY + (deltaX * 0.5);
-            aircraftImage.style.transform = `scale(1) translateY(0) rotateY(${targetRotationY}deg)`;
-        }
-
-        function endDrag() {
-            if (isDragging) {
-                currentRotationY = targetRotationY;
-            }
-            isDragging = false;
-        }
-
-        // Mouse events
-        aircraftContainer.addEventListener('mousedown', startDrag);
-        window.addEventListener('mousemove', drag);
-        window.addEventListener('mouseup', endDrag);
-
-        // Touch events
-        aircraftContainer.addEventListener('touchstart', startDrag);
-        window.addEventListener('touchmove', drag, { passive: false });
-        window.addEventListener('touchend', endDrag);
-
-        // Scroll listener
         window.addEventListener('scroll', requestTick);
         window.addEventListener('resize', updateAnimation);
 
-        // Initial update
+        // Initialize
+        createIndicators();
         updateAnimation();

@@ -65,7 +65,7 @@
         <div class="welcome-image"></div>
     </section>
 
-      <div class="scroll-section">
+     <div class="scroll-section">
         <div class="sticky-container">
             <div class="featured-header" id="featuredHeader">
                 <h2>Today's Featured Aircraft</h2>
@@ -76,11 +76,42 @@
                 <p class="subtitle">Next-Generation Wide-Body</p>
             </div>
 
-            <div class="aircraft-container" id="aircraftContainer">
-                <img src="Frontend\A350-1000.svg" 
-                     alt="A350-1000" 
-                     class="aircraft-image" 
-                     id="aircraftImage">
+             <div class="aircraft-container" id="aircraftContainer">
+                <div class="aircraft-wrapper" id="aircraftWrapper">
+                    <!-- ADD YOUR AIRCRAFT IMAGES HERE -->
+                    <img src="Frontend/A350-1000.svg" 
+                         alt="A350-1000 Exterior" 
+                         class="aircraft-image active" 
+                         data-index="0">
+                    <img src="Frontend/A350-1000-2.svg" 
+                         alt="A350-1000 Flying" 
+                         class="aircraft-image" 
+                         data-index="1">
+                    <img src="Frontend/A350-1000-3.svg" 
+                         alt="A350-1000 Interior" 
+                         class="aircraft-image" 
+                         data-index="2">
+                    <img src="Frontend/A350-1000-4.svg" 
+                         alt="A350-1000 Cockpit" 
+                         class="aircraft-image" 
+                         data-index="3">
+                </div>
+
+                <!-- Navigation Arrows -->
+                <div class="nav-arrow left" id="prevBtn">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                    </svg>
+                </div>
+                <div class="nav-arrow right" id="nextBtn">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                    </svg>
+                </div>
+
+                <!-- Image Indicators -->
+                <div class="image-indicators" id="indicators"></div>
+
 
                 <div class="specs-overlay">
                     <!-- Wingspan -->
@@ -139,10 +170,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="interaction-hint" id="interactionHint">
-                <p>↔ Drag to Rotate ↔</p>
             </div>
 
             <div class="description-section" id="descriptionSection">
@@ -350,7 +377,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            © 2025 AeroVision. All rights reserved. | Explore the future of aviation systems.
+            © 2025 AeroVision. All rights reserved. | Explore the world of aviation systems.
         </div>
     </footer>
 
