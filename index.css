@@ -503,11 +503,13 @@
         .wingspan-annotation { top: 7%; right: 15%; }
         .passenger-annotation { top: 20%; left: 5%; }
         .length-annotation { bottom: 50%; left: 15%; }
-        .speed-annotation { top: 50%; right: 25%; }
+        .speed-annotation { top: 10%; left: 25%; }
         .range-annotation { bottom: 18%; right: 18%; }
         .weight-annotation { bottom: 22%; left: 35%; }
         .height-annotation { top: 2%; left: 15%; }
-
+        .Altitude-annotation { top: 30%; right: 10%; }
+        .Fusalage-annotation { top: 60%; left: 10%; }
+        .Cabin-annotation { bottom: 30%; right: 8%; }
 
         /* Featured Header */
         .featured-header {
@@ -1071,8 +1073,8 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 2rem;
-            margin-right: 10%;
-            margin-left: 10%;
+            margin-right: 12%;
+            margin-left: 12%;
         }
 
         .news-card {
