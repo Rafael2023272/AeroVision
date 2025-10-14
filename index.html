@@ -45,16 +45,26 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="hero">
-        <video autoplay muted loop>
-            <source src="Frontend/Airbus Video.mp4" type="video/mp4">
-        </video>
-        <div class="hero-content">
-            <h1>The World of Aviation</h1>
-            <p>Explore the innovation, rivalry, and technology shaping the skies</p>
-            <button class="hero-btn">Start Exploring</button>
-        </div>
-    </section>
+<section class="hero">
+    <video autoplay muted loop playsinline>
+        <source src="Frontend/Airbus Video.mp4" type="video/mp4">
+    </video>
+
+    <!-- Overlay Gradient -->
+    <div class="overlay"></div>
+
+    <!-- Hero Content -->
+    <div class="hero-content">
+        <h1>The World of Aviation</h1>
+        <p>Explore the innovation, rivalry, and technology shaping the skies</p>
+        <button class="hero-btn" onclick="document.querySelector('#comparison').scrollIntoView({ behavior: 'smooth' });">
+            Start Exploring
+        </button>
+    </div>
+
+    <!-- Scroll Down Indicator -->
+    <div class="scroll-down"></div>
+</section>
 
     <!-- Welcome Section -->
     <section class="welcome">
@@ -333,6 +343,22 @@
                 </div>
             </div>
             <div class="news-card">
+                <div class="news-image"></div>
+                <div class="news-content">
+                    <h3>Philippine Airline takes their 1st delivery of A350-1000</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    <div class="news-meta">September 15, 2025 • 4 mins read</div>
+                </div>
+            </div>
+             <div class="news-card">
+                <div class="news-image"></div>
+                <div class="news-content">
+                    <h3>Philippine Airline takes their 1st delivery of A350-1000</h3>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+                    <div class="news-meta">September 15, 2025 • 4 mins read</div>
+                </div>
+            </div>
+             <div class="news-card">
                 <div class="news-image"></div>
                 <div class="news-content">
                     <h3>Philippine Airline takes their 1st delivery of A350-1000</h3>
