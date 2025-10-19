@@ -35,7 +35,6 @@
         <input type="text" class="search-input" placeholder="Search here" id="searchInput">
     </div>
             <button class="btn btn-login">Login</button>
-            <button class="btn btn-register">Register</button>
             <div class="hamburger" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
@@ -46,10 +45,6 @@
 
     <!-- Hero Section -->
 <section class="hero">
-    <video autoplay muted loop playsinline>
-        <source src="Frontend/Airbus Video.mp4" type="video/mp4">
-    </video>
-
     <!-- Overlay Gradient -->
     <div class="overlay"></div>
 
@@ -61,6 +56,8 @@
             Start Exploring
         </button>
     </div>
+</section>
+
 
     <!-- Scroll Down Indicator -->
     <div class="scroll-down"></div>
@@ -215,40 +212,97 @@
     </div>
 
     <!-- Excellence Section -->
-     <div class="container">
-        <header>
-            <h1>Leading Aviation Excellence</h1>
-            <p class="subtitle">Discover the innovations and technologies that shape modern aviation through the world's premier aircraft manufacturers.</p>
-        </header>
-
-        <div class="cards-container">
-            <div class="card">
-                <div class="card-image">
-                    <img src="Frontend/Airbus-Family-formation-flight1.avif" alt="Airbus Aircraft">
+     <!-- Section 1: Commercial Growth (Matches First Image) -->
+    <div class="section section-1">
+        <div class="content-wrapper">
+            <div class="left-column">
+                <div class="parallax-medium fade-in">
+                    <h1 class="title">Driving Economies Forward</h1>
+                    <div class="text-row">
+                        <div class="text-block">
+                            Aerospace generates millions of jobs worldwide, from engineering to airport services. It stimulates research, fuels technological development, and fosters education. Economic contributions extend beyond transportation, touching industries such as tourism, energy, communication, and science. Its influence strengthens economies, promotes stability, and builds resilience against future challenges.
+                        </div>
+                        <div class="text-block">
+                            Governments and organizations prioritize investments in sustainable aerospace projects, creating innovation hubs and green technologies. This collaboration ensures aerospace continues driving progress, empowering nations to prosper, and securing opportunities for generations. With aerospace, societies transform challenges into achievements, shaping stronger futures for all communities.
+                        </div>
+                    </div>
                 </div>
-                <div class="card-content">
-                    <h2 class="card-title">Airbus</h2>
-                    <p class="card-description">European innovation leading the future of aviation.</p>
+
+                <div class="parallax-slow fade-in">
+                    <div class="images-row">
+                        <div class="small-image scale-on-scroll"></div>
+                        <div class="small-image scale-on-scroll"></div>
+                    </div>
+                    <div class="wide-image scale-on-scroll"></div>
                 </div>
             </div>
 
-            <div class="card">
-                <div class="card-image">
-                    <img src="Frontend/ba-commercial-twin-aisle-family-source-ba.jpg" alt="Boeing Aircraft">
-                </div>
-                <div class="card-content">
-                    <h2 class="card-title">Boeing</h2>
-                    <p class="card-description">American aerospace excellence since 1916.</p>
-                </div>
+            <div class="right-column">
+                <div class="hero-image parallax-fast scale-on-scroll fade-in"></div>
+                <h2 class="main-heading parallax-medium fade-in">COMMERCIAL<br>GROWTH</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2: Global Connectivity (Matches Second Image) -->
+    <div class="section section-2">
+        <div class="content-wrapper">
+            <div class="left-column">
+                <div class="hero-image parallax-fast scale-on-scroll fade-in"></div>
+                <h2 class="main-heading parallax-medium fade-in">GLOBAL<br>CONNECTIVITY</h2>
             </div>
 
-            <div class="card">
-                <div class="card-image">
-                    <img src="Frontend/A350.jpeg" alt="Future Aviation Technology">
+            <div class="right-column">
+                <div class="parallax-slow fade-in">
+                    <h3 class="section-title">Linking the World Together</h3>
+                    <div class="text-block">
+                        Through AeroVision, users can explore the impact of aerospace on communication, travel, and discovery. We highlight how these advancements bring opportunities, learning, and cultural exchange closer to everyone.
+                    </div>
+                    <div class="text-block">
+                        By sharing stories, insights, and breakthroughs, AeroVision embodies the spirit of connection—linking people, nations, and ideas under one sky.
+                    </div>
                 </div>
-                <div class="card-content">
-                    <h2 class="card-title">Future Technology</h2>
-                    <p class="card-description">Exploring next generation aviation technologies, and the future of air travel.</p>
+
+                <div class="parallax-medium fade-in">
+                    <div class="text-block">
+                        AeroVision is built to connect the world of aviation and aerospace enthusiasts in one digital space. Our platform bridges continents through knowledge, innovation, and inspiration—showcasing how aircraft and technology unite people globally.
+                    </div>
+                </div>
+
+                <div class="side-image parallax-fast scale-on-scroll fade-in"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3: Next-Gen Technologies (Matches Third Image) -->
+    <div class="section section-3">
+        <div class="content-wrapper">
+            <div class="top-row">
+                <div class="cockpit-image parallax-fast scale-on-scroll fade-in"></div>
+                <h2 class="main-heading parallax-medium fade-in">NEXT-GEN<br>TECHNOLOGIES</h2>
+            </div>
+
+            <div class="bottom-row">
+                <div class="info-column parallax-slow fade-in">
+                    <h3 class="column-title">Innovations Shaping the Future</h3>
+                    <h4 class="info-heading">3D Printing</h4>
+                    <div class="text-block">
+                        Additive manufacturing enables lightweight, durable, and cost-efficient aerospace parts. This innovation reduces waste, shortens production cycles, and enhances sustainability, allowing engineers to create designs once impossible with traditional methods.
+                    </div>
+                </div>
+
+                <div class="control-image parallax-medium scale-on-scroll fade-in"></div>
+
+                <div class="info-column parallax-slow fade-in">
+                    <h4 class="info-heading">AI Integration</h4>
+                    <div class="text-block">
+                        Artificial intelligence assists aerospace operations by analyzing data, predicting failures, and optimizing navigation. It supports maintenance, improves decision-making, and enhances flight safety across commercial and exploration missions worldwide.
+                    </div>
+
+                    <h4 class="info-heading">Autonomous Systems</h4>
+                    <div class="text-block">
+                        Self-flying drones and pilotless aircraft revolutionize mobility. They enhance safety, reduce costs, and expand accessibility while transforming transport, agriculture, defense, and disaster management through faster and more reliable operations.
+                    </div>
                 </div>
             </div>
         </div>
