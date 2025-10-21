@@ -411,3 +411,21 @@ document.addEventListener("DOMContentLoaded", function () {
         updateAircraftAnimation();
     }
 });
+ // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.2,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all cards
+        document.querySelectorAll('.animate-on-scroll').forEach(card => {
+            observer.observe(card);
+        });
