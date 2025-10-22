@@ -802,7 +802,7 @@
         
         .container {
             max-width: 1400px;
-            width: 80%;
+            width: 100%;
             margin: 0 auto;
             z-index: 2;
             position: relative;
@@ -842,16 +842,15 @@
         
         .cards-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
             gap: 20px;
-            padding: 0 20px;
         }
         
         .card {
-            background: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 1);
+            border: 1px solid rgba(148, 148, 148, 0.418);
             border-radius: 20px;
             padding: 40px 30px;
             color: #000000;
@@ -860,7 +859,6 @@
             opacity: 0;
             transform: translateY(80px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-           
         }
         
         .card.animate {
@@ -1070,7 +1068,7 @@
 
         /* News Section */
         .news {
-            padding: 5rem 5%;
+            padding: 2rem 2%;
             background: #f9f9f9;
         }
 
@@ -1083,10 +1081,10 @@
 
         .news-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 1rem;
-            margin-right: 5%;
-            margin-left: 5%;
+            margin-right: 2%;
+            margin-left: 2%;
         }
 
         .news-card {
@@ -1113,13 +1111,69 @@
 
         .news-card:hover {
             transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
         }
 
-        .news-image {
+        .news-image-1 {
             width: 100%;
             height: 200px;
-            background: url('Frontend/PalA350.jpg');
+            background: url('Frontend/indigo_orders.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+         .news-image-2 {
+            width: 100%;
+            height: 200px;
+            background: url('Frontend/gsf_data_visualisation.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+         .news-image-3 {
+            width: 100%;
+            height: 200px;
+            background: url('Frontend/Swiss_a350.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+         .news-image-4 {
+            width: 100%;
+            height: 200px;
+            background: url('Frontend/Cathay-Airbus.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+         .news-image-5 {
+            width: 100%;
+            height: 200px;
+            background: url('Frontend/Boeing_retired.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+         .news-image-6 {
+            width: 100%;
+            height: 200px;
+            background: url('Frontend/787_dreamliner_red_engines.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+         .news-image-7 {
+            width: 100%;
+            height: 200px;
+            background: url('Frontend/TK1-3-800x500.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+         .news-image-8 {
+            width: 100%;
+            height: 200px;
+            background: url('Frontend/Uzbekistan_airlines.jpg');
             background-size: cover;
             background-position: center;
         }
