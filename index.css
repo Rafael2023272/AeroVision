@@ -25,8 +25,7 @@
             top: 0;
             z-index: 10;
             transition: all 0.5s ease;
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.281);
+            backdrop-filter: blur(10px);
             transform: translateY(0);
             transition: transform 0.3s ease;
         }
@@ -810,7 +809,7 @@
         
         .heading-area {
             text-align: right;
-            margin-bottom: 70px;
+            margin-bottom: 50px;
             opacity: 0;
             color: #000;
             transform: translateY(50px);
@@ -855,7 +854,7 @@
             padding: 40px 30px;
             color: #000000;
             position: relative;
-            transition: all 0.3s ease;
+            transition: all 0.5s ease;
             opacity: 0;
             transform: translateY(80px);
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
@@ -888,7 +887,7 @@
         }
         
         .card:hover {
-            transform: scale(1.05) translateY(-20px);
+            transform: scale(1.5) translateY(20px);
             box-shadow: 0 20px 50px rgba(255, 255, 255, 0.2);
         }
         
@@ -1070,6 +1069,8 @@
         .news {
             padding: 2rem 2%;
             background: #f9f9f9;
+            margin: 3%;
+            border-bottom: solid 2px black ;
         }
 
         .news h2 {
@@ -1217,23 +1218,22 @@
         }
 
         .quote-section {
-            max-width: 100%;
+            width: 70%;
             height: 40vh;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            margin-left: 15.5%;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1),
                         inset 0 1px 0 rgba(255, 255, 255, 0.6);
             border-radius: 30px;
-            padding: 60px 80px;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             overflow: hidden;
             z-index: 5;
-            border-top: 2px solid rgb(61, 61, 61)
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(148, 148, 148, 0.445);
         }
 
         .quote-section::before {
@@ -1270,14 +1270,14 @@
             height: 200px;
             border-radius: 50%;
             object-fit: cover;
-            border: 5px solid rgba(10, 20, 65, 0.616);
+            border: 5px solid rgba(10, 20, 65, 0.836);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease;
             flex-shrink: 0;
         }
 
         .profile-image:hover {
-            transform: scale(1.05);
+            transform: scale(1.2);
         }
 
         .quote-content {
@@ -1295,7 +1295,7 @@
 
         .author-name {
             font-size: 1.4rem;
-            color: #667eea;
+            color: #091030;
             font-weight: 600;
             margin-top: 15px;
             text-decoration: none;
@@ -1304,7 +1304,7 @@
         }
 
         .author-name:hover {
-            color: #764ba2;
+            color: #c5c5c5;
             transform: translateX(5px);
         }
 
