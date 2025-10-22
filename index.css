@@ -48,11 +48,25 @@
         .logo {
             font-size: 1.8rem;
             font-weight: 700;
-            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            background: linear-gradient(135deg, #60a5fa, #a78bfa, #4cc2e6, #b834d3);
+            background-size: 400% 400%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-shadow: 0 0 30px rgba(96, 165, 250, 0.3);
-            transition: color 0.3s ease;
+            animation: gradientShift 6s ease infinite;
+        }
+
+        /* Animation Keyframes */
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         nav.scrolled .logo {
@@ -165,7 +179,7 @@
         }
 
         .btn-login {
-            background: #1a539096;
+            background: #07234296;
             color: white;
         }
 
@@ -679,12 +693,27 @@
             font-weight: 700;
             letter-spacing: -3px;
             margin-bottom: 8px;
-            background: linear-gradient(135deg, #60a5fa, #a78bfa);
+            background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6, #34d399);
+            background-size: 400% 400%;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
+            animation: gradientShift 8s ease infinite;
+            text-shadow: 0 0 40px rgba(96, 165, 250, 0.25);
         }
 
+            /* Reuse the same gradient animation */
+            @keyframes gradientShift {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
         .title-section .subtitle {
             font-size: 1.1rem;
             color: #9c9c9c;
