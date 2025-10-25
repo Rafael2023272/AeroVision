@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     <link rel="stylesheet" href="explore.css">
+     <link rel="stylesheet" href="explore.js">
+    <title>AeroVision - The Future of Aviation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Sansation:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Raleway+Dots&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-left">
+            <div class="logo">AeroVision</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="comparison.html">Comparison</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <div class="search-container">
+                <!-- Search Icon -->
+                <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+                </svg>
+                <!-- Search Input -->
+                <input type="text" class="search-input" placeholder="Search here" id="searchInput">
+            </div>
+            <button class="btn btn-login">Login</button>
+            <div class="hamburger" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+   <div class="hero-banner">
+    <h1 class="page-title">About AeroVision</h1>
+</div>
+
+ <!-- About Section - 50/50 Layout -->
+    <section class="about-section">
+        <div class="about-text">
+            <div class="about-icon"></div>
+            
+            <p><b>Welcome to AeroVision — where passion for flight meets the power of innovation.</b></p>
+            
+            <p>Our mission is to bring the world of aviation closer to everyone, from curious learners to true aircraft enthusiasts.</p>
+            
+            <p>At AeroVision, we explore the stories behind the skies — the engineering marvels, the world's busiest airports, and the evolution of aircraft that shaped modern travel. Whether it's understanding how planes stay thousands of feet above the clouds or discovering the next generation of air technology, we aim to inspire curiosity and appreciation for the art of flight.</p>
+            
+            <p>Driven by a love of aviation, we believe every aircraft tells a story — of progress, precision, and possibility. Through visuals, facts, and insights, AeroVision gives you a front-row seat to the beauty and brilliance of the aviation world.</p>
+            
+            <p>Join us as we continue to see beyond the clouds — because here at AeroVision, the sky is not the limit; it's just the beginning.</p>
+        </div>
+
+        <div class="about-image"></div>
+    </section>
+
+    <img src="Frontend/A350-1000-4.svg" alt="Aircraft" class="plane-svg">
+
+    <!-- Vision/Mission Section with SVG Plane -->
+    <section class="vision-mission-section">
+        
+        <div class="vision-mission-content">
+            <div class="vision-block">
+                <h2>Our Vision</h2>
+                <p>To inspire the next generation of aviation enthusiasts through knowledge, creativity, and digital innovation.</p>
+            </div>
+            
+            <div class="mission-block">
+                <h2>Our Mission</h2>
+                <p>To create a platform that showcases the beauty of flight — connecting people to aircraft technology, history, and global travel.</p>
+            </div>
+        </div>
+    </section>
+
+     <div class="scroll-section">
+        <div class="sticky-container">
+            <div class="featured-header" id="featuredHeader">
+                <h2>THIS WEEK’S FEATURED AIRCRAFT</h2>
+            </div>
+
+            <div class="title-section" id="titleSection">
+                <h1>A350-1000</h1>
+                <p class="subtitle">Next-Generation Wide-Body</p>
+            </div>
+
+             <div class="aircraft-container" id="aircraftContainer">
+                <div class="aircraft-wrapper" id="aircraftWrapper">
+                    <!-- ADD YOUR AIRCRAFT IMAGES HERE -->
+                    <img src="Frontend/A350-1000.svg" 
+                         alt="A350-1000 Exterior" 
+                         class="aircraft-image active" 
+                         data-index="0">
+                    <img src="Frontend/A350-1000-2.svg" 
+                         alt="A350-1000 Flying" 
+                         class="aircraft-image" 
+                         data-index="1">
+                    <img src="Frontend/A350-1000-3.svg" 
+                         alt="A350-1000 Interior" 
+                         class="aircraft-image" 
+                         data-index="2">
+                    <img src="Frontend/A350-1000-4.svg" 
+                         alt="A350-1000 Cockpit" 
+                         class="aircraft-image" 
+                         data-index="3">
+                </div>
+
+                <!-- Navigation Arrows -->
+                <div class="nav-arrow left" id="prevBtn">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+                    </svg>
+                </div>
+                <div class="nav-arrow right" id="nextBtn">
+                    <svg viewBox="0 0 24 24">
+                        <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z"/>
+                    </svg>
+                </div>
+
+                <!-- Image Indicators -->
+                <div class="image-indicators" id="indicators"></div>
+
+
+                <div class="specs-overlay">
+                    <!-- Wingspan -->
+                    <div class="annotation wingspan-annotation">
+                        <div class="annotation-label">
+                            <div class="annotation-value">64.75 m</div>
+                            <div class="annotation-text">Wingspan</div>
+                        </div>
+                    </div>
+
+                    <!-- Passenger capacity -->
+                    <div class="annotation passenger-annotation">
+                        <div class="annotation-label">
+                            <div class="annotation-value">410</div>
+                            <div class="annotation-text">Passengers</div>
+                        </div>
+                    </div>
+
+                    <!-- Length -->
+                    <div class="annotation length-annotation">
+                        <div class="annotation-label">
+                            <div class="annotation-value">73.78 m</div>
+                            <div class="annotation-text">Length</div>
+                        </div>
+                    </div>
+
+                    <!-- Cruise speed -->
+                    <div class="annotation speed-annotation">
+                        <div class="annotation-label">
+                            <div class="annotation-value">903 km/h</div>
+                            <div class="annotation-text">Cruise Speed</div>
+                        </div>
+                    </div>
+
+                    <!-- Range -->
+                    <div class="annotation range-annotation">
+                        <div class="annotation-label">
+                            <div class="annotation-value">16,700 km</div>
+                            <div class="annotation-text">Maximum Range</div>
+                        </div>
+                    </div>
+
+                    <!-- Maximum weight -->
+                    <div class="annotation weight-annotation">
+                        <div class="annotation-label">
+                            <div class="annotation-value">322,000 kg</div>
+                            <div class="annotation-text">Max Takeoff Weight</div>
+                        </div>
+                    </div>
+
+                    <!-- Maximum Altitude -->
+                    <div class="annotation Altitude-annotation">
+                        <div class="annotation-label">
+                            <div class="annotation-value">43,100 ft</div>
+                            <div class="annotation-text">Max Altitude</div>
+                        </div>
+                    </div>
+
+                    <!-- Maximum cabin Width -->
+                    <div class="annotation Cabin-annotation">
+                        <div class="annotation-label">
+                            <div class="annotation-value">5.61 m </div>
+                            <div class="annotation-text">Cabin Width</div>
+                        </div>
+                    </div>
+
+                    <!-- Fusalage Width -->
+                    <div class="annotation Fusalage-annotation">
+                        <div class="annotation-label">
+                            <div class="annotation-value">5.96 m</div>
+                            <div class="annotation-text">Fusalage Width</div>
+                        </div>
+                    </div>
+
+                    <!-- Height -->
+                    <div class="annotation height-annotation">
+                        <div class="annotation-label">
+                            <div class="annotation-value">17.08 m</div>
+                            <div class="annotation-text">Height</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="description-section" id="descriptionSection">
+                <p>
+                    The Airbus A350-1000 represents the pinnacle of long-haul aviation, featuring an advanced carbon fiber fuselage and wings that deliver exceptional fuel efficiency. With typical seating (3-class): 375 - 400 passengers, this aircraft combines passenger comfort with operational excellence. Powered by Rolls-Royce Trent XWB engines, it achieves a remarkable range of 16,100 kilometers while maintaining 25% lower operating costs than previous generation aircraft.
+                </p>
+                 <button class="learn-btn" onclick="window.location.href='about.html'">Learn More</button>
+            </div>
+        </div>
+    </div>
+      
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>AeroVision</h3>
+                <p>Your premium source for aircraft information and comprehensive analysis</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#">About Us</a>
+                <a href="#">Compare</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Disclaimer</a>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2025 AeroVision. All rights reserved. | Explore the future of aviation systems.
+        </div>
+    </footer>
+
+<script src="explore.js"></script>
+</body>
+</html>

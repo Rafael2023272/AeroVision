@@ -11,15 +11,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Raleway+Dots&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
     </head>
-    <div>
-    <div>
+    <body>
     <!-- Navigation -->
     <nav>
         <div class="nav-left">
             <div class="logo">AeroVision</div>
             <ul class="nav-links" id="navLinks">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About</a></li>
+                <li><a href="explore.html">Explore</a></li>
                 <li><a href="news.html">News</a></li>
                 <li><a href="comparison.html">Comparison</a></li>
             </ul>
@@ -153,6 +152,30 @@
         </div>
     </footer>
 
-    <script src="news.js"></script>
+    <script>
+        const nav = document.querySelector('nav');
+let lastScroll = 0;
+
+window.addEventListener('scroll', () => {
+  const currentScroll = window.scrollY;
+
+  // Add/remove scrolled background
+  if (currentScroll > 50) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+
+  // Hide on scroll down, show on scroll up
+  if (currentScroll > lastScroll && currentScroll > 100) {
+    nav.classList.add('nav-hidden');
+  } else {
+    nav.classList.remove('nav-hidden');
+  }
+
+  lastScroll = currentScroll;
+});
+
+    </script>
     </body>
 </html>

@@ -1,0 +1,872 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Sansation';
+            overflow-x: hidden;
+
+        }
+
+/* Navigation */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.2rem 3%;
+            position: fixed;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80%; /* You can change to 70% if you want it tighter */
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            transition: all 0.4s ease;
+            background: transparent; /* No background on first visit */
+        }
+
+        /* Only show background when scrolled */
+        nav.scrolled {
+            background: rgba(10, 15, 30, 0.55);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.35);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Hide nav on scroll up */
+        nav.nav-hidden {
+            transform: translate(-50%, -150%);
+        }
+
+        /* Nav left: logo and links */
+        .nav-left {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .logo {
+            font-size: 1.6rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa, #4cc2e6, #b834d3);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 25px rgba(96, 165, 250, 0.3);
+            animation: gradientShift 6s ease infinite;
+        }
+
+        /* Gradient animation */
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Nav links */
+        .nav-links {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #ffffff;
+            font-weight: 400;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #b3e0ff;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1a5490;
+            transition: width 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+            box-shadow: 0 0 10px #1a5490;
+        }
+
+        /* Nav right (search + login) */
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+
+        /* Search box */
+        .search-container {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 25px;
+            padding: 8px 12px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            min-width: 220px; /* compressed */
+            transition: all 0.3s ease;
+        }
+
+        .search-container:focus-within {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(96, 165, 250, 0.5);
+            box-shadow: 0 0 15px rgba(96, 165, 250, 0.3);
+        }
+
+        /* Search icon and input */
+        .search-icon {
+            width: 16px;
+            height: 16px;
+            color: #fff;
+            opacity: 0.6;
+        }
+
+        .search-input {
+            background: transparent;
+            border: none;
+            outline: none;
+            flex: 1;
+            color: #fff;
+            font-size: 13px;
+        }
+
+        .search-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        /* Login button */
+        .btn {
+            padding: 0.5rem 1.2rem;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            background: rgba(7, 35, 66, 0.8);
+            color: white;
+            font-family: 'Sansation', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 15px rgba(26, 84, 144, 0.5);
+        }
+
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #333;
+            transition: 0.3s;
+        }
+
+        nav.scrolled .hamburger span {
+            background: white;
+        }
+
+        /* Hero Banner Below Navbar */
+       .hero-banner {
+            height: 40vh;
+            background-image: url("Frontend/image_welcome.png");
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            opacity: 0.9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+        }
+
+       .page-title {
+            color: white;
+            font-size: 5rem;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
+            position: relative; /* stays above hero bg */
+            z-index: 2;
+        }
+                
+
+      /* About Section - 50/50 Split */
+        .about-section {
+            min-height: 80vh;
+            display: flex;
+            align-items: stretch;
+        }
+
+        .about-text {
+            width: 50%;
+            padding: 80px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: white;
+            animation: slideInLeft 1s ease-out;
+        }
+
+        @keyframes slideInLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .about-icon {
+            display: inline-block;
+            font-size: 36px;
+            margin-bottom: 20px;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .about-text p {
+            font-size: 18px;
+            line-height: 1.8;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .about-text p:last-of-type {
+            font-style: italic;
+            color: #555;
+            border-left: 4px solid #0066cc;
+            padding-left: 20px;
+            margin-top: 30px;
+        }
+
+        .about-image {
+            width: 50%;
+            background-image: url("Frontend/aboutimg.png");
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            position: relative;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        /* Vision/Mission Section */
+        .vision-mission-section {
+            min-height: 20vh;
+            background-color: #001D48 ;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            overflow: hidden;
+            padding: 15px 15px;
+        }
+
+        .plane-svg {
+            position: absolute;
+            left: -2%;
+            bottom: -75%;
+            width: 800px;
+            height: 800px;
+            opacity: 0;
+            animation: flyIn 2s ease-out 0.5s forwards;
+            z-index: 100;
+        }
+
+        @keyframes flyIn {
+            to {
+                left: 5%;
+                opacity: 1;
+            }
+        }
+
+        .vision-mission-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1000px;
+            text-align: right;
+            margin-right: 5%;
+        }
+
+        .vision-block, .mission-block {
+            margin-bottom: 40px;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: fadeInUp 1s ease-out forwards;
+        }
+
+        .mission-block {
+            animation-delay: 0.3s;
+            margin-bottom: 0;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .vision-block h2, .mission-block h2 {
+            font-size: 40px;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+        }
+
+        .vision-block p, .mission-block p {
+            font-size: 18px;
+            line-height: 1.2;
+            color: rgba(255, 255, 255, 0.95);
+            font-weight: 300;
+        }
+
+        
+
+        @media (max-width: 968px) {
+            .about-section {
+                flex-direction: column;
+            }
+
+            .about-text, .about-image {
+                width: 100%;
+                min-height: 50vh;
+            }
+
+            .about-text {
+                padding: 40px 30px;
+            }
+
+            .about-text h1 {
+                font-size: 32px;
+            }
+
+            .vision-mission-content {
+                padding: 40px 30px;
+                margin: 20px;
+                text-align: center;
+            }
+
+            .vision-block h2, .mission-block h2 {
+                font-size: 38px;
+            }
+
+            .plane-svg {
+                width: 250px;
+                left: 50%;
+                transform: translateX(-50%);
+                bottom: 5%;
+            }
+
+            @keyframes flyIn {
+                to {
+                    left: 50%;
+                    transform: translateX(-50%);
+                    opacity: 1;
+                }
+            }
+        }
+
+        .scroll-section {
+            height: 400vh;
+            position: relative;
+        }
+
+        .scroll-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 400vh;
+            background-size: cover;
+            transform: translateY(var(--parallax-y, 0));
+            z-index: 0;
+            background-color: #000000;
+        }
+
+        .sticky-container {
+            position: sticky;
+            top: 0;
+            height: 120vh;
+            width: 100%;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .aircraft-container {
+            position: relative;
+            width: 80%;
+            max-width: 1400px;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            perspective: 2000px;
+            cursor: grab;
+            user-select: none;
+        }
+
+        .aircraft-image.active {
+            display: block;
+            position: relative;
+        }
+
+        .aircraft-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.1s ease-out;
+            transform-style: preserve-3d;
+        }
+
+        .aircraft-image {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            opacity: 0;
+            transform: scale(0.5) translateY(100px);
+            filter: blur(15px) brightness(0.6);
+            transition: opacity 0.5s ease, transform 2.5s cubic-bezier(0.16, 1, 0.3, 1), filter 2.5s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+
+        .aircraft-image.revealed.active {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            filter: blur(0) brightness(1);
+        }
+
+        .aircraft-image.interactive {
+           transition: transform 0.4s cubic-bezier(0.25, 0.1, 0.25, 1);
+        }
+
+  /* Navigation Arrows */
+        .nav-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 60px;
+            height: 60px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            backdrop-filter: blur(10px);
+            z-index: 10;
+        }
+
+        .nav-arrow.visible {
+            opacity: 1;
+        }
+
+        .nav-arrow:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .nav-arrow.left {
+            left: 5%;
+        }
+
+        .nav-arrow.right {
+            right: 5%;
+        }
+
+        .nav-arrow svg {
+            width: 24px;
+            height: 24px;
+            fill: #ffffff;
+        }
+
+        /* Image indicators */
+        .image-indicators {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 12px;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+        }
+
+        .image-indicators.visible {
+            opacity: 1;
+        }
+
+        .indicator-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .indicator-dot.active {
+            background: #ffffff;
+            width: 30px;
+            border-radius: 5px;
+        }
+
+
+        /* Annotation styles  */
+        .specs-overlay {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .annotation {
+            position: absolute;
+            opacity: 0;
+            transform: translateY(20px) scale(0.9);
+            transition: opacity 1s cubic-bezier(0.16, 1, 0.3, 1), 
+                        transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .annotation.visible {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+
+        .annotation-label {
+            background: transparent;
+            padding: 0;
+            white-space: nowrap;
+        }
+
+        .annotation-value {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #9c9c9c;
+            margin-bottom: 2px;
+            letter-spacing: 0.5px;
+        }
+
+        .annotation-text {
+            font-size: 0.7rem;
+            color: #9c9c9c;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-weight: 400;
+        }
+
+        /* Positioning */
+        .wingspan-annotation { top: 7%; right: 15%; }
+        .passenger-annotation { top: 20%; left: 5%; }
+        .length-annotation { bottom: 50%; left: 15%; }
+        .speed-annotation { top: 10%; left: 25%; }
+        .range-annotation { bottom: 18%; right: 18%; }
+        .weight-annotation { bottom: 22%; left: 35%; }
+        .height-annotation { top: 2%; left: 15%; }
+        .Altitude-annotation { top: 30%; right: 10%; }
+        .Fusalage-annotation { top: 60%; left: 10%; }
+        .Cabin-annotation { bottom: 30%; right: 8%; }
+
+        /* Featured Header */
+        .featured-header {
+            position: absolute;
+            top: 5%;
+            transition: opacity 1.5s ease;
+            z-index: 5;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+            display: flex;
+        }
+
+        .featured-header h2 {
+            font-size: 3rem;
+            font-weight: 400;
+            color: #ffffff;
+            letter-spacing: 4px;
+        }
+
+        /* Title */
+        .title-section {
+            position: absolute;
+            top: 15%;
+            left: 50%;
+            transform: translateX(-50%);
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1.5s ease;
+            z-index: 5;
+        }
+
+        .title-section.visible {
+            opacity: 1;
+        }
+
+        .title-section h1 {
+            font-size: 5.5rem;
+            font-weight: 700;
+            letter-spacing: -3px;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #60a5fa, #a78bfa, #f472b6, #34d399);
+            background-size: 400% 400%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 8s ease infinite;
+            text-shadow: 0 0 40px rgba(96, 165, 250, 0.25);
+        }
+
+            /* Reuse the same gradient animation */
+            @keyframes gradientShift {
+                0% {
+                    background-position: 0% 50%;
+                }
+                50% {
+                    background-position: 100% 50%;
+                }
+                100% {
+                    background-position: 0% 50%;
+                }
+            }
+        .title-section .subtitle {
+            font-size: 1.1rem;
+            color: #9c9c9c;
+            font-weight: 300;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+        
+
+        /* Description Section */
+        .description-section {
+            position: absolute;
+            bottom: 1%;
+            left: 50%;
+            transform: translateX(-50%);
+            max-width: 800px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s ease;
+            padding: 0 20px;
+            margin-top: 10%;
+        }
+
+        .description-section.visible {
+            opacity: 1;
+        }
+
+        .description-section p {
+            font-size: 1rem;
+            line-height: 1.7;
+            color: #e0e0e0;
+            font-weight: 300;
+        }
+
+        .learn-btn {
+            display: block;
+            margin: 3rem auto 0;
+            margin-bottom: 5%;
+            padding: 1rem 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(148, 148, 148, 0.418);
+            border-radius: 30px;
+            color: rgb(255, 255, 255);
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .learn-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+        }
+
+
+
+        /* Footer */
+        
+        .footer {
+             background: linear-gradient(
+                to bottom,       /* direction */
+                 rgba(0, 0, 0, 1) 0%,   /* black at top */
+                 #080B24 100%           /* dark blue at bottom */
+            );
+            color: #fff;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+
+        .footer-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 50px;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 40px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .footer-section a:hover {
+            color: #64b5f6;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 10px;
+        }
+
+        .social-icons a {
+            width: 35px;
+            height: 35px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: #64b5f6;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: rgba(255,255,255,0.5);
+            font-size: 12px;
+        }
+
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid rgba(30,60,114,0.3);
+            border-radius: 50%;
+            border-top-color: #1e3c72;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
