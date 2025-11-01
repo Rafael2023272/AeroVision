@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-     <link rel="stylesheet" href="explore.css">
-     <link rel="stylesheet" href="explore.js">
+    <link rel="stylesheet" href="explore.css">
     <title>AeroVision - The Future of Aviation</title>
     <link href="https://fonts.googleapis.com/css2?family=Sansation:wght@300;400;700&display=swap" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -53,7 +52,7 @@
         <div class="about-text">
             <div class="about-icon"></div>
             
-            <p><b>Welcome to AeroVision — where passion for flight meets the power of innovation.</b></p>
+            <h2><b>Welcome to AeroVision — where passion for flight meets the power of innovation.</b></h2>
             
             <p>Our mission is to bring the world of aviation closer to everyone, from curious learners to true aircraft enthusiasts.</p>
             
@@ -67,24 +66,7 @@
         <div class="about-image"></div>
     </section>
 
-    <img src="Frontend/A350-1000-4.svg" alt="Aircraft" class="plane-svg">
-
-    <!-- Vision/Mission Section with SVG Plane -->
-    <section class="vision-mission-section">
-        
-        <div class="vision-mission-content">
-            <div class="vision-block">
-                <h2>Our Vision</h2>
-                <p>To inspire the next generation of aviation enthusiasts through knowledge, creativity, and digital innovation.</p>
-            </div>
-            
-            <div class="mission-block">
-                <h2>Our Mission</h2>
-                <p>To create a platform that showcases the beauty of flight — connecting people to aircraft technology, history, and global travel.</p>
-            </div>
-        </div>
-    </section>
-
+   
      <div class="scroll-section">
         <div class="sticky-container">
             <div class="featured-header" id="featuredHeader">
@@ -98,7 +80,6 @@
 
              <div class="aircraft-container" id="aircraftContainer">
                 <div class="aircraft-wrapper" id="aircraftWrapper">
-                    <!-- ADD YOUR AIRCRAFT IMAGES HERE -->
                     <img src="Frontend/A350-1000.svg" 
                          alt="A350-1000 Exterior" 
                          class="aircraft-image active" 
@@ -217,15 +198,797 @@
             </div>
 
             <div class="description-section" id="descriptionSection">
-                <p>
-                    The Airbus A350-1000 represents the pinnacle of long-haul aviation, featuring an advanced carbon fiber fuselage and wings that deliver exceptional fuel efficiency. With typical seating (3-class): 375 - 400 passengers, this aircraft combines passenger comfort with operational excellence. Powered by Rolls-Royce Trent XWB engines, it achieves a remarkable range of 16,100 kilometers while maintaining 25% lower operating costs than previous generation aircraft.
+                <p> The Airbus A350-1000 represents the pinnacle of long-haul aviation, featuring an advanced carbon fiber fuselage and wings that deliver exceptional fuel efficiency. With typical seating (3-class): 375 - 400 passengers, this aircraft combines passenger comfort with operational excellence. Powered by Rolls-Royce Trent XWB engines, it achieves a remarkable range of 16,100 kilometers while maintaining 25% lower operating costs than previous generation aircraft.
                 </p>
-                 <button class="learn-btn" onclick="window.location.href='about.html'">Learn More</button>
             </div>
         </div>
     </div>
-      
 
+    <div class="card-heading">
+        <h1>Explore the Major Aircrafts</h1>
+        <h2>"Get up close with the most iconic planes, modern marvels, and aviation innovations."</h2>
+    </div>
+
+    <div class="card-container">
+    <!-- Card 1 - A380 -->
+    <div class="card-wrapper">
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front">
+                <div class="card-image">
+                    <img src="Frontend/A380-FINI.jpg" alt="Airbus A380">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Airbus A380</h2>
+                    <p class="card-description">The largest passenger aircraft ever, redefining global air travel with its double-deck layout and luxury amenities.</p>
+                    
+                    <div class="card-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Passengers</span>
+                            <span class="spec-value">555–615</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Cruise Speed</span>
+                            <span class="spec-value">903 kph</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Wingspan</span>
+                            <span class="spec-value">79.75 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Fuselage Width</span>
+                            <span class="spec-value">7.14 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Max Altitude</span>
+                            <span class="spec-value">43,100 ft</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Max Takeoff Weight</span>
+                            <span class="spec-value">575,000 kg</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Length</span>
+                            <span class="spec-value">72.7 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Range</span>
+                            <span class="spec-value">15,200 km</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Cabin Width</span>
+                            <span class="spec-value">6.58 m</span>
+                        </div>
+                    </div>
+                    
+                    <button class="save-btn" onclick="event.stopPropagation(); alert('Saved!')">Save</button>
+                </div>
+                 <div class="flip-hint">Click to read more →</div>
+            </div>
+
+            <div class="card-back">
+                <h2 class="back-title">The A380 Story</h2>
+                <p class="back-text">
+                   The Airbus A380 stands as the largest passenger aircraft ever built, a true marvel of modern engineering that redefined global air travel. Designed for high-density, long-haul routes, its distinctive double-deck layout allows airlines to carry more than 500 passengers in unrivaled comfort. The aircraft’s composite materials and advanced aerodynamics contribute to quieter operations and better fuel efficiency than expected for its size. Inside, the A380 is known for luxury — from onboard lounges and bars to spacious economy cabins — making it a flagship for carriers like Emirates, Singapore Airlines, and British Airways. Despite production ending in 2021, the A380 continues to symbolize ambition, capability, and the joy of flight.
+                </p>
+                <p class="back-flip-hint">← Click to flip back</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 2 - A350 -->
+    <div class="card-wrapper">
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front">
+                <div class="card-image">
+                    <img src="Frontend/Qatar-Airways-Airbus-A350-.jpg" alt="Airbus A350">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Airbus A350</h2>
+                    <p class="card-description">Airbus most advanced jet, combining carbon-fiber design and Rolls-Royce efficiency for long-haul comfort.</p>
+                    
+                    <div class="card-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Passengers</span>
+                            <span class="spec-value">375–410</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Cruise Speed</span>
+                            <span class="spec-value">903 kph</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Wingspan</span>
+                            <span class="spec-value">64.75 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Fuselage Width</span>
+                            <span class="spec-value">6.96 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Max Altitude</span>
+                            <span class="spec-value">43,100 ft</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Max Takeoff Weight</span>
+                            <span class="spec-value">322,000 kg</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Length</span>
+                            <span class="spec-value">73.78 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Range</span>
+                            <span class="spec-value">16,700 km</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Cabin Width</span>
+                            <span class="spec-value">6.61 m</span>
+                        </div>
+                    </div>
+                    
+                    <button class="save-btn" onclick="event.stopPropagation(); alert('Saved!')">Save</button>
+                </div>
+                <div class="flip-hint">Click to read more →</div>
+            </div>
+            <div class="card-back">
+                <h2 class="back-title">The A350 Story</h2>
+                <p class="back-text">
+                    The Airbus A350 represents the future of long-haul air travel, showcasing Airbus’ mastery of aerodynamics, composite materials, and passenger comfort. Constructed primarily from carbon-fiber-reinforced polymer, it achieves a 25% reduction in fuel burn compared to earlier wide-body designs. Its curved wingtips, called sharklets, dynamically flex in flight to optimize lift and efficiency. Inside, the cabin features advanced air filtration, larger windows, and higher humidity levels — all contributing to a quieter, more relaxing experience. Powered by Rolls-Royce Trent XWB engines, not only a technical triumph but also a sustainable step forward, capable of covering intercontinental distances with exceptional reliability and low environmental impact.
+                </p>
+                <p class="back-flip-hint">← Click to flip back</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 3 - A330 -->
+    <div class="card-wrapper">
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front">
+                <div class="card-image">
+                    <img src="Frontend/A330.jpg" alt="Airbus A330">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Airbus A330</h2>
+                    <p class="card-description">A wide-body jet known for its reliability, efficiency, and smooth medium-to-long-haul performance.</p>
+                    
+                    <div class="card-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Passengers</span>
+                            <span class="spec-value">250–300</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Cruise Speed</span>
+                            <span class="spec-value">871 kph</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Wingspan</span>
+                            <span class="spec-value">64.0 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Fuselage Width</span>
+                            <span class="spec-value">5.64 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Max Altitude</span>
+                            <span class="spec-value">41,450 ft</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Max Takeoff Weight</span>
+                            <span class="spec-value">242,000 kg</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Length</span>
+                            <span class="spec-value">63.6 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Range</span>
+                            <span class="spec-value">13,450 km</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Cabin Width</span>
+                            <span class="spec-value">5.26 m</span>
+                        </div>
+                    </div>
+                    
+                    <button class="save-btn" onclick="event.stopPropagation(); alert('Saved!')">Save</button>
+                </div>
+                <div class="flip-hint">Click to read more →</div>
+            </div>
+
+            <div class="card-back">
+                <h2 class="back-title">The A330 Story</h2>
+                <p class="back-text">
+                    The Airbus A330 is one of the world’s most versatile wide-body aircraft, renowned for its flexibility across both passenger and cargo operations. Introduced in the early 1990s, it continues to serve as a reliable workhorse for airlines seeking efficiency and comfort. The A330’s aerodynamic wing design, combined with modern fly-by-wire controls and powerful Rolls-Royce or Pratt & Whitney engines, provides a smooth and efficient flight experience. The cabin, optimized for medium to long-haul travel, offers generous space and low noise levels. With the latest A330neo variant, Airbus further improved fuel burn, extended range, and reduced emissions — ensuring the A330 family remains a vital link in global air transport networks.
+                </p>
+                <p class="back-flip-hint">← Click to flip back</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 4 - A340 -->
+    <div class="card-wrapper">
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front">
+                <div class="card-image">
+                    <img src="Frontend/Airbus_A340-642,_Lufthansa.jpg" alt="Airbus A340">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Airbus A340</h2>
+                    <p class="card-description">A four-engine long-range aircraft built for endurance, offering stability and range on intercontinental routes.</p>
+                    
+                    <div class="card-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Passengers</span>
+                            <span class="spec-value">290–370</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Cruise Speed</span>
+                            <span class="spec-value">875 kph</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Wingspan</span>
+                            <span class="spec-value">63.45 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Fuselage Width</span>
+                            <span class="spec-value">5.64 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Max Altitude</span>
+                            <span class="spec-value">41,100 ft</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Max Takeoff Weight</span>
+                            <span class="spec-value">380,000 kg</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Length</span>
+                            <span class="spec-value">75.3 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Range</span>
+                            <span class="spec-value">14,450 km</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Cabin Width</span>
+                            <span class="spec-value">5.28 m</span>
+                        </div>
+                    </div>
+                    
+                    <button class="save-btn" onclick="event.stopPropagation(); alert('Saved!')">Save</button>
+                </div>
+                <div class="flip-hint">Click to read more →</div>
+            </div>
+
+            <div class="card-back">
+                <h2 class="back-title">The A340 Story</h2>
+                <p class="back-text">
+                   The Airbus A340 was engineered for endurance, designed to conquer ultra-long-haul routes before twin-engine ETOPS certifications became common. Featuring four powerful engines and exceptional range, it served premium intercontinental routes such as Europe–Asia and transpacific flights with unmatched reliability. Although heavier and less fuel-efficient than newer twinjets, the A340’s ability to operate from hot-and-high airports and its balanced handling made it a pilot favorite. Its four-engine symmetry provided safety and stability during extended oceanic crossings. Today, though largely retired from passenger fleets, the A340 remains a testament to an era of overengineering and global ambition — the last true long-range quadjet from Airbus.
+                </p>
+                <p class="back-flip-hint">← Click to flip back</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 5 - A321 -->
+    <div class="card-wrapper">
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front">
+                <div class="card-image">
+                    <img src="Frontend/philippine-airlines-airbus-a321.jpg" alt="Airbus A321">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Airbus A321</h2>
+                    <p class="card-description">A high-capacity narrow-body, ideal for regional & transcontinental routes, offering efficient performance.</p>
+                    
+                    <div class="card-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Passengers</span>
+                            <span class="spec-value">185–240</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Cruise Speed</span>
+                            <span class="spec-value">840 kph</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Wingspan</span>
+                            <span class="spec-value">35.8 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Fuselage Width</span>
+                            <span class="spec-value">3.95 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Max Altitude</span>
+                            <span class="spec-value">39,800 ft</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Max Takeoff Weight</span>
+                            <span class="spec-value">97,000 kg</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Length</span>
+                            <span class="spec-value">44.51 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Range</span>
+                            <span class="spec-value">7,400 km</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Cabin Width</span>
+                            <span class="spec-value">3.70 m</span>
+                        </div>
+                    </div>
+                    
+                    <button class="save-btn" onclick="event.stopPropagation(); alert('Saved!')">Save</button>
+                </div>
+                <div class="flip-hint">Click to read more →</div>
+            </div>
+            <div class="card-back">
+                <h2 class="back-title">The A321 Story</h2>
+                <p class="back-text">
+                    The Airbus A321, the largest member of the A320 family, is designed to carry more passengers with remarkable efficiency. Its extended fuselage and modern engine options make it ideal for high-density routes and even transcontinental operations in the latest A321XLR variant. Airlines appreciate its ability to deliver wide-body comfort on narrow-body economics, while passengers benefit from a spacious cabin, quieter engines, and improved air quality. The A321neo version incorporates new-generation engines and sharklet-equipped wings, offering over 20% better fuel efficiency. In many ways, the A321 is redefining what a single-aisle aircraft can achieve, connecting cities once served only by long-haul jets.
+                </p>
+                <p class="back-flip-hint">← Click to flip back</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 6 - A320 -->
+    <div class="card-wrapper">
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front">
+                <div class="card-image">
+                    <img src="Frontend/Air NewZealand A320.jpg" alt="Airbus A320">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Airbus A320</h2>
+                    <p class="card-description">A pioneering jet that introduced fly-by-wire controls, setting the standard for short-to-medium-haul travel.</p>
+                    
+                    <div class="card-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Passengers</span>
+                            <span class="spec-value">150–180</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Cruise Speed</span>
+                            <span class="spec-value">840 kph</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Wingspan</span>
+                            <span class="spec-value">35.8 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Fuselage Width</span>
+                            <span class="spec-value">3.95 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Max Altitude</span>
+                            <span class="spec-value">39,800 ft</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Max Takeoff Weight</span>
+                            <span class="spec-value">83,000 kg</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Length</span>
+                            <span class="spec-value">37.57 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Range</span>
+                            <span class="spec-value">6,300 km</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Cabin Width</span>
+                            <span class="spec-value">3.70 m</span>
+                        </div>
+                    </div>
+                    
+                    <button class="save-btn" onclick="event.stopPropagation(); alert('Saved!')">Save</button>
+                </div>
+                <div class="flip-hint">Click to read more →</div>
+            </div>
+
+            <div class="card-back">
+                <h2 class="back-title">The A320 Story</h2>
+                <p class="back-text">
+                   The Airbus A320 revolutionized commercial aviation when it introduced full fly-by-wire controls in 1988, paving the way for a new era of digital flight. Compact yet powerful, the A320 quickly became the backbone of global short-to-medium haul travel. Its flexible design allows for quick turnaround times, while the cockpit’s commonality with other Airbus models simplifies pilot training. With the A320neo family, Airbus introduced quieter, more efficient engines and modernized interiors, extending its reach and reducing environmental impact. It remains the most successful narrow-body aircraft in history — a symbol of efficiency, reliability, and continuous innovation.
+                </p>
+                <p class="back-flip-hint">← Click to flip back</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 7 - Boeing 777 -->
+    <div class="card-wrapper">
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front">
+                <div class="card-image">
+                    <img src="Frontend/B777.jpg" alt="Boeing 777">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Boeing 777</h2>
+                    <p class="card-description">Largest twin-engine & long-haul leader, with immense power and comfort, proven global reliability.</p>
+                    
+                    <div class="card-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Passengers</span>
+                            <span class="spec-value">315–396</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Cruise Speed</span>
+                            <span class="spec-value">905 kph</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Wingspan</span>
+                            <span class="spec-value">64.8 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Fuselage Width</span>
+                            <span class="spec-value">6.19 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Max Altitude</span>
+                            <span class="spec-value">43,100 ft</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Max Takeoff Weight</span>
+                            <span class="spec-value">351,000 kg</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Length</span>
+                            <span class="spec-value">73.86 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Range</span>
+                            <span class="spec-value">15,840 km</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Cabin Width</span>
+                            <span class="spec-value">5.86 m</span>
+                        </div>
+                    </div>
+                    
+                    <button class="save-btn" onclick="event.stopPropagation(); alert('Saved!')">Save</button>
+                </div>
+                <div class="flip-hint">Click to read more →</div>
+            </div>
+
+            <div class="card-back">
+                <h2 class="back-title">The Boeing 777 Story</h2>
+                <p class="back-text">
+                   The Boeing 777, often called the “Triple Seven,” revolutionized long-haul travel with its blend of power, comfort, and efficiency. Introduced in the 1990s, it was Boeing’s first jetliner designed entirely by computer-aided design (CAD), resulting in precise engineering and aerodynamic optimization. Its massive GE90 engines remain among the most powerful ever built for a commercial aircraft. The 777’s cabin offers wide seating configurations, quieter interiors, and enhanced humidity levels, making it a favorite for both passengers and airlines. The upcoming 777X continues this legacy with folding wingtips, new GE9X engines, and further improvements in efficiency and range, solidifying the 777 as a cornerstone of modern aviation.
+                </p>
+                <p class="back-flip-hint">← Click to flip back</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 8 - Boeing 787 -->
+    <div class="card-wrapper">
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front">
+                <div class="card-image">
+                    <img src="Frontend/Boeing-787-9-Dreamliner.jpg" alt="Boeing 787">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Boeing 787 Dreamliner</h2>
+                    <p class="card-description">Next-generation Aircraft known for its composite build, reduced emissions, and passenger comfort.</p>
+                    
+                    <div class="card-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Passengers</span>
+                            <span class="spec-value">248–296</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Cruise Speed</span>
+                            <span class="spec-value">903 kph</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Wingspan</span>
+                            <span class="spec-value">60.1 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Fuselage Width</span>
+                            <span class="spec-value">5.77 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Max Altitude</span>
+                            <span class="spec-value">43,100 ft</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Max Takeoff Weight</span>
+                            <span class="spec-value">254,000 kg</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Length</span>
+                            <span class="spec-value">63 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Range</span>
+                            <span class="spec-value">14,010 km</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Cabin Width</span>
+                            <span class="spec-value">5.49 m</span>
+                        </div>
+                    </div>
+                    
+                    <button class="save-btn" onclick="event.stopPropagation(); alert('Saved!')">Save</button>
+                </div>
+                <div class="flip-hint">Click to read more →</div>
+            </div>
+
+            <div class="card-back">
+                <h2 class="back-title">The Boeing 787 Story</h2>
+                <p class="back-text">
+                   The Boeing 787 Dreamliner is a masterpiece of 21st-century engineering, designed to deliver unmatched efficiency and passenger well-being. Its airframe is composed of over 50% composite materials, making it lighter and more fuel-efficient than comparable aircraft. The Dreamliner’s cabin pressurization, large dimmable windows, and mood lighting dramatically improve comfort on long flights. Powered by either Rolls-Royce Trent 1000 or GE GEnx engines, the 787 offers up to 20% lower fuel consumption while maintaining an exceptionally quiet cabin. It enables airlines to open long, point-to-point routes previously not possible, redefining how people connect across continents.
+                </p>
+                <p class="back-flip-hint">← Click to flip back</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 9 - Boeing 737 -->
+    <div class="card-wrapper">
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front">
+                <div class="card-image">
+                    <img src="Frontend/boeing-737.jpg" alt="Boeing 737">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Boeing 737</h2>
+                    <p class="card-description">The world's best-selling jetliner, recognized for its dependability, efficiency, and short-haul versatility.</p>
+                    
+                    <div class="card-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Passengers</span>
+                            <span class="spec-value">126–230</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Cruise Speed</span>
+                            <span class="spec-value">842 kph</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Wingspan</span>
+                            <span class="spec-value">35.9 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Fuselage Width</span>
+                            <span class="spec-value">3.76 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Max Altitude</span>
+                            <span class="spec-value">41,000 ft</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Max Takeoff Weight</span>
+                            <span class="spec-value">85,000 kg</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Length</span>
+                            <span class="spec-value">39.5 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Range</span>
+                            <span class="spec-value">6,570 km</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Cabin Width</span>
+                            <span class="spec-value">3.54 m</span>
+                        </div>
+                    </div>
+                    
+                    <button class="save-btn" onclick="event.stopPropagation(); alert('Saved!')">Save</button>
+                </div>
+                <div class="flip-hint">Click to read more →</div>
+            </div>
+
+            <div class="card-back">
+                <h2 class="back-title">The Boeing 737 Story</h2>
+                <p class="back-text">
+                   The Boeing 737 is the best-selling airliner in history, with more than 11,000 units built since its first flight in 1967. Constantly evolving through generations, it embodies reliability, performance, and versatility. The 737NG and 737 MAX variants introduced advanced avionics, aerodynamic improvements, and more efficient engines, reducing operational costs while extending range. Its shorter fuselage versions handle quick regional hops, while the longer models serve mid-range routes. The 737’s continuous evolution ensures it remains the workhorse of airlines worldwide — from budget carriers to full-service giants — connecting millions of passengers daily.
+                </p>
+                <p class="back-flip-hint">← Click to flip back</p>
+            </div>
+        </div>
+    </div>
+
+      <!-- Card 10 - Boeing 747 -->
+    <div class="card-wrapper">
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front">
+                <div class="card-image">
+                    <img src="Frontend/British_Airways_Boeing_747.jpg" alt="Boeing 747">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Boeing 747</h2>
+                    <p class="card-description">The iconic "Queen of the Skies," revolutionizing international travel with its distinctive hump and range.</p>
+                    
+                    <div class="card-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Passengers</span>
+                            <span class="spec-value">410–524</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Cruise Speed</span>
+                            <span class="spec-value">907 kph</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Wingspan</span>
+                            <span class="spec-value">68.4 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Fuselage Width</span>
+                            <span class="spec-value">6.5 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Max Altitude</span>
+                            <span class="spec-value">45,000 ft</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Max Takeoff Weight</span>
+                            <span class="spec-value">447,700 kg</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Length</span>
+                            <span class="spec-value">70.7 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Range</span>
+                             <span class="spec-value">14,320 km</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Cabin Width</span>
+                            <span class="spec-value">6.1 m</span>
+                        </div>
+                    </div>
+                    
+                    <button class="save-btn" onclick="event.stopPropagation(); alert('Saved!')">Save</button>
+                </div>
+                <div class="flip-hint">Click to read more →</div>
+            </div>
+
+            <div class="card-back">
+                <h2 class="back-title">The Boeing 747 Story</h2>
+                <p class="back-text">
+                   The Boeing 747, affectionately known as the “Queen of the Skies,” is one of the most iconic aircraft in aviation history. Its revolutionary hump-backed upper deck and massive four-engine design redefined global travel in the 1970s, making long-distance air travel accessible to the masses. The 747’s introduction allowed airlines to serve transoceanic routes with greater capacity and comfort than ever before. Over its five decades of service, it evolved through variants like the 747-400 and 747-8, each offering improved efficiency and avionics. Though now retired by many airlines, its legacy endures in cargo and special-purpose operations — a timeless symbol of ambition and human achievement.
+                </p>
+                <p class="back-flip-hint">← Click to flip back</p>
+            </div>
+        </div>
+    </div>
+
+         <!-- Card 11 - A380 (Duplicate) -->
+    <div class="card-wrapper">
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front">
+                <div class="card-image">
+                    <img src="Frontend/B757.jpg" alt="Airbus A380">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Boeing 757</h2>
+                    <p class="card-description">A powerful narrow-body airliner celebrated for its speed, range, and exceptional climb performance.</p>
+                    
+                    <div class="card-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Passengers</span>
+                            <span class="spec-value">200–239</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Cruise Speed</span>
+                            <span class="spec-value">850 kph</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Wingspan</span>
+                            <span class="spec-value">38.05 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Fuselage Width</span>
+                            <span class="spec-value">3.76 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Max Altitude</span>
+                            <span class="spec-value">42,000 ft</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Max Takeoff Weight</span>
+                            <span class="spec-value">115,680 kg</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Length</span>
+                            <span class="spec-value">47.3 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Range</span>
+                            <span class="spec-value">7,222 km</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Cabin Width</span>
+                            <span class="spec-value">3.54 m</span>
+                        </div>
+                    </div>
+                    
+                    <button class="save-btn" onclick="event.stopPropagation(); alert('Saved!')">Save</button>
+                </div>
+                <div class="flip-hint">Click to read more →</div>
+            </div>
+
+            <div class="card-back">
+                <h2 class="back-title">The B757 Story</h2>
+                <p class="back-text">
+                    The Boeing 757 was engineered to bridge the gap between short-haul narrow-bodies and long-range wide-bodies. With its sleek design and highly efficient engines, it offers the performance of a larger jet while maintaining single-aisle economics. The 757 is known for its strong thrust-to-weight ratio, allowing rapid climbs and reliable performance at high-altitude airports and short runways. Its range made transatlantic operations feasible for narrow-body fleets, earning it a loyal following among airlines and pilots alike. Though production ended in 2004, the 757 remains one of Boeing’s most versatile and beloved aircraft.
+                </p>
+                <p class="back-flip-hint">← Click to flip back</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Card 12 - A380 (Duplicate) -->
+    <div class="card-wrapper">
+        <div class="card" onclick="this.classList.toggle('flipped')">
+            <div class="card-front">
+                <div class="card-image">
+                    <img src="Frontend/B767.jpg" alt="Airbus A380">
+                </div>
+                <div class="card-content">
+                    <h2 class="card-title">Boeing B767</h2>
+                    <p class="card-description">Wide-body twinjet designed for medium-to-long-haul routes, combining reliability, comfort, and efficiency.</p>
+                    
+                    <div class="card-specs">
+                        <div class="spec-item">
+                            <span class="spec-label">Passengers</span>
+                            <span class="spec-value">216–269</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Cruise Speed</span>
+                            <span class="spec-value">851 kph</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Wingspan</span>
+                            <span class="spec-value">47.6 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Fuselage Width</span>
+                            <span class="spec-value">5.03 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Max Altitude</span>
+                            <span class="spec-value">43,100 ft</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Max Takeoff Weight</span>
+                            <span class="spec-value">204,000 kg</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Length</span>
+                            <span class="spec-value">54.9 m</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Range</span>
+                            <span class="spec-value">11,070 km</span>
+                        </div>
+                        <div class="spec-item">
+                            <span class="spec-label">Cabin Width</span>
+                            <span class="spec-value">4.72 m</span>
+                        </div>
+                    </div>
+                    
+                    <button class="save-btn" onclick="event.stopPropagation(); alert('Saved!')">Save</button>
+                </div>
+                <div class="flip-hint">Click to read more →</div>
+            </div>
+
+            <div class="card-back">
+                <h2 class="back-title">The B767 Story</h2>
+                <p class="back-text">
+                    The Boeing 767 marked a new era in commercial aviation with its twin-engine wide-body design optimized for fuel efficiency and transcontinental flexibility. Introduced in the early 1980s, it became one of the most trusted aircraft for both passenger and cargo service. Its advanced aerodynamics, efficient Pratt & Whitney or GE engines, and balanced range made it ideal for long international routes. The 767’s spacious cabin offers twin aisles and a quiet interior, ensuring comfort even on lengthy flights. Still widely used by airlines and cargo operators, the 767 remains a reliable workhorse that shaped the evolution of twin-engine long-haul travel.
+                </p>
+                <p class="back-flip-hint">← Click to flip back</p>
+            </div>
+        </div>
+    </div>
+    </div>
+    
     <!-- Footer Section -->
     <footer class="footer">
         <div class="footer-content">
@@ -260,6 +1023,6 @@
         </div>
     </footer>
 
-<script src="explore.js"></script>
+  <script src="explore.js"></script>
 </body>
 </html>

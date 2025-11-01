@@ -27,7 +27,8 @@
 // CARD PARALLAX EFFECT - Mouse Movement
 // ============================================
 document.addEventListener('mousemove', (e) => {
-    const cards = document.querySelectorAll('.card');
+    // Only target cards that are NOT flip cards
+    const cards = document.querySelectorAll('.card:not(.card-wrapper .card)');
     const x = e.clientX / window.innerWidth;
     const y = e.clientY / window.innerHeight;
 
@@ -42,7 +43,7 @@ document.addEventListener('mousemove', (e) => {
 
 // Reset card transform on mouse leave
 document.addEventListener('mouseleave', () => {
-    const cards = document.querySelectorAll('.card');
+    const cards = document.querySelectorAll('.card:not(.card-wrapper .card)');
     cards.forEach(card => {
         card.style.transform = '';
     });
@@ -51,7 +52,7 @@ document.addEventListener('mouseleave', () => {
 // ============================================
 // CARD CLICK ANIMATION - Pulse Effect
 // ============================================
-document.querySelectorAll('.card').forEach(card => {
+document.querySelectorAll('.card:not(.card-wrapper .card)').forEach(card => {
     card.addEventListener('click', function() {
         // Reset animation
         this.style.animation = 'none';
@@ -184,6 +185,13 @@ document.addEventListener('DOMContentLoaded', function() {
 // ============================================
 // AIRCRAFT SHOWCASE SECTION - Main variables
 // ============================================
+
+let currentImageIndex = 0; // ADD THIS LINE
+let isInteractive = false; // ADD THIS LINE
+let sectionInView = false; // ADD THIS LINE
+let aircraftTicking = false; // ADD THIS LINE
+let parallaxTicking = false; // ADD THIS LINE (if not already there)
+
 const aircraftImages = document.querySelectorAll('.aircraft-image');
 const aircraftWrapper = document.getElementById('aircraftWrapper');
 const aircraftContainer = document.getElementById('aircraftContainer');
