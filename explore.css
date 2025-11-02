@@ -604,31 +604,32 @@
             font-weight: 300;
         }
 
-        /* Card Section */
-        .card-heading {
+            /* Card Section */
+            .card-heading {
             text-align: center;
             margin-bottom: 50px;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
             padding-top: 40px;
-        }
+            }
 
-        .card-heading h1 {
+            .card-heading h1 {
             font-size: 3.5em;
             font-weight: 700;
             color: #000;
             margin-bottom: 15px;
-        }
+            }
 
-        .card-heading h2 {
+            .card-heading h2 {
             font-size: 1.2em;
             font-weight: 400;
             color: #333;
             line-height: 1.6;
-        }
+            }
 
-        .card-container {
+            /* Grid Layout */
+            .card-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
             gap: 30px;
@@ -636,34 +637,48 @@
             width: 100%;
             margin-left: 14%;
             padding: 20px 20px;
-        }
+            border-bottom: 1px solid black;
+            }
 
-         .card {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            transition: transform 0.8s;
-            transform-style: preserve-3d;
-            cursor: pointer;
-        }
-
-        .card-wrapper {
+            /* Card Wrapper */
+            .card-wrapper {
             perspective: 1000px;
             height: 700px;
             display: flex;
-        }
+            }
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-        }
+            /* Base Card */
+            .card {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transition: transform 0.8s ease;
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(50px);
+            }
 
-        .card.flipped {
+            /* SCROLL ANIMATION TRIGGER */
+            .card.show {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s ease-out;
+            }
+
+            /* Hover Lift */
+            .card:hover {
+            transform: translateY(-10px) scale(1.03);
+            box-shadow: 0 12px 30px rgba(102, 126, 234, 0.25);
+            }
+
+            /* Flip Animation */
+            .card.flipped {
             transform: rotateY(180deg);
-        }
+            }
 
-        .card-front,
-        .card-back {
+            .card-front,
+            .card-back {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -671,13 +686,13 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
+            }
 
-        .card-front {
+            .card-front {
             background: white;
-        }
+            }
 
-        .card-back {
+            .card-back {
             background: white;
             transform: rotateY(180deg);
             padding: 50px;
@@ -686,72 +701,107 @@
             justify-content: center;
             color: #333;
             overflow-y: auto;
-        }
+            }
 
-
-        .card-image {
+            /* Image with Shine */
+            .card-image {
+            position: relative;
             width: 100%;
             height: 200px;
-            object-fit: cover;
+            overflow: hidden;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             display: flex;
             align-items: center;
             justify-content: center;
             color: white;
             font-size: 4em;
-        }
+            }
 
-        .card-image img {
+            .card-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-        }
+            transition: transform 0.6s ease;
+            }
 
-        .card-content {
+            /* Parallax Hover */
+            .card:hover .card-image img {
+            transform: scale(1.05);
+            }
+
+            /* Shine Effect */
+            .card-image::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -75%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(
+                120deg,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.3) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: skewX(-25deg);
+            }
+
+            .card:hover .card-image::after {
+            animation: shine 1s ease forwards;
+            }
+
+            @keyframes shine {
+            0% { left: -75%; }
+            100% { left: 125%; }
+            }
+
+            /* Card Content */
+            .card-content {
             padding: 24px;
-        }
+            }
 
-        .card-title {
+            .card-title {
             font-size: 1.5em;
             font-weight: 600;
             color: #333;
             margin-bottom: 12px;
-        }
+            }
 
-        .card-description {
+            .card-description {
             font-size: 0.95em;
             color: #666;
             line-height: 1.6;
             margin-bottom: 20px;
-        }
+            }
 
-        .card-specs {
+            /* Specs */
+            .card-specs {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 16px;
-        }
+            }
 
-        .spec-item {
+            .spec-item {
             display: flex;
             flex-direction: column;
-        }
+            }
 
-        .spec-label {
+            .spec-label {
             font-size: 0.75em;
             color: #999;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 4px;
-        }
+            }
 
-        .spec-value {
+            .spec-value {
             font-size: 1.1em;
             color: #333;
             font-weight: 600;
-        }
+            }
 
-  
-        .save-btn {
+            /* Button */
+            .save-btn {
             width: 100%;
             padding: 12px;
             margin-top: 16px;
@@ -763,21 +813,23 @@
             font-weight: 600;
             cursor: pointer;
             transition: background 0.3s ease;
-        }
+            }
 
-        .save-btn:hover {
+            .save-btn:hover {
             background: #090c1f;
-        }
+            }
 
-        .back-text {
+            /* Back Text */
+            .back-text {
             font-size: 1.05em;
             line-height: 1.5;
             text-align: justify;
             color: #555;
             margin-top: 40px;
-        }
+            }
 
-         .flip-hint {
+            /* Flip Hints */
+            .flip-hint {
             position: absolute;
             bottom: 10px;
             left: 50%;
@@ -789,14 +841,523 @@
             font-size: 0.75em;
             pointer-events: none;
             text-align: center;
-        }
+            }
 
-        .back-flip-hint {
+            .back-flip-hint {
             text-align: center;
             margin-top: 30px;
             font-size: 0.9em;
             opacity: 0.9;
+            }
+
+
+        .container {
+            width: 100%;
+            min-height: 100%;
         }
+
+        header {
+            text-align: center;
+            color: rgb(0, 0, 0);
+            margin-bottom: 30px;
+            margin-top: 30px;
+            animation: fadeIn 0.8s ease-in;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            text-shadow: 3px 3px 6px rgba(0,0,0,0.4);
+            font-weight: 900;
+        }
+
+        header p {
+            font-size: 1.4em;
+            opacity: 0.95;
+            font-weight: 300;
+        }
+
+        .airports-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 5px;
+            margin-bottom: 40px;
+            background: url("Frontend/airportBG.jpg") no-repeat center center/cover;
+            background-position: center;
+            background-attachment: fixed;
+            opacity: 90% ;
+        }
+
+        .airport-card {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            backdrop-filter: blur(16px) saturate(180%);
+            -webkit-backdrop-filter: blur(16px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+            position: relative;
+            cursor: pointer;
+            animation: slideUp 0.6s ease-out;
+            margin-top: 10%;
+            margin-bottom: 10%;
+            margin-left: 5%;
+            margin-right: 5%;
+        }
+
+        /* subtle shimmer reflection */
+        .airport-card::before {
+            content: "";
+            position: absolute;
+            top: -75%;
+            left: -50%;
+            width: 200%;
+            height: 250%;
+            background: linear-gradient(
+                115deg,
+                rgba(255, 255, 255, 0.15) 0%,
+                rgba(255, 255, 255, 0.35) 25%,
+                rgba(255, 255, 255, 0.15) 50%
+            );
+            transform: rotate(25deg);
+            opacity: 0;
+            transition: opacity 0.6s ease, transform 0.8s ease;
+            pointer-events: none;
+        }
+
+
+        /* hover interaction */
+        .airport-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            background: rgba(255, 255, 255, 0.25);
+            box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+        }
+
+        .airport-card:hover::before {
+            opacity: 1;
+            transform: rotate(25deg) translateY(20%);
+        }
+        .airport-image-container {
+            width: 100%;
+            height: 200px;
+            background: #e3f2fd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .airport-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+            display: none;
+        }
+
+        .airport-image.has-image {
+            display: block;
+        }
+
+        .airport-card:hover .airport-image {
+            transform: scale(1.08);
+        }
+
+        .placeholder-text {
+            color: #64b5f6;
+            font-size: 0.9em;
+            font-weight: 600;
+        }
+
+        .airport-content {
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .rank-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #010a18 0%, #1976d2 100%);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-weight: 900;
+            margin-bottom: 12px;
+            font-size: 1.8em;
+            box-shadow: 0 3px 10px rgba(13, 71, 161, 0.4);
+            min-width: 60px;
+        }
+
+        .airport-header {
+            margin-bottom: 10px;
+        }
+
+        .airport-name {
+            font-size: 1.15em;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 8px;
+            line-height: 1.3;
+            min-height: 50px;
+        }
+
+        .airport-code {
+            background: #e3f2fd;
+            padding: 6px 14px;
+            border-radius: 8px;
+            font-weight: 900;
+            color: #0d47a1;
+            font-size: 1.3em;
+            display: inline-block;
+            letter-spacing: 1px;
+        }
+
+        .airport-location {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #546e7a;
+            margin-bottom: 15px;
+            font-size: 1em;
+            font-weight: 500;
+        }
+
+        .airport-stats {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .stat {
+            background: #f1f8ff;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+            border-left: 4px solid #1976d2;
+        }
+
+        .stat-label {
+            font-size: 0.75em;
+            color: #546e7a;
+            margin-bottom: 4px;
+            font-weight: 600;
+        }
+
+        .stat-value {
+            font-weight: 900;
+            color: #0d47a1;
+            font-size: 1.1em;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 1400px) {
+            .airports-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 900px) {
+            .airports-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            header h1 {
+                font-size: 2.5em;
+            }
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.85);
+            z-index: 1000;
+            overflow-y: auto;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal.active {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: 20px;
+            max-width: 1400px;
+            width: 100%;
+            max-height: 90vh;
+            overflow-y: auto;
+            animation: slideIn 0.4s ease;
+            position: relative;
+        }
+
+        .modal-rank-number {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 15em;
+            font-weight: 900;
+            color: #1e88e5;
+            opacity: 0.1;
+            z-index: 1;
+            line-height: 0.8;
+            pointer-events: none;
+        }
+
+        .modal-header {
+            position: relative;
+            height: 400px;
+            overflow: hidden;
+            background: #e3f2fd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-image {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: white;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            font-size: 1.8em;
+            cursor: pointer;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.4);
+            transition: transform 0.2s ease;
+            z-index: 10;
+            color: #0d47a1;
+            font-weight: bold;
+        }
+
+        .close-btn:hover {
+            transform: scale(1.1);
+            background: #e3f2fd;
+        }
+
+        .modal-body {
+            padding: 40px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .modal-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            gap: 20px;
+        }
+
+        .modal-title h2 {
+            font-size: 2.2em;
+            color: #0d47a1;
+            font-weight: 800;
+        }
+
+        .description {
+            color: #546e7a;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+
+        .detail-item {
+            background: #f1f8ff;
+            padding: 18px;
+            border-radius: 10px;
+            border-left: 5px solid #1976d2;
+        }
+
+        .detail-label {
+            font-size: 0.85em;
+            color: #546e7a;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .detail-value {
+            font-weight: 800;
+            color: #0d47a1;
+            font-size: 1.2em;
+        }
+
+        .key-facts {
+            padding: 25px;
+            border-radius: 12px;
+            color: rgb(0, 0, 0);
+            box-shadow: 0 5px 20px rgba(13, 71, 161, 0.3);
+        }
+
+        .key-facts h3 {
+            margin-bottom: 18px;
+            font-size: 1.5em;
+            font-weight: 800;
+        }
+
+        .key-facts ul {
+            list-style: none;
+        }
+
+        .key-facts li {
+            padding: 10px 0;
+            padding-left: 30px;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .key-facts li:before {
+            content: "\2708";
+            position: absolute;
+            left: 0;
+            font-size: 1.2em;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .airports-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .rank-number {
+                font-size: 6em;
+            }
+
+            .modal-body {
+                padding: 25px;
+            }
+
+            .modal-rank-number {
+                font-size: 8em;
+            }
+        }
+
+        .creator-section {
+            background: #fff;
+            padding: 80px 10%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            }
+
+            .creator-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 50px;
+            max-width: 1200px;
+            }
+
+            .creator-text {
+            flex: 1 1 550px;
+            }
+
+            .creator-text h2 {
+            font-size: 2em;
+            font-weight: 700;
+            color: #000;
+            margin-bottom: 20px;
+            }
+
+            .creator-text p {
+            font-size: 1.1em;
+            line-height: 1.7;
+            color: #333;
+            margin-bottom: 18px;
+            }
+
+            .creator-image {
+            flex: 1 1 300px;
+            text-align: center;
+            }
+
+            .creator-image img {
+            width: 100%;
+            max-width: 320px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            }
+
+            .creator-image img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
+            }
+
+            .creator-name {
+            margin-top: 10px;
+            font-style: italic;
+            color: #444;
+            font-size: 0.95em;
+            }
+
+            /* Responsive layout for smaller screens */
+            @media (max-width: 900px) {
+            .creator-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .creator-text {
+                flex: 1 1 100%;
+            }
+
+            .creator-image img {
+                max-width: 260px;
+            }
+            }
+
 
         /* Footer */
         .footer {

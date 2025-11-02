@@ -405,3 +405,112 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll('.animate-on-scroll').forEach(card => {
             observer.observe(card);
         });
+
+
+          // Get all airport cards
+        var cards = document.querySelectorAll('.airport-card');
+        
+        // Show image only if src is not empty
+        document.addEventListener('DOMContentLoaded', function() {
+            var images = document.querySelectorAll('.airport-image');
+            images.forEach(function(img) {
+                img.addEventListener('load', function() {
+                    if (this.src && this.src !== window.location.href) {
+                        this.classList.add('has-image');
+                        this.nextElementSibling.style.display = 'none';
+                    }
+                });
+                
+                // Check if already has src
+                if (img.src && img.src !== window.location.href && img.complete) {
+                    img.classList.add('has-image');
+                    img.nextElementSibling.style.display = 'none';
+                }
+            });
+        });
+
+        function openModal(index) {
+            var card = cards[index];
+            var modal = document.getElementById('modal');
+            
+            // Get data from card
+            var rank = card.getAttribute('data-rank');
+            var name = card.getAttribute('data-name');
+            var code = card.getAttribute('data-code');
+            var city = card.getAttribute('data-city');
+            var country = card.getAttribute('data-country');
+            var flag = card.getAttribute('data-flag');
+            var passengers = card.getAttribute('data-passengers');
+            var terminals = card.getAttribute('data-terminals');
+            var runways = card.getAttribute('data-runways');
+            var airlines = card.getAttribute('data-airlines');
+            var destinations = card.getAttribute('data-destinations');
+            var area = card.getAttribute('data-area');
+            var opened = card.getAttribute('data-opened');
+            var description = card.getAttribute('data-description');
+            var facts = card.getAttribute('data-facts').split('|');
+            
+            // Get image from card
+            var cardImg = card.querySelector('.airport-image');
+            var imgSrc = cardImg.getAttribute('src');
+            
+            // Set modal content
+            document.getElementById('modalRankNumber').textContent = rank;
+            document.getElementById('modalName').textContent = name;
+            document.getElementById('modalCode').textContent = code;
+            document.getElementById('modalLocation').innerHTML = '<span>' + flag + '</span><span>' + city + ', ' + country + '</span>';
+            document.getElementById('modalDescription').textContent = description;
+            
+            // Set modal image
+            var modalImg = document.getElementById('modalImage');
+            var modalPlaceholder = document.getElementById('modalPlaceholder');
+            
+            if (imgSrc && imgSrc !== '' && imgSrc !== window.location.href) {
+                modalImg.src = imgSrc;
+                modalImg.style.display = 'block';
+                modalPlaceholder.style.display = 'none';
+            } else {
+                modalImg.style.display = 'none';
+                modalPlaceholder.style.display = 'block';
+            }
+            
+            // Set details
+            var detailsHtml = '';
+            detailsHtml += '<div class="detail-item"><div class="detail-label">Annual Passengers</div><div class="detail-value">' + passengers + '</div></div>';
+            detailsHtml += '<div class="detail-item"><div class="detail-label">Terminals</div><div class="detail-value">' + terminals + '</div></div>';
+            detailsHtml += '<div class="detail-item"><div class="detail-label">Runways</div><div class="detail-value">' + runways + '</div></div>';
+            detailsHtml += '<div class="detail-item"><div class="detail-label">Airlines</div><div class="detail-value">' + airlines + '</div></div>';
+            detailsHtml += '<div class="detail-item"><div class="detail-label">Destinations</div><div class="detail-value">' + destinations + '</div></div>';
+            detailsHtml += '<div class="detail-item"><div class="detail-label">Total Area</div><div class="detail-value">' + area + '</div></div>';
+            detailsHtml += '<div class="detail-item"><div class="detail-label">Opened</div><div class="detail-value">' + opened + '</div></div>';
+            document.getElementById('modalDetails').innerHTML = detailsHtml;
+            
+            // Set key facts
+            var factsHtml = '';
+            for (var i = 0; i < facts.length; i++) {
+                factsHtml += '<li>' + facts[i] + '</li>';
+            }
+            document.getElementById('modalFacts').innerHTML = factsHtml;
+            
+            // Show modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            document.getElementById('modal').classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        
+        document.addEventListener('click', e=>{
+        const card = e.target.closest('.airport-card.has-back');
+        if(card){ card.classList.toggle('flipped'); }
+        });
