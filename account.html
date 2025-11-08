@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="account.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sansation:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Raleway+Dots&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-left">
+            <div class="logo">AeroVision</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="comparison.html">Comparison</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <div class="search-container">
+        <!-- Search Icon -->
+        <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+        
+        <!-- Search Input -->
+        <input type="text" class="search-input" placeholder="Search here" id="searchInput">
+        </div>
+        </div>
+    </nav>
+
+<div class="auth-container">
+        <div class="auth-wrapper" id="authWrapper">
+            <div class="image-section"></div>
+            <div class="form-section">
+                <div class="form-content" id="formContent">
+                    <h2 id="formTitle">Welcome Back!</h2>
+                    <p id="formSubtitle">Log in to continue</p>
+                    
+                    <form id="authForm">
+                        <div class="input-group">
+                            <input type="email" id="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="password" id="password" placeholder="Password" required>
+                        </div>
+                        <div class="input-group" id="confirmPasswordGroup" style="display: none;">
+                            <input type="password" id="confirmPassword" placeholder="Confirm Password">
+                        </div>
+                        
+                        <button type="submit" class="submit-btn" id="submitBtn">Log In</button>
+                    </form>
+
+                    <div class="switch-mode">
+                        <span id="switchText">Don't have an Account?</span>
+                        <a id="switchLink">Sign Up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification" id="notification">
+        <div class="notification-icon">✓</div>
+        <div class="notification-content">
+            <h3>Account Created Successfully!</h3>
+            <p>You can now log in with your credentials</p>
+        </div>
+    </div>
+
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>AeroVision</h3>
+                <p>Your premium source for aircraft information and comprehensive analysis</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#">About Us</a>
+                <a href="#">Compare</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Disclaimer</a>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2025 AeroVision. All rights reserved. | Visual credits to their respective owners.
+        </div>
+    </footer>
+ 
+    <script src="account.js"></script>
+</body>
+</html>

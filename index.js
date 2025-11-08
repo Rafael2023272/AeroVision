@@ -429,3 +429,41 @@ document.addEventListener("DOMContentLoaded", function () {
         document.querySelectorAll('.animate-on-scroll').forEach(card => {
             observer.observe(card);
         });
+
+    // Check if user is logged in
+    function checkLoginState() {
+        const userData = localStorage.getItem('aerovision_user');
+        const loginButton = document.getElementById('login-button'); // Your login button
+        const userProfile = document.getElementById('user-profile'); // User profile element (create this)
+        
+        if (userData) {
+            const user = JSON.parse(userData);
+            
+            // Hide login button
+            if (loginButton) {
+                loginButton.style.display = 'none';
+            }
+            
+            // Show user profile/avatar
+            if (userProfile) {
+                userProfile.style.display = 'flex';
+                userProfile.innerHTML = `
+                    <div class="nav-user-avatar">${user.avatar}</div>
+                    <span>${user.name}</span>
+                `;
+            }
+        } else {
+            // Show login button
+            if (loginButton) {
+                loginButton.style.display = 'block';
+            }
+            
+            // Hide user profile
+            if (userProfile) {
+                userProfile.style.display = 'none';
+            }
+        }
+    }
+    
+    // Run on page load
+    checkLoginState();

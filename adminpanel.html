@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="adminpanel.css">
+    <title>Document</title>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-left">
+            <div class="logo">AeroVision</div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="explore.html">Explore</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="comparison.html">Comparison</a></li>
+            </ul>
+        </div>
+        <div class="nav-right">
+            <div class="search-container">
+        <!-- Search Icon -->
+        <svg class="search-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+        </svg>
+        
+        <!-- Search Input -->
+        <input type="text" class="search-input" placeholder="Search here" id="searchInput">
+        </div>
+        </div>
+    </nav>
+
+     <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="header-left">
+                <h1>Welcome back, Captain!</h1>
+                <p>Your aviation command center</p>
+            </div>
+            <div class="notification-bell"></div>
+        </div>
+
+        <!-- Profile Card -->
+        <div class="profile-card">
+            <div class="profile-info">
+                <div class="profile-avatar">RP</div>
+                <div class="profile-details">
+                    <h2>Rafael Purisima</h2>
+                    <p>Senior Aviation Analyst</p>
+                    <span class="admin-badge">👤 Admin Panel</span>
+                </div>
+            </div>
+            <button class="logout-btn" onclick="logout()">🚪 Log out</button>
+        </div>
+
+        <!-- Dashboard Grid -->
+        <div class="dashboard-grid">
+            <!-- Left Column -->
+            <div>
+                <!-- Saved Aircraft -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Saved Aircraft</h3>
+                    </div>
+                    <div class="empty-state">
+                        <p>No saved aircraft yet</p>
+                        <p>Start exploring to bookmark your favorite models</p>
+                    </div>
+                </div>
+
+                <!-- Recent Comparisons -->
+                <div class="card" style="margin-top: 30px;">
+                    <div class="card-header">
+                        <h3 class="card-title">Recent Comparisons</h3>
+                    </div>
+                    <div class="empty-state">
+                        <p>No comparisons yet</p>
+                        <p>Start comparing aircraft to see them here</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column -->
+            <div>
+                <!-- Stats -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-title">Saved Aircraft</span>
+                            <span class="stat-icon">✈️</span>
+                        </div>
+                        <div class="stat-value">0</div>
+                        <div class="stat-subtitle">+0% from last month</div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-header">
+                            <span class="stat-title">Saved Aircraft</span>
+                            <span class="stat-icon">📊</span>
+                        </div>
+                        <div class="stat-value">0</div>
+                        <div class="stat-subtitle">+0% from last month</div>
+                    </div>
+                </div>
+
+                <!-- Notifications -->
+                <div class="card" style="margin-top: 30px;">
+                    <div class="card-header">
+                        <h3 class="card-title">Notifications</h3>
+                        <a href="#" class="card-link">Mark all as read</a>
+                    </div>
+
+                    <div class="notification-item">
+                        <div class="notification-title">New Aircraft Release</div>
+                        <div class="notification-text">Check out the latest A350XWB specifications now</div>
+                        <div class="notification-time">2 minutes ago</div>
+                    </div>
+
+                    <div class="notification-item">
+                        <div class="notification-title">New Aircraft Release</div>
+                        <div class="notification-text">Check out the latest A350XWB specifications now</div>
+                        <div class="notification-time">2 minutes ago</div>
+                    </div>
+
+                    <div class="notification-item">
+                        <div class="notification-title">New Aircraft Release</div>
+                        <div class="notification-text">Check out the latest A350XWB specifications now</div>
+                        <div class="notification-time">2 minutes ago</div>
+                    </div>
+
+                    <button class="view-all-btn">View all</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+       <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>AeroVision</h3>
+                <p>Your premium source for aircraft information and comprehensive analysis</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <a href="#">About Us</a>
+                <a href="#">Compare</a>
+                <a href="#">Contact</a>
+            </div>
+            <div class="footer-section">
+                <h3>Legal</h3>
+                <a href="#">Privacy Policy</a>
+                <a href="#">Terms of Service</a>
+                <a href="#">Disclaimer</a>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            © 2025 AeroVision. All rights reserved. | Visual credits to their respective owners.
+        </div>
+    </footer>
+
+    <script src="adminpanel.js"></script>
+</body>
+</html>

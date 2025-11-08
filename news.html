@@ -33,7 +33,7 @@
         <!-- Search Input -->
         <input type="text" class="search-input" placeholder="Search here" id="searchInput">
     </div>
-            <button class="btn btn-login">Login</button>
+            <button class="btn btn-login" onclick="window.location.href='account.html'">Login</button>
             <div class="hamburger" onclick="toggleMenu()">
                 <span></span>
                 <span></span>
@@ -152,30 +152,6 @@
         </div>
     </footer>
 
-    <script>
-        const nav = document.querySelector('nav');
-let lastScroll = 0;
-
-window.addEventListener('scroll', () => {
-  const currentScroll = window.scrollY;
-
-  // Add/remove scrolled background
-  if (currentScroll > 50) {
-    nav.classList.add('scrolled');
-  } else {
-    nav.classList.remove('scrolled');
-  }
-
-  // Hide on scroll down, show on scroll up
-  if (currentScroll > lastScroll && currentScroll > 100) {
-    nav.classList.add('nav-hidden');
-  } else {
-    nav.classList.remove('nav-hidden');
-  }
-
-  lastScroll = currentScroll;
-});
-
-    </script>
+    <script src="news.js"></script>
     </body>
 </html>
