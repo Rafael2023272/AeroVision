@@ -154,7 +154,7 @@
         }
 
         .container {
-            width: 80%;
+            max-width: 1400px;
             margin: 0 auto;
         }
 
@@ -374,10 +374,10 @@
         }
 
         .stat-card {
-            background: linear-gradient(135deg, #93c5fd 0%, #60a5fa 100%);
+            background: #B7D4FF;
             padding: 25px;
             border-radius: 15px;
-            color: white;
+            color: rgb(19, 19, 19);
             box-shadow: 0 5px 20px rgba(59, 130, 246, 0.3);
             transition: transform 0.3s ease;
         }
@@ -387,7 +387,7 @@
         }
 
         .stat-card:nth-child(2) {
-            background: linear-gradient(135deg, #a78bfa 0%, #8b5cf6 100%);
+            background: #B7D4FF;
             box-shadow: 0 5px 20px rgba(139, 92, 246, 0.3);
         }
 
@@ -478,6 +478,160 @@
             }
         }
 
+        /* Custom Logout Modal */
+        .logout-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .logout-modal.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .logout-modal-content {
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            border-radius: 24px;
+            padding: 50px 40px;
+            max-width: 480px;
+            width: 90%;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+            transform: scale(0.9);
+            transition: transform 0.3s ease;
+            animation: modalSlideIn 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+            position: relative;
+            overflow: hidden;
+        }
+
+     
+
+        @keyframes modalSlideIn {
+            from {
+                transform: scale(0.8) translateY(-30px);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .logout-modal-header {
+            text-align: center;
+            margin-bottom: 35px;
+        }
+
+        .logout-modal-icon {
+            width: 90px;
+            height: 90px;
+            
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            margin: 0 auto 25px;
+           
+            animation: iconPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes iconPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .logout-modal-header h3 {
+            font-size: 28px;
+            color: white;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .logout-modal-header p {
+            color: #94a3b8;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .logout-modal-actions {
+            display: flex;
+            gap: 15px;
+            margin-top: 35px;
+        }
+
+        .modal-btn {
+            flex: 1;
+            padding: 16px;
+            border: none;
+            border-radius: 14px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .modal-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .modal-btn:hover::before {
+            width: 300px;
+            height: 300px;
+        }
+
+        .modal-btn-cancel {
+            background: rgba(148, 163, 184, 0.2);
+            color: #e2e8f0;
+            border: 2px solid rgba(148, 163, 184, 0.3);
+        }
+
+        .modal-btn-cancel:hover {
+            background: rgba(148, 163, 184, 0.3);
+            border-color: rgba(148, 163, 184, 0.5);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal-btn-logout {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            color: white;
+            box-shadow: 0 8px 20px rgba(239, 68, 68, 0.4);
+            border: 2px solid transparent;
+        }
+
+        .modal-btn-logout:hover {
+            box-shadow: 0 12px 30px rgba(239, 68, 68, 0.5);
+            transform: translateY(-3px);
+        }
+
+        .modal-btn:active {
+            transform: translateY(-1px);
+        }
+
         @media (max-width: 768px) {
             .header {
                 flex-direction: column;
@@ -489,6 +643,14 @@
                 flex-direction: column;
                 text-align: center;
                 gap: 20px;
+            }
+
+            .logout-modal-content {
+                padding: 40px 30px;
+            }
+
+            .logout-modal-actions {
+                flex-direction: column;
             }
         }
 

@@ -36,7 +36,7 @@
         </div>
     </nav>
 
-<div class="auth-container">
+    <div class="auth-container">
         <div class="auth-wrapper" id="authWrapper">
             <div class="image-section"></div>
             <div class="form-section">
@@ -45,12 +45,22 @@
                     <p id="formSubtitle">Log in to continue</p>
                     
                     <form id="authForm">
+                        <!-- Full Name - Only shown in signup -->
+                        <div class="input-group" id="fullNameGroup" style="display: none;">
+                            <input type="text" id="fullName" placeholder="Full Name">
+                        </div>
+                        
+                        <!-- Email -->
                         <div class="input-group">
                             <input type="email" id="email" placeholder="Email Address" required>
                         </div>
+                        
+                        <!-- Password -->
                         <div class="input-group">
                             <input type="password" id="password" placeholder="Password" required>
                         </div>
+                        
+                        <!-- Confirm Password - Only shown in signup -->
                         <div class="input-group" id="confirmPasswordGroup" style="display: none;">
                             <input type="password" id="confirmPassword" placeholder="Confirm Password">
                         </div>

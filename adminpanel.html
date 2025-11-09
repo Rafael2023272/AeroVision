@@ -3,7 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="adminpanel.css">
+    <link href="https://fonts.googleapis.com/css2?family=Sansation:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Raleway+Dots&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
     <title>Document</title>
 </head>
 <body>
@@ -32,7 +38,7 @@
         </div>
     </nav>
 
-     <div class="container">
+    <div class="container">
         <!-- Header -->
         <div class="header">
             <div class="header-left">
@@ -45,14 +51,28 @@
         <!-- Profile Card -->
         <div class="profile-card">
             <div class="profile-info">
-                <div class="profile-avatar">RP</div>
+                <div class="profile-avatar" id="userAvatar">RP</div>
                 <div class="profile-details">
-                    <h2>Rafael Purisima</h2>
-                    <p>Senior Aviation Analyst</p>
-                    <span class="admin-badge">👤 Admin Panel</span>
+                    <h2 id="userName">Rafael Purisima</h2>
+                    <p id="userRole">Senior Aviation Analyst</p>
                 </div>
             </div>
-            <button class="logout-btn" onclick="logout()">🚪 Log out</button>
+            <button class="logout-btn" onclick="showLogoutModal()">Log out</button>
+        </div>
+
+        <!-- Logout Modal -->
+        <div class="logout-modal" id="logoutModal">
+            <div class="logout-modal-content">
+                <div class="logout-modal-header">
+                    <div class="logout-modal-icon">⚠️</div>
+                    <h3>Confirm Logout</h3>
+                    <p>Are you sure you want to log out of your account?</p>
+                </div>
+                <div class="logout-modal-actions">
+                    <button class="modal-btn modal-btn-cancel" onclick="closeLogoutModal()">Cancel</button>
+                    <button class="modal-btn modal-btn-logout" onclick="confirmLogout()">Yes, Log out</button>
+                </div>
+            </div>
         </div>
 
         <!-- Dashboard Grid -->
@@ -89,7 +109,6 @@
                     <div class="stat-card">
                         <div class="stat-header">
                             <span class="stat-title">Saved Aircraft</span>
-                            <span class="stat-icon">✈️</span>
                         </div>
                         <div class="stat-value">0</div>
                         <div class="stat-subtitle">+0% from last month</div>
@@ -98,7 +117,6 @@
                     <div class="stat-card">
                         <div class="stat-header">
                             <span class="stat-title">Saved Aircraft</span>
-                            <span class="stat-icon">📊</span>
                         </div>
                         <div class="stat-value">0</div>
                         <div class="stat-subtitle">+0% from last month</div>
