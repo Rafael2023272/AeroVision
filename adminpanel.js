@@ -57,17 +57,54 @@ window.addEventListener('scroll', () => {
  
  
  
- function logout() {
-            if (confirm('Are you sure you want to log out?')) {
-                // Add smooth fade out animation
-                document.body.style.opacity = '0';
-                document.body.style.transition = 'opacity 0.5s ease';
-                
-                setTimeout(() => {
-                    // Redirect back to login page
-                    window.location.href = 'index.html'; // Change to your login page URL
-                }, 500);
+ // Load user data on page load
+        window.addEventListener('DOMContentLoaded', function() {
+            const userData = JSON.parse(localStorage.getItem('aerovision_user'));
+            
+            if (!userData || !userData.isLoggedIn) {
+                // If not logged in, redirect to login page
+                window.location.href = 'index.html';
+                return;
             }
+
+            // Update profile information
+            document.getElementById('userAvatar').textContent = userData.avatar;
+            document.getElementById('userName').textContent = userData.name;
+            document.getElementById('userRole').textContent = userData.role;
+        });
+
+        // Show logout modal
+        function showLogoutModal() {
+            const modal = document.getElementById('logoutModal');
+            modal.classList.add('show');
+        }
+
+        // Close logout modal
+        function closeLogoutModal() {
+            const modal = document.getElementById('logoutModal');
+            modal.classList.remove('show');
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('logoutModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLogoutModal();
+            }
+        });
+
+        // Confirm logout
+        function confirmLogout() {
+            // Clear user data from localStorage
+            localStorage.removeItem('aerovision_user');
+            
+            // Add smooth fade out animation
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.5s ease';
+            
+            setTimeout(() => {
+                // Redirect back to login page
+                window.location.href = 'index.html';
+            }, 500);
         }
 
         // Add notification bell animation on click
