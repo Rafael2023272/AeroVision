@@ -448,3 +448,127 @@
                 transform: rotate(360deg);
             }
         }
+
+        /* ------------------------------------------------------ */
+/* 📱 520px – 1024px  (TABLETS + BIG PHONES) */
+/* ------------------------------------------------------ */
+@media (max-width: 1024px) and (min-width: 520px) {
+
+    /* NAV */
+    nav {
+        width: 90%;
+        padding: 1rem 2rem;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .search-container {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* NEWS GRID → 2 columns */
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+    }
+
+    .news h2 {
+        font-size: 2rem;
+    }
+
+    /* FOOTER → 2 columns */
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 30px;
+    }
+}
+
+
+/* ------------------------------------------------------ */
+/* 📱 375px – 520px  (SMALL–MEDIUM PHONES) */
+/* ------------------------------------------------------ */
+@media (max-width: 520px) and (min-width: 375px) {
+
+    /* NAV */
+    nav {
+        width: 94%;
+        padding: 0.9rem 1.2rem;
+    }
+
+    .logo {
+        font-size: 1.25rem;
+    }
+
+    .btn {
+        padding: 0.45rem 1rem;
+        font-size: 0.85rem;
+    }
+
+    .nav-links,
+    .search-container {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* NEWS GRID → 1 column */
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: 1.4rem;
+    }
+
+    .news-card {
+        max-width: 95%;
+        margin: 0 auto;
+    }
+
+    .news h2 {
+        font-size: 1.7rem;
+        margin-bottom: 1.7rem;
+        margin-top: 8%;
+    }
+
+    /* FOOTER → 1 column */
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+
+/* ------------------------------------------------------ */
+/* 📱 OPTIONAL: Below 375px (tiny screens, SE, old phones) */
+/* ------------------------------------------------------ */
+@media (max-width: 375px) {
+
+    nav {
+        width: 96%;
+        padding: 0.7rem 1rem;
+    }
+
+    .logo {
+        font-size: 1.1rem;
+    }
+
+    .btn {
+        padding: 0.35rem 0.8rem;
+        font-size: 0.75rem;
+    }
+
+    .news-card p {
+        font-size: 0.78rem;
+    }
+}

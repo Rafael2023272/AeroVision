@@ -1264,24 +1264,6 @@
             }
         }
 
-        @media (max-width: 600px) {
-            .airports-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .rank-number {
-                font-size: 6em;
-            }
-
-            .modal-body {
-                padding: 25px;
-            }
-
-            .modal-rank-number {
-                font-size: 8em;
-            }
-        }
-
         .creator-section {
             background: #fff;
             padding: 80px 10%;
@@ -1341,23 +1323,6 @@
             color: #444;
             font-size: 0.95em;
             }
-
-            /* Responsive layout for smaller screens */
-            @media (max-width: 900px) {
-            .creator-container {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .creator-text {
-                flex: 1 1 100%;
-            }
-
-            .creator-image img {
-                max-width: 260px;
-            }
-            }
-
 
         /* Footer */
         .footer {
@@ -1481,5 +1446,188 @@
         @keyframes spin {
             to {
                 transform: rotate(360deg);
+            }
+        }
+
+        @media (max-width: 520px) and (min-width: 375px) {
+
+            /* NAVIGATION */
+            nav {
+                width: 92%;
+                padding: 0.9rem 1.2rem;
+            }
+            .nav-links,
+            .search-container {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+
+            /* HERO BANNER */
+            .hero-banner {
+                height: 25vh;
+            }
+            .page-title {
+                font-size: 2.2rem;
+            }
+
+            /* ABOUT SECTION */
+            .about-section {
+                flex-direction: column;
+                min-height: auto;
+            }
+            .about-text,
+            .about-image {
+                width: 100%;
+            }
+            .about-text {
+                padding: 40px 25px;
+            }
+            .about-text p {
+                font-size: 15px;
+                line-height: 1.6;
+            }
+
+            /* PARALLAX AIRCRAFT SECTION */
+            .aircraft-container {
+                width: 95%;
+                height: 40vh;
+            }
+            .featured-header h2 {
+                font-size: 2rem;
+            }
+            .title-section h1 {
+                font-size: 2.4rem;
+            }
+            .description-section p {
+                font-size: 0.85rem;
+            }
+            .nav-arrow {
+                width: 45px;
+                height: 45px;
+            }
+
+            /* FLIP CARDS */
+            .card-container {
+                grid-template-columns: 1fr;
+                margin-left: 0;
+                padding: 20px;
+            }
+            .card-wrapper {
+                height: 550px;
+            }
+            .card-title {
+                font-size: 1.2rem;
+            }
+
+            /* AIRPORT GRID */
+            .airports-grid {
+                grid-template-columns: 1fr;
+            }
+            .airport-card {
+                margin: 25px 10px;
+            }
+
+            /* MODAL */
+            .modal-body {
+                padding: 20px;
+            }
+            .modal-title h2 {
+                font-size: 1.5em;
+            }
+
+            /* CREATOR SECTION */
+            .creator-section {
+                padding: 50px 20px;
+            }
+            .creator-container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            /* FOOTER */
+            .footer-content {
+                grid-template-columns: 1fr;
+                padding: 0 20px;
+                text-align: center;
+            }
+            .social-icons {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 1024px) and (min-width: 520px) {
+
+            /* NAV */
+            nav {
+                width: 90%;
+            }
+            .nav-links,
+            .search-container {
+                display: none;
+            }
+            .hamburger {
+                display: flex;
+            }
+
+            /* HERO */
+            .hero-banner {
+                height: 30vh;
+            }
+            .page-title {
+                font-size: 3.5rem;
+            }
+
+            /* ABOUT */
+            .about-section {
+                flex-direction: column;
+            }
+            .about-text,
+            .about-image {
+                width: 100%;
+            }
+            .about-text {
+                padding: 50px 35px;
+            }
+
+            /* PARALLAX */
+            .aircraft-container {
+                width: 90%;
+                height: 50vh;
+            }
+            .title-section h1 {
+                font-size: 3.5rem;
+            }
+            .description-section p {
+                font-size: 0.95rem;
+            }
+
+            /* CARDS */
+            .card-container {
+                grid-template-columns: repeat(2, 1fr);
+                margin-left: 0;
+                padding: 20px;
+            }
+
+            /* AIRPORTS */
+            .airports-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .airport-card {
+                margin: 5%;
+            }
+
+            /* CREATOR */
+            .creator-container {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+            }
+
+            /* FOOTER */
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+                padding: 0 30px;
             }
         }

@@ -467,3 +467,42 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // Run on page load
     checkLoginState();
+
+
+    /* ============
+   Dynamic Annotation Positioning
+   ============ */
+
+function positionAnnotations() {
+    const wrapper = document.querySelector('.aircraft-wrapper');
+    const annotations = document.querySelectorAll('.annotation');
+
+    if (!wrapper || annotations.length === 0) return;
+
+    const rect = wrapper.getBoundingClientRect();
+    
+    annotations.forEach(a => {
+        const x = parseFloat(a.dataset.x); // % from left
+        const y = parseFloat(a.dataset.y); // % from top
+
+        // Convert percentages into pixel positions relative to the wrapper
+        const left = rect.width * (x / 100);
+        const top = rect.height * (y / 100);
+
+        a.style.left = left + "px";
+        a.style.top = top + "px";
+    });
+}
+
+/* Run when aircraft loads */
+window.addEventListener("load", () => {
+    setTimeout(positionAnnotations, 250); // allow image render
+});
+
+/* Recalculate on resize */
+window.addEventListener("resize", positionAnnotations);
+
+/* Recalculate after orientation change (mobile) */
+window.addEventListener("orientationchange", () => {
+    setTimeout(positionAnnotations, 300);
+});
