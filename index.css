@@ -1410,175 +1410,175 @@
 
         /* HERO SECTION */
         .aviation-section {
-                padding: 20px 12px;
-                min-height: 70vh;
-            }
-
-            .heading-area {
-                text-align: center;
-                margin-bottom: 30px;
-            }
-
-            .main-title {
-                font-size: 2rem;
-            }
-
-            .subtitle {
-                font-size: 1rem;
-            }
-
-            /* CARDS */
-            .cards-container {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .card {
-                padding: 25px 20px;
-                transform: translateY(50px);
-            }
-
-            .card:hover {
-                transform: scale(1.05);
-            }
-
-            /* COMPARISON TABLE */
-            .comparison {
-                padding: 3rem 1rem;
-            }
-
-            .comparison h2 {
-                font-size: 1.8rem;
-            }
-
-            .table-header,
-            .table-row {
-                grid-template-columns: 1fr 1fr;
-                padding: 1rem;
-            }
-
-            .table-header div:first-child,
-            .table-row div:first-child {
-                grid-column: span 2;
-                text-align: center;
-            }
-
-            .comparison-table {
-                width: 100%;
-                margin-left: 0;
-                margin-right: 0;
-            }
-
-            /* NEWS */
-            .news-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                margin-left: 0;
-                margin-right: 0;
-            }
-
-            .news {
-                margin: 0;
-                padding: 2rem 1rem;
-            }
-
-            .news-btn {
-                margin-top: 2rem;
-            }
-
-            /* QUOTE SECTION */
-            .quote-section {
-                width: 90%;
-                margin-left: 5%;
-                height: auto;
-                padding: 20px;
-            }
-
-            .quote-container {
-                flex-direction: column;
-                gap: 25px;
-                text-align: center;
-            }
-
-            .profile-image {
-                width: 150px;
-                height: 150px;
-            }
-
-            .quote-text {
-                font-size: 1.2rem;
-            }
-
-            /* FOOTER */
-            .footer-content {
-                grid-template-columns: 1fr;
-                text-align: center;
-                padding: 0 20px;
-            }
-
-            .social-icons {
-                justify-content: center;
-            }
+            padding: 20px 12px;
+            min-height: 70vh;
         }
 
-
-        @media (max-width: 1024px) and (min-width: 520px) {
-
-            /* HERO */
-            .aviation-section {
-                padding: 40px 30px;
-            }
-
-            .heading-area {
-                text-align: center;
-                margin-bottom: 40px;
-            }
-
-            /* CARDS */
-            .cards-container {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 20px;
-            }
-
-            /* COMPARISON TABLE */
-            .comparison {
-                padding: 4rem 2rem;
-            }
-
-            .table-header,
-            .table-row {
-                padding: 1.5rem;
-            }
-
-            .comparison-table {
-                margin-left: auto;
-                margin-right: auto;
-                width: 95%;
-            }
-
-            /* NEWS */
-            .news-grid {
-                grid-template-columns: repeat(2, 1fr);
-                margin-left: 0;
-                margin-right: 0;
-            }
-
-            /* QUOTE SECTION */
-            .quote-section {
-                width: 85%;
-                margin-left: 7.5%;
-                height: auto;
-            }
-
-            .quote-container {
-                flex-direction: column;
-                text-align: center;
-                gap: 40px;
-            }
-
-            /* FOOTER */
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-                padding: 0 30px;
-            }
+        .heading-area {
+            text-align: center;
+            margin-bottom: 30px;
         }
+
+        .main-title {
+            font-size: 2rem;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+        }
+
+        /* CARDS */
+        .cards-container {
+            grid-template-columns: 1fr;
+            gap: 15px;
+        }
+
+        .card {
+            padding: 25px 20px;
+            transform: translateY(50px);
+        }
+
+        .card:hover {
+            transform: scale(1.05);
+        }
+
+        /* COMPARISON TABLE */
+        .comparison {
+            padding: 3rem 1rem;
+        }
+
+        .comparison h2 {
+            font-size: 1.8rem;
+        }
+
+        .table-header,
+        .table-row {
+            grid-template-columns: 1fr 1fr;
+            padding: 1rem;
+        }
+
+        .table-header div:first-child,
+        .table-row div:first-child {
+            grid-column: span 2;
+            text-align: center;
+        }
+
+        .comparison-table {
+            width: 100%;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        /* NEWS */
+        .news-grid {
+            grid-template-columns: 1fr;
+            gap: 20px;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .news {
+            margin: 0;
+            padding: 2rem 1rem;
+        }
+
+        .news-btn {
+            margin-top: 2rem;
+        }
+
+        /* QUOTE SECTION */
+        .quote-section {
+            width: 90%;
+            margin-left: 5%;
+            height: auto;
+            padding: 20px;
+        }
+
+        .quote-container {
+            flex-direction: column;
+            gap: 25px;
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+        }
+
+        .quote-text {
+            font-size: 1.2rem;
+        }
+
+        /* FOOTER */
+        .footer-content {
+            grid-template-columns: 1fr;
+            text-align: center;
+            padding: 0 20px;
+        }
+
+        .social-icons {
+            justify-content: center;
+        }
+    }
+
+
+    @media (max-width: 1024px) and (min-width: 520px) {
+
+        /* HERO */
+        .aviation-section {
+            padding: 40px 30px;
+        }
+
+        .heading-area {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        /* CARDS */
+        .cards-container {
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        /* COMPARISON TABLE */
+        .comparison {
+            padding: 4rem 2rem;
+        }
+
+        .table-header,
+        .table-row {
+            padding: 1.5rem;
+        }
+
+        .comparison-table {
+            margin-left: auto;
+            margin-right: auto;
+            width: 95%;
+        }
+
+        /* NEWS */
+        .news-grid {
+            grid-template-columns: repeat(2, 1fr);
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        /* QUOTE SECTION */
+        .quote-section {
+            width: 85%;
+            margin-left: 7.5%;
+            height: auto;
+        }
+
+        .quote-container {
+            flex-direction: column;
+            text-align: center;
+            gap: 40px;
+        }
+
+        /* FOOTER */
+        .footer-content {
+            grid-template-columns: repeat(2, 1fr);
+            padding: 0 30px;
+        }
+    }
