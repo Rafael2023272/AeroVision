@@ -1,3 +1,52 @@
+
+// ============================================
+// NAVIGATION MENU - Toggle & Click Outside
+// ============================================
+function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    navLinks.classList.toggle('active');
+}
+
+// Close menu when clicking outside of navigation
+document.addEventListener('click', function(event) {
+    const nav = document.querySelector('nav');
+    const navLinks = document.getElementById('navLinks');
+    if (!nav.contains(event.target)) {
+        navLinks.classList.remove('active');
+    }
+});
+
+// ============================================
+// NAVIGATION BAR - Hide/Show on Scroll
+// ============================================
+const nav = document.querySelector('nav');
+const scrollThreshold = 100; // Start hiding after scrolling 100px
+
+window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Add scrolled class for background change
+    if (scrollTop > 50) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+    
+    // Hide/show navigation based on scroll direction
+    if (scrollTop > scrollThreshold) {
+        if (scrollTop > lastScrollTop) {
+            // Scrolling down - hide nav
+            nav.classList.add('nav-hidden');
+        } else {
+            // Scrolling up - show nav
+            nav.classList.remove('nav-hidden');
+        }
+    }
+    
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+}, false);
+
+
 const authWrapper = document.getElementById('authWrapper');
         const authForm = document.getElementById('authForm');
         const formContent = document.getElementById('formContent');

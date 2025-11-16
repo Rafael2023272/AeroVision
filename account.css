@@ -447,29 +447,7 @@
             to { transform: rotate(360deg); }
         }
 
-        @media (max-width: 768px) {
-            .auth-wrapper {
-                width: 95%;
-                height: auto;
-                flex-direction: column;
-            }
-
-            .image-section,
-            .form-section {
-                position: relative;
-                width: 100%;
-                transform: none !important;
-            }
-
-            .image-section {
-                height: 200px;
-            }
-
-            .form-section {
-                padding: 40px 30px;
-            }
-        }
-
+       
 
         /* Footer */
         .footer {
@@ -594,3 +572,119 @@
                 transform: rotate(360deg);
             }
         }
+
+        @media (max-width: 520px) and (min-width: 375px) {
+
+    /* NAV */
+    nav {
+        width: 92%;
+        padding: 0.9rem 1.2rem;
+    }
+
+    .nav-links,
+    .search-container {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* AUTH WRAPPER → STACKED */
+    .auth-wrapper {
+        flex-direction: column;
+        width: 90%;
+        height: auto;
+        min-height: 550px;
+        margin-top: 10%;
+    }
+
+    .image-section {
+        width: 100%;
+        height: 200px;
+    }
+
+    .form-section {
+        width: 100%;
+        height: auto;
+        padding: 40px 25px;
+    }
+
+    .form-section h2 {
+        font-size: 26px;
+    }
+
+    .form-section p {
+        font-size: 14px;
+        margin-bottom: 25px;
+    }
+
+    /* Inputs */
+    .input-group input {
+        padding: 13px;
+        font-size: 14px;
+    }
+
+    .submit-btn {
+        padding: 13px;
+        font-size: 15px;
+    }
+
+    /* FOOTER */
+    .footer-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 0 20px;
+    }
+
+    .social-icons {
+        justify-content: center;
+    }
+}
+
+
+@media (max-width: 1024px) and (min-width: 520px) {
+
+    /* NAV */
+    nav {
+        width: 90%;
+        padding: 1rem 2rem;
+    }
+
+    .nav-links,
+    .search-container {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    /* AUTH WRAPPER → BIG TABLET LAYOUT */
+    .auth-wrapper {
+        width: 90%;
+        height: auto;
+        min-height: 600px;
+    }
+
+    .image-section {
+        width: 45%;
+        height: auto;
+        min-height: 350px;
+    }
+
+    .form-section {
+        width: 55%;
+        padding: 50px 40px;
+    }
+
+    .form-section h2 {
+        font-size: 30px;
+    }
+
+    /* Footer → 2 columns */
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 30px;
+    }
+}
