@@ -605,50 +605,50 @@
         }
 
             /* Card Section */
-            .card-heading {
+        .card-heading {
             text-align: center;
             margin-bottom: 50px;
             max-width: 800px;
             margin-left: auto;
             margin-right: auto;
             padding-top: 40px;
-            }
+        }
 
-            .card-heading h1 {
+        .card-heading h1 {
             font-size: 3.5em;
             font-weight: 700;
             color: #000;
             margin-bottom: 15px;
-            }
+        }
 
-            .card-heading h2 {
+        .card-heading h2 {
             font-size: 1.2em;
             font-weight: 400;
             color: #333;
             line-height: 1.6;
-            }
+        }
 
             /* Grid Layout */
-            .card-container {
+        .card-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
             gap: 30px;
-            max-width: 1400px;
             width: 100%;
-            margin-left: 14%;
+            width: 100%;
+            align-items: center;
             padding: 20px 20px;
             border-bottom: 1px solid black;
-            }
+        }
 
             /* Card Wrapper */
-            .card-wrapper {
+        .card-wrapper {
             perspective: 1000px;
             height: 700px;
             display: flex;
-            }
+        }
 
             /* Base Card */
-            .card {
+        .card {
             position: relative;
             width: 100%;
             height: 100%;
@@ -657,28 +657,28 @@
             cursor: pointer;
             opacity: 0;
             transform: translateY(50px);
-            }
+        }
 
             /* SCROLL ANIMATION TRIGGER */
-            .card.show {
+        .card.show {
             opacity: 1;
             transform: translateY(0);
             transition: all 0.8s ease-out;
-            }
+        }
 
             /* Hover Lift */
-            .card:hover {
+        .card:hover {
             transform: translateY(-10px) scale(1.03);
             box-shadow: 0 12px 30px rgba(102, 126, 234, 0.25);
-            }
+        }
 
             /* Flip Animation */
-            .card.flipped {
+        .card.flipped {
             transform: rotateY(180deg);
-            }
+        }
 
-            .card-front,
-            .card-back {
+        .card-front,
+        .card-back {
             position: absolute;
             width: 100%;
             height: 100%;
@@ -686,13 +686,13 @@
             border-radius: 12px;
             overflow: hidden;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            }
+        }
 
-            .card-front {
+        .card-front {
             background: white;
             }
 
-            .card-back {
+        .card-back {
             background: white;
             transform: rotateY(180deg);
             padding: 50px;
@@ -701,10 +701,10 @@
             justify-content: center;
             color: #333;
             overflow-y: auto;
-            }
+        }
 
             /* Image with Shine */
-            .card-image {
+        .card-image {
             position: relative;
             width: 100%;
             height: 200px;
@@ -715,22 +715,22 @@
             justify-content: center;
             color: white;
             font-size: 4em;
-            }
+        }
 
-            .card-image img {
+        .card-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
             transition: transform 0.6s ease;
-            }
+        }
 
             /* Parallax Hover */
-            .card:hover .card-image img {
+        .card:hover .card-image img {
             transform: scale(1.05);
-            }
+        }
 
             /* Shine Effect */
-            .card-image::after {
+        .card-image::after {
             content: "";
             position: absolute;
             top: 0;
@@ -744,64 +744,64 @@
                 rgba(255, 255, 255, 0) 100%
             );
             transform: skewX(-25deg);
-            }
+        }
 
-            .card:hover .card-image::after {
+        .card:hover .card-image::after {
             animation: shine 1s ease forwards;
-            }
+        }
 
             @keyframes shine {
             0% { left: -75%; }
             100% { left: 125%; }
-            }
+        }
 
             /* Card Content */
-            .card-content {
+        .card-content {
             padding: 24px;
-            }
+        }
 
-            .card-title {
+        .card-title {
             font-size: 1.5em;
             font-weight: 600;
             color: #333;
             margin-bottom: 12px;
-            }
+        }
 
-            .card-description {
+        .card-description {
             font-size: 0.95em;
             color: #666;
             line-height: 1.6;
             margin-bottom: 20px;
-            }
+        }
 
             /* Specs */
-            .card-specs {
+        .card-specs {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 16px;
-            }
+        }
 
-            .spec-item {
+        .spec-item {
             display: flex;
             flex-direction: column;
-            }
+        }
 
-            .spec-label {
+        .spec-label {
             font-size: 0.75em;
             color: #999;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 4px;
-            }
+        }
 
-            .spec-value {
+        .spec-value {
             font-size: 1.1em;
             color: #333;
             font-weight: 600;
-            }
+    }
 
             /* Button */
-            .save-btn {
+        .save-btn {
             width: 100%;
             padding: 12px;
             margin-top: 16px;
@@ -813,23 +813,23 @@
             font-weight: 600;
             cursor: pointer;
             transition: background 0.3s ease;
-            }
+        }
 
-            .save-btn:hover {
+        .save-btn:hover {
             background: #090c1f;
-            }
+        }
 
             /* Back Text */
-            .back-text {
+        .back-text {
             font-size: 1.05em;
             line-height: 1.5;
             text-align: justify;
             color: #555;
             margin-top: 40px;
-            }
+        }
 
             /* Flip Hints */
-            .flip-hint {
+        .flip-hint {
             position: absolute;
             bottom: 10px;
             left: 50%;
@@ -841,14 +841,14 @@
             font-size: 0.75em;
             pointer-events: none;
             text-align: center;
-            }
+        }
 
-            .back-flip-hint {
+        .back-flip-hint {
             text-align: center;
             margin-top: 30px;
             font-size: 0.9em;
             opacity: 0.9;
-            }
+        }
 
 
         .container {
@@ -1159,7 +1159,7 @@
             box-shadow: 0 3px 15px rgba(0,0,0,0.4);
             transition: transform 0.2s ease;
             z-index: 10;
-            color: #0d47a1;
+            color: #000000;
             font-weight: bold;
         }
 
@@ -1272,7 +1272,7 @@
             align-items: center;
             }
 
-            .creator-container {
+        .creator-container {
             display: flex;
             flex-wrap: wrap;
             align-items: center;
@@ -1281,30 +1281,30 @@
             max-width: 1200px;
             }
 
-            .creator-text {
+        .creator-text {
             flex: 1 1 550px;
             }
 
-            .creator-text h2 {
+        .creator-text h2 {
             font-size: 2em;
             font-weight: 700;
             color: #000;
             margin-bottom: 20px;
             }
 
-            .creator-text p {
+        .creator-text p {
             font-size: 1.1em;
             line-height: 1.7;
             color: #333;
             margin-bottom: 18px;
             }
 
-            .creator-image {
+        .creator-image {
             flex: 1 1 300px;
             text-align: center;
             }
 
-            .creator-image img {
+        .creator-image img {
             width: 100%;
             max-width: 320px;
             border-radius: 15px;
@@ -1312,12 +1312,12 @@
             transition: transform 0.4s ease, box-shadow 0.4s ease;
             }
 
-            .creator-image img:hover {
+        .creator-image img:hover {
             transform: scale(1.05);
             box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
             }
 
-            .creator-name {
+        .creator-name {
             margin-top: 10px;
             font-style: italic;
             color: #444;
@@ -1332,14 +1332,14 @@
                  #080B24 100%           /* dark blue at bottom */
             );
             color: #fff;
-            padding: 40px 0;
-            margin-top: 60px;
+            padding: 20px 0;
+            margin-top: 10px;
         }
 
         .footer-content {
-            max-width: 1400px;
+            width: 80%;
             margin: 0 auto;
-            padding: 0 50px;
+            padding-top: 30px;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 40px;
@@ -1386,7 +1386,6 @@
 
         .footer-bottom {
             text-align: center;
-            margin-top: 30px;
             padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
             color: rgba(255,255,255,0.5);
@@ -1449,185 +1448,210 @@
             }
         }
 
+
         @media (max-width: 520px) and (min-width: 375px) {
 
             /* NAVIGATION */
-            nav {
-                width: 92%;
-                padding: 0.9rem 1.2rem;
-            }
-            .nav-links,
-            .search-container {
-                display: none;
-            }
-            .hamburger {
-                display: flex;
-            }
+        nav {
+            width: 92%;
+            padding: 0.9rem 1.2rem;
+        }
+
+        .nav-links,
+        .search-container {
+            display: none;
+        }
+
+        .hamburger {
+            display: flex;
+        }
 
             /* HERO BANNER */
-            .hero-banner {
-                height: 25vh;
-            }
-            .page-title {
-                font-size: 2.2rem;
-            }
+        .hero-banner {
+            height: 25vh;
+        }
+
+        .page-title {
+            font-size: 2.2rem;
+        }
 
             /* ABOUT SECTION */
-            .about-section {
-                flex-direction: column;
-                min-height: auto;
-            }
-            .about-text,
-            .about-image {
-                width: 100%;
-            }
-            .about-text {
-                padding: 40px 25px;
-            }
-            .about-text p {
-                font-size: 15px;
-                line-height: 1.6;
-            }
+        .about-section {
+            flex-direction: column;
+            min-height: auto;
+        }
+
+        .about-text,
+        .about-image {
+            width: 100%;
+        }
+
+        .about-text {
+            padding: 40px 25px;
+        }
+
+        .about-text p {
+            font-size: 15px;
+            line-height: 1.6;
+        }
 
             /* PARALLAX AIRCRAFT SECTION */
-            .aircraft-container {
-                width: 95%;
-                height: 40vh;
-            }
-            .featured-header h2 {
-                font-size: 2rem;
-            }
-            .title-section h1 {
-                font-size: 2.4rem;
-            }
-            .description-section p {
-                font-size: 0.85rem;
-            }
-            .nav-arrow {
-                width: 45px;
-                height: 45px;
-            }
+        .aircraft-container {
+            width: 95%;
+            height: 40vh;
+        }
+
+        .featured-header h2 {
+            font-size: 2rem;
+        }
+
+        .title-section h1 {
+            font-size: 2.4rem;
+        }
+
+        .description-section p {
+            font-size: 0.85rem;
+        }
+
+        .nav-arrow {
+            width: 45px;
+            height: 45px;
+        }
 
             /* FLIP CARDS */
-            .card-container {
-                grid-template-columns: 1fr;
-                margin-left: 0;
-                padding: 20px;
-            }
-            .card-wrapper {
-                height: 700px;
-            }
-            .card-title {
-                font-size: 1.2rem;
-            }
+        .card-container {
+            grid-template-columns: 1fr;
+            margin-left: 0;
+            padding: 20px;
+        }
+
+        .card-wrapper {
+            height: 700px;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+        }
 
             /* AIRPORT GRID */
-            .airports-grid {
-                grid-template-columns: 1fr;
-            }
-            .airport-card {
-                margin: 25px 10px;
-            }
+        .airports-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .airport-card {
+            margin: 25px 10px;
+        }
 
             /* MODAL */
-            .modal-body {
-                padding: 20px;
-            }
-            .modal-title h2 {
-                font-size: 1.5em;
-            }
+        .modal-body {
+            padding: 20px;
+        }
+
+        .modal-title h2 {
+            font-size: 1.5em;
+        }
 
             /* CREATOR SECTION */
-            .creator-section {
-                padding: 50px 20px;
-            }
-            .creator-container {
-                flex-direction: column;
-                text-align: center;
-            }
+        .creator-section {
+            padding: 50px 20px;
+        }
+
+        .creator-container {
+            flex-direction: column;
+            text-align: center;
+        }
 
             /* FOOTER */
-            .footer-content {
-                grid-template-columns: 1fr;
-                padding: 0 20px;
-                text-align: center;
-            }
-            .social-icons {
-                justify-content: center;
-            }
+        .footer-content {
+            grid-template-columns: 1fr;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .social-icons {
+            justify-content: center;
+        }
         }
 
         @media (max-width: 1024px) and (min-width: 520px) {
 
             /* NAV */
-            nav {
-                width: 90%;
-            }
-            .nav-links,
-            .search-container {
-                display: none;
-            }
-            .hamburger {
-                display: flex;
-            }
+        .nav {
+            width: 90%;
+        }
+
+        .nav-links,
+        .search-container {
+            display: none;
+        }
+
+        .hamburger {
+            display: flex;
+        }
 
             /* HERO */
-            .hero-banner {
-                height: 30vh;
-            }
-            .page-title {
-                font-size: 3.5rem;
-            }
+        .hero-banner {
+            height: 30vh;
+        }
+
+        .page-title {
+            font-size: 3.5rem;
+        }
 
             /* ABOUT */
-            .about-section {
-                flex-direction: column;
-            }
-            .about-text,
-            .about-image {
-                width: 100%;
-            }
-            .about-text {
-                padding: 50px 35px;
-            }
+        .about-section {
+            flex-direction: column;
+        }
+
+        .about-text,
+        .about-image {
+            width: 100%;
+        }
+
+        .about-text {
+            padding: 50px 35px;
+        }
 
             /* PARALLAX */
-            .aircraft-container {
-                width: 90%;
-                height: 50vh;
-            }
-            .title-section h1 {
-                font-size: 3.5rem;
-            }
-            .description-section p {
-                font-size: 0.95rem;
-            }
+        .aircraft-container {
+            width: 90%;
+            height: 50vh;
+        }
+
+        .title-section h1 {
+            font-size: 3.5rem;
+        }
+
+        .description-section p {
+            font-size: 0.95rem;
+        }
 
             /* CARDS */
-            .card-container {
-                grid-template-columns: repeat(2, 1fr);
-                margin-left: 0;
-                padding: 20px;
-            }
+        .card-container {
+            grid-template-columns: repeat(2, 1fr);
+            margin-left: 0;
+            padding: 20px;
+        }
 
             /* AIRPORTS */
-            .airports-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            .airport-card {
-                margin: 5%;
-            }
+        .airports-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .airport-card {
+            margin: 5%;
+        }
 
             /* CREATOR */
-            .creator-container {
-                flex-direction: column;
-                align-items: center;
-                text-align: center;
-            }
+        .creator-container {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
 
             /* FOOTER */
-            .footer-content {
-                grid-template-columns: repeat(2, 1fr);
-                padding: 0 30px;
-            }
+        .footer-content {
+            grid-template-columns: repeat(2, 1fr);
+            padding: 0 30px;
+        }
         }

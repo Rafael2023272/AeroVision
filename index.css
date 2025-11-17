@@ -1178,6 +1178,7 @@
             width: 70%;
             height: 40vh;
             margin-left: 15.5%;
+            margin-bottom: 3%;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1),
                         inset 0 1px 0 rgba(255, 255, 255, 0.6);
             border-radius: 30px;
@@ -1273,14 +1274,14 @@
                  #080B24 100%           /* dark blue at bottom */
             );
             color: #fff;
-            padding: 40px 0;
-            margin-top: 20px;
+            padding: 20px 0;
+            margin-top: 10px;
         }
 
         .footer-content {
-            max-width: 1400px;
+            width: 80%;
             margin: 0 auto;
-            padding: 0 50px;
+            padding-top: 30px;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 40px;
@@ -1327,7 +1328,6 @@
 
         .footer-bottom {
             text-align: center;
-            margin-top: 30px;
             padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
             color: rgba(255,255,255,0.5);
@@ -1392,8 +1392,6 @@
 
 
         @media (max-width: 520px) and (min-width: 375px) {
-
-
         /* NAVIGATION */
             nav {
                 width: 92%;

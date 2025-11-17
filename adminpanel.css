@@ -662,14 +662,14 @@
                  #080B24 100%           /* dark blue at bottom */
             );
             color: #fff;
-            padding: 40px 0;
-            margin-top: 20px;
+            padding: 20px 0;
+            margin-top: 10px;
         }
 
         .footer-content {
-            max-width: 1400px;
+            width: 80%;
             margin: 0 auto;
-            padding: 0 50px;
+            padding-top: 30px;
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 40px;
@@ -716,7 +716,6 @@
 
         .footer-bottom {
             text-align: center;
-            margin-top: 30px;
             padding-top: 20px;
             border-top: 1px solid rgba(255,255,255,0.1);
             color: rgba(255,255,255,0.5);
