@@ -1,27 +1,49 @@
+// ============================================
+// NAVIGATION MENU - Toggle & Click Outside
+// ============================================
+function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    navLinks.classList.toggle('active');
+}
 
- const nav = document.querySelector('nav');
-            let lastScroll = 0;
+// Close menu when clicking outside of navigation
+document.addEventListener('click', function(event) {
+    const nav = document.querySelector('nav');
+    const navLinks = document.getElementById('navLinks');
+    if (!nav.contains(event.target)) {
+        navLinks.classList.remove('active');
+    }
+});
 
-            window.addEventListener('scroll', () => {
-            const currentScroll = window.scrollY;
+// ============================================
+// NAVIGATION BAR - Hide/Show on Scroll
+// ============================================
+const nav = document.querySelector('nav');
+const scrollThreshold = 100; // Start hiding after scrolling 100px
 
-            // Add/remove scrolled background
-            if (currentScroll > 50) {
-                nav.classList.add('scrolled');
-            } else {
-                nav.classList.remove('scrolled');
-            }
-
-            // Hide on scroll down, show on scroll up
-            if (currentScroll > lastScroll && currentScroll > 100) {
-                nav.classList.add('nav-hidden');
-            } else {
-                nav.classList.remove('nav-hidden');
-            }
-
-            lastScroll = currentScroll;
-            });
-            
+window.addEventListener('scroll', () => {
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Add scrolled class for background change
+    if (scrollTop > 50) {
+        nav.classList.add('scrolled');
+    } else {
+        nav.classList.remove('scrolled');
+    }
+    
+    // Hide/show navigation based on scroll direction
+    if (scrollTop > scrollThreshold) {
+        if (scrollTop > lastScrollTop) {
+            // Scrolling down - hide nav
+            nav.classList.add('nav-hidden');
+        } else {
+            // Scrolling up - show nav
+            nav.classList.remove('nav-hidden');
+        }
+    }
+    
+    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+}, false);     
 
 // ============================================
 // CARD PARALLAX EFFECT - Mouse Movement

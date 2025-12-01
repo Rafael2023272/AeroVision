@@ -170,18 +170,34 @@
             flex-direction: column;
             gap: 5px;
             cursor: pointer;
+            z-index: 1001;
         }
 
         .hamburger span {
             width: 25px;
             height: 3px;
-            background: #333;
+            background: #ffffff;
             transition: 0.3s;
+            border-radius: 3px;
         }
 
         nav.scrolled .hamburger span {
             background: white;
         }
+
+        /* Hamburger animation when active */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        
 
         /* Hero Banner Below Navbar */
        .hero-banner {
