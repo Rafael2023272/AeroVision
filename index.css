@@ -1023,6 +1023,12 @@
        
 
         /* News Section */
+        .news-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
         .news {
             padding: 2rem 2%;
             background: #f9f9f9;
