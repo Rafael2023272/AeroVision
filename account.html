@@ -10,8 +10,20 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Raleway+Dots&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
+    
+    <!-- Google Sign-In Script -->
+    <script src="https://accounts.google.com/gsi/client" async></script>
 </head>
 <body>
+    <!-- Google Sign-In Configuration (Hidden) -->
+    <div id="g_id_onload"
+         data-client_id="908723326658-ps6ir9kl659jc7afdorm9e5bppq34c0u.apps.googleusercontent.com"
+         data-context="signin"
+         data-ux_mode="popup"
+         data-callback="handleGoogleSignIn"
+         data-auto_prompt="false">
+    </div>
+
     <!-- Navigation -->
     <nav>
         <div class="nav-left">
@@ -20,7 +32,7 @@
                 <li><a href="index.html">Home</a></li>
                 <li><a href="explore.html">Explore</a></li>
                 <li><a href="news.html">News</a></li>
-                <li><a href="comparison.html">Comparison</a></li>
+                <li><a href="live.html">Live</a></li>
             </ul>
         </div>
     </nav>
@@ -57,6 +69,23 @@
                         <button type="submit" class="submit-btn" id="submitBtn">Log In</button>
                     </form>
 
+                    <!-- Divider -->
+                    <div class="divider">
+                        <span>OR</span>
+                    </div>
+
+                    <!-- Google Sign-In Button Container -->
+                    <div class="google-signin-container">
+                        <div class="g_id_signin"
+                             data-type="standard"
+                             data-shape="rectangular"
+                             data-theme="outline"
+                             data-text="signin_with"
+                             data-size="large"
+                             data-width="100%">
+                        </div>
+                    </div>
+
                     <div class="switch-mode">
                         <span id="switchText">Don't have an Account?</span>
                         <a id="switchLink">Sign Up</a>
@@ -74,7 +103,6 @@
             <p>You can now log in with your credentials</p>
         </div>
     </div>
-
 
     <!-- Footer Section -->
     <footer class="footer">

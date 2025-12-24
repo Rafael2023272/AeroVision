@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AeroVision - Live Flight Tracker</title>
+  
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="live.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-left">
+      <div class="logo">AeroVision</div>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="explore.html">Explore</a></li>
+        <li><a href="news.html">News</a></li>
+        <li><a href="comparison.html">Live</a></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <button class="btn btn-login" id="login-button" onclick="window.location.href='account.html'">Login</button>
+      <div id="user-profile" style="display: none;"></div>
+      <div class="hamburger" onclick="toggleMenu()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </nav>
+
+  <div class="app-container">
+    <!-- ==================== SIDEBAR ==================== -->
+    <aside class="sidebar">
+      <!-- Header -->
+      <div class="header">
+        <div class="header-text">
+          <h1>AeroVision</h1>
+          <p>Real-Time Global Flight Tracking</p>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-card">
+        <div class="stat-item">
+          <span class="stat-value" id="planeCount">0</span>
+          <span class="stat-label">Aircraft</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-value" id="updateTime">--</span>
+          <span class="stat-label">Last Update</span>
+        </div>
+      </div>
+
+      <!-- Controls -->
+      <div class="controls-section">
+        <div class="section-title">Filters</div>
+        
+        <div class="control-group">
+          <label>
+            <span>Minimum Altitude</span>
+            <span class="control-value"><span id="altValue">1000</span> m</span>
+          </label>
+          <div class="slider-container">
+            <div class="slider-fill" id="altFill" style="width: 10%"></div>
+            <input type="range" id="altSlider" min="0" max="10000" value="1000" step="100">
+          </div>
+        </div>
+
+        <div class="control-group">
+          <label>
+            <span>Minimum Speed</span>
+            <span class="control-value"><span id="speedValue">0</span> m/s</span>
+          </label>
+          <div class="slider-container">
+            <div class="slider-fill" id="speedFill" style="width: 0%"></div>
+            <input type="range" id="speedSlider" min="0" max="300" value="0" step="10">
+          </div>
+        </div>
+      </div>
+
+      <!-- Info Panel -->
+      <div class="info-panel">
+        <strong>How to Use</strong>
+        <ul>
+          <li>Click any aircraft to view detailed information</li>
+          <li>Pan and zoom to explore different regions</li>
+          <li>Adjust filters to focus on specific flights</li>
+          <li>Data updates every 15 seconds automatically</li>
+        </ul>
+      </div>
+
+      <!-- Footer -->
+      <div class="sidebar-footer">
+        Powered by OpenSky Network API<br>
+        © 2024 AeroVision
+      </div>
+    </aside>
+
+    <!-- ==================== MAP ==================== -->
+    <main class="map-container">
+      <div id="map"></div>
+      
+      <!-- Map Controls -->
+      <div class="map-controls">
+        <button class="map-btn" onclick="refreshData()">Refresh</button>
+        <button class="map-btn" onclick="resetView()">Reset View</button>
+      </div>
+
+      <!-- Loading Indicator -->
+      <div class="loading-indicator" id="loadingIndicator">
+        Updating flight data...
+      </div>
+    </main>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  
+  <!-- Custom Scripts -->
+  <script src="navigation.js"></script>
+  <script src="live.js"></script>
+</body>
+</html>
