@@ -4,15 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>AeroVision - Live Flight Tracker</title>
-  
-  <!-- Leaflet CSS -->
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-  
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Custom Styles -->
   <link rel="stylesheet" href="live.css">
+  <link href="https://fonts.googleapis.com/css2?family=Sansation:wght@300;400;700&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Raleway+Dots&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
 </head>
 <body>
   <!-- Navigation -->
@@ -23,9 +20,10 @@
         <li><a href="index.html">Home</a></li>
         <li><a href="explore.html">Explore</a></li>
         <li><a href="news.html">News</a></li>
-        <li><a href="comparison.html">Live</a></li>
+        <li><a href="live.html">Live</a></li>
       </ul>
     </div>
+
     <div class="nav-right">
       <button class="btn btn-login" id="login-button" onclick="window.location.href='account.html'">Login</button>
       <div id="user-profile" style="display: none;"></div>
@@ -38,7 +36,6 @@
   </nav>
 
   <div class="app-container">
-    <!-- ==================== SIDEBAR ==================== -->
     <aside class="sidebar">
       <!-- Header -->
       <div class="header">
@@ -108,12 +105,6 @@
     <!-- ==================== MAP ==================== -->
     <main class="map-container">
       <div id="map"></div>
-      
-      <!-- Map Controls -->
-      <div class="map-controls">
-        <button class="map-btn" onclick="refreshData()">Refresh</button>
-        <button class="map-btn" onclick="resetView()">Reset View</button>
-      </div>
 
       <!-- Loading Indicator -->
       <div class="loading-indicator" id="loadingIndicator">
@@ -126,7 +117,6 @@
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   
   <!-- Custom Scripts -->
-  <script src="navigation.js"></script>
   <script src="live.js"></script>
 </body>
 </html>

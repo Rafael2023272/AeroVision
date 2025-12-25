@@ -17,135 +17,7 @@
             transition: opacity 0.6s ease; 
         }
 
-           /* Animated glowing background */
-        .glow-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -2;
-            overflow: hidden;
-        }
-
-        .glow-orb {
-            position: absolute;
-            border-radius: 50%;
-            filter: blur(100px);
-            opacity: 0.4;
-            animation: float 20s ease-in-out infinite;
-        }
-
-        .orb1 {
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, #3b82f6 0%, transparent 70%);
-            top: -200px;
-            right: -200px;
-            animation-duration: 25s;
-        }
-
-        .orb2 {
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, #8b5cf6 0%, transparent 70%);
-            bottom: -150px;
-            left: -150px;
-            animation-duration: 30s;
-            animation-delay: 5s;
-        }
-
-        .orb3 {
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, #06b6d4 0%, transparent 70%);
-            top: 50%;
-            left: 50%;
-            animation-duration: 35s;
-            animation-delay: 10s;
-        }
-
-        @keyframes float {
-            0%, 100% { 
-                transform: translate(0, 0) scale(1);
-                opacity: 0.4;
-            }
-            33% { 
-                transform: translate(100px, -100px) scale(1.1);
-                opacity: 0.5;
-            }
-            66% { 
-                transform: translate(-100px, 100px) scale(0.9);
-                opacity: 0.3;
-            }
-        }
-
-/* Glass */
-        .glass {
-            background: linear-gradient(135deg, rgba(255, 255, 255, 0.06) 0%, rgba(255, 255, 255, 0.02) 100%);
-            backdrop-filter: blur(24px) saturate(180%);
-            border-radius: 20px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            padding: 32px;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 
-                0 8px 32px rgba(0, 0, 0, 0.3),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .glass::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
-            transition: left 0.6s;
-        }
-
-        .glass:hover::before {
-            left: 100%;
-        }
-
-        .glass:hover {
-            border-color: rgba(255, 255, 255, 0.2);
-            box-shadow: 
-                0 16px 48px rgba(0, 0, 0, 0.4),
-                0 0 48px rgba(96, 165, 250, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.15);
-            transform: translateY(-4px);
-        }
-        /* Particles */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        .particle {
-            position: absolute;
-            width: 2px;
-            height: 2px;
-            background: rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            animation: particleFloat 15s infinite;
-        }
-
-        @keyframes particleFloat {
-            0% { transform: translateY(0) translateX(0); opacity: 0; }
-            10% { opacity: 0.3; }
-            90% { opacity: 0.3; }
-            100% { transform: translateY(-100vh) translateX(50px); opacity: 0; }
-        }
-
-
+          
         /* Navigation */
         nav {
             display: flex;
@@ -156,12 +28,12 @@
             top: 1rem;
             left: 50%;
             transform: translateX(-50%);
-            width: 80%; /* You can change to 70% if you want it tighter */
+            width: 50%; 
             border-radius: 50px;
             backdrop-filter: blur(10px);
             z-index: 1000;
             transition: all 0.4s ease;
-            background: transparent; /* No background on first visit */
+            background: transparent; 
         }
 
         /* Only show background when scrolled */
@@ -260,38 +132,27 @@
             box-shadow: 0 0 15px rgba(26, 84, 144, 0.5);
         }
 
-   :root {
-      --primary-bg: #0a0e27;
-      --secondary-bg: #151b3d;
-      --accent-blue: #4f9eff;
-      --accent-cyan: #00d4ff;
-      --text-primary: #ffffff;
-      --text-secondary: #a0aec0;
-      --text-muted: #64748b;
-      --glass-bg: rgba(21, 27, 61, 0.4);
-      --glass-border: rgba(255, 255, 255, 0.1);
-      --shadow-glow: 0 0 30px rgba(79, 158, 255, 0.15);
-    }
+        :root {
+            --primary-bg: #0a0e27;
+            --secondary-bg: #151b3d;
+            --accent-blue: #4f9eff;
+            --accent-cyan: #00d4ff;
+            --text-primary: #ffffff;
+            --text-secondary: #a0aec0;
+            --text-muted: #64748b;
+            --glass-bg: rgba(21, 27, 61, 0.4);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --shadow-glow: 0 0 30px rgba(79, 158, 255, 0.15);
+          }
 
-    body {
-      font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1428 100%);
-      color: var(--text-primary);
-      overflow: hidden;
-    }
+          /* LAYOUT */
+          .app-container {
+            display: flex;
+            height: 100vh;
+            position: relative;
+          }
 
-    /* =====================================================
-       LAYOUT
-    ===================================================== */
-    .app-container {
-      display: flex;
-      height: 100vh;
-      position: relative;
-    }
-
-    /* =====================================================
-       SIDEBAR
-    ===================================================== */
+    /* SIDEBAR */
     .sidebar {
       width: 340px;
       background: var(--glass-bg);
@@ -303,7 +164,7 @@
       gap: 24px;
       overflow-y: auto;
       box-shadow: var(--shadow-glow);
-      z-index: 1000;
+      z-index: -1000;
     }
 
     .sidebar::-webkit-scrollbar {
@@ -366,7 +227,7 @@
     }
 
     .stat-value {
-      font-size: 32px;
+      font-size: 24px;
       font-weight: 700;
       color: var(--accent-cyan);
       display: block;
@@ -485,9 +346,7 @@
       text-align: center;
     }
 
-    /* =====================================================
-       MAP CONTAINER
-    ===================================================== */
+    /* MAP CONTAINER */
     .map-container {
       flex: 1;
       position: relative;
@@ -499,41 +358,8 @@
       height: 100%;
     }
 
-    /* Map Controls Overlay */
-    .map-controls {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      z-index: 1000;
-      display: flex;
-      gap: 12px;
-    }
-
-    .map-btn {
-      background: var(--glass-bg);
-      backdrop-filter: blur(20px);
-      border: 1px solid var(--glass-border);
-      border-radius: 12px;
-      padding: 12px 20px;
-      color: var(--text-primary);
-      font-family: inherit;
-      font-size: 13px;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.3s ease;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
-
-    .map-btn:hover {
-      background: rgba(79, 158, 255, 0.2);
-      border-color: var(--accent-blue);
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(79, 158, 255, 0.3);
-    }
-
-    /* =====================================================
-       CUSTOM POPUP STYLES
-    ===================================================== */
+    
+    /*  CUSTOM POPUP STYLES */
     .leaflet-popup-content-wrapper {
       background: rgba(10, 14, 39, 0.95);
       backdrop-filter: blur(20px);
@@ -568,12 +394,12 @@
     }
 
     .popup-icon {
-      font-size: 24px;
+      font-size: 20px;
       filter: drop-shadow(0 0 8px var(--accent-cyan));
     }
 
     .popup-callsign {
-      font-size: 18px;
+      font-size: 16px;
       font-weight: 700;
       color: var(--accent-cyan);
     }
@@ -598,14 +424,12 @@
     }
 
     .popup-value {
-      font-size: 14px;
+      font-size: 12px;
       font-weight: 600;
       color: var(--text-primary);
     }
 
-    /* =====================================================
-       LOADING INDICATOR
-    ===================================================== */
+    /* LOADING INDICATOR */
     .loading-indicator {
       position: absolute;
       bottom: 20px;
@@ -626,324 +450,3 @@
     .loading-indicator.active {
       opacity: 1;
     }
-
-    /* =====================================================
-       RESPONSIVE
-    ===================================================== */
-    @media (max-width: 768px) {
-      .sidebar {
-        width: 100%;
-        max-width: 340px;
-        position: absolute;
-        left: -100%;
-        transition: left 0.3s ease;
-        height: 100vh;
-      }
-
-      .sidebar.open {
-        left: 0;
-      }
-
-      .map-controls {
-        top: 10px;
-        right: 10px;
-      }
-    }
-        .footer {
-             background: linear-gradient(
-                to bottom,       /* direction */
-                 rgba(0, 0, 0, 1) 0%,   /* black at top */
-                 #080B24 100%           /* dark blue at bottom */
-            );
-            color: #fff;
-            padding: 40px 0;
-            margin-top: 60px;
-        }
-
-        .footer-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 50px;
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 40px;
-        }
-
-        .footer-section h3 {
-            margin-bottom: 15px;
-            font-size: 18px;
-        }
-
-        .footer-section p,
-        .footer-section a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-            display: block;
-            margin-bottom: 10px;
-            font-size: 14px;
-        }
-
-        .footer-section a:hover {
-            color: #64b5f6;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 10px;
-        }
-
-        .social-icons a {
-            width: 35px;
-            height: 35px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s;
-        }
-
-        .social-icons a:hover {
-            background: #64b4f644;
-        }
-
-        .footer-bottom {
-            text-align: center;
-            margin-top: 30px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: rgba(255,255,255,0.5);
-            font-size: 12px;
-        }
-
-        .loading {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 3px solid rgba(30,60,114,0.3);
-            border-radius: 50%;
-            border-top-color: #1e3c72;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
-        /* ------------------------------------------------------ */
-/* 📱 520px – 1024px (TABLETS + LARGE PHONES) */
-/* ------------------------------------------------------ */
-@media (max-width: 1024px) and (min-width: 520px) {
-
-    /* NAV */
-    nav {
-        width: 90%;
-        padding: 1rem 2rem;
-    }
-
-    .nav-links {
-        display: none;
-    }
-
-    .search-container {
-        display: none;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
-    /* Comparison grid → 1 column */
-    .comparison-grid {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-    
-     /* TECHNICAL DESCRIPTION SPACING */
-    .aircraft-card p,
-    .about-card p,
-    .specifications-section p,
-    .save-section p {
-        margin-bottom: 18px;
-        line-height: 1.65;
-    }
-
-    .specs-table td,
-    .specs-table th {
-        padding: 16px 18px;
-    }
-    /* About section → 1 column */
-    .about-section {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-
-    /* Footer → 2 columns */
-    .footer-content {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 0 30px;
-    }
-}
-
-
-
-/* ------------------------------------------------------ */
-/* 📱 375px – 520px (PHONES) */
-/* ------------------------------------------------------ */
-@media (max-width: 520px) and (min-width: 375px) {
-
-    /* NAV */
-    nav {
-        width: 94%;
-        padding: 0.9rem 1.2rem;
-    }
-
-    .logo {
-        font-size: 1.25rem;
-    }
-
-    .nav-links,
-    .search-container {
-        display: none;
-    }
-
-    .hamburger {
-        display: flex;
-    }
-
-    /* HEADERS */
-    .header-section h1 {
-        font-size: 28px;
-    }
-
-    .header-section p {
-        font-size: 14px;
-    }
-
-    /* Comparison grid → 1 column */
-    .comparison-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    /* Aircraft image box smaller */
-    .aircraft-image-container {
-        height: 200px;
-    }
-
-    /* Empty state */
-    .empty-state h3 {
-        font-size: 20px;
-    }
-
-     .specifications-section {
-        margin-left: 32px;
-        margin-right: 32px;
-    }
-
-    .about-section {
-        margin-left: 32px;
-        margin-right: 32px;
-    }
-
-    .save-section {
-        margin-left: 32px;
-        margin-right: 32px;
-    }
-
-    /* Footer → 1 column */
-    .footer-content {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding: 0 20px;
-    }
-
-    .social-icons {
-        justify-content: center;
-    }
-}
-
-
-
-/* ------------------------------------------------------ */
-/* OPTIONAL: BELOW 375px (tiny phones, older devices) */
-/* ------------------------------------------------------ */
-@media (max-width: 375px) {
-
-    nav {
-        width: 96%;
-        padding: 0.7rem 1rem;
-    }
-
-    .logo {
-        font-size: 1.1rem;
-    }
-
-    .header-section h1 {
-        font-size: 24px;
-    }
-
-    .btn {
-        padding: 0.35rem 0.8rem;
-        font-size: 0.75rem;
-    }
-
-    
-    .specifications-section {
-        margin-left: 16px;
-        margin-right: 16px;
-    }
-
-    .about-section {
-        margin-left: 16px;
-        margin-right: 16px;
-    }
-
-    .save-section {
-        margin-left: 16px;
-        margin-right: 16px;
-    }
-}

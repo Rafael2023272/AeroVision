@@ -1,16 +1,13 @@
-// =====================================================
 // CONFIGURATION
-// =====================================================
+
 const CONFIG = {
-  UPDATE_INTERVAL: 15000,
+  UPDATE_INTERVAL: 30000, // 30s for stability
   DEFAULT_VIEW: [20, 0],
   DEFAULT_ZOOM: 2,
-  API_URL: 'https://opensky-network.org/api/states/all'
+  API_URL: 'http://localhost:4000/api/aircraft',
 };
 
-// =====================================================
 // STATE MANAGEMENT
-// =====================================================
 const state = {
   aircraftMarkers: {},
   minAltitude: 1000,
@@ -19,9 +16,7 @@ const state = {
   updateInterval: null
 };
 
-// =====================================================
 // MAP INITIALIZATION
-// =====================================================
 let map;
 
 function initializeMap() {
@@ -40,23 +35,17 @@ function initializeMap() {
   }).addTo(map);
 }
 
-// =====================================================
 // UTILITY FUNCTIONS
-// =====================================================
 function createPlaneIcon(heading = 0, speed = 0) {
-  const color = speed > 200 ? '#00d4ff' : speed > 100 ? '#4f9eff' : '#94a3b8';
-  
+  const color = '#9ca3af'; // neutral gray
   return L.divIcon({
     className: '',
-    html: `
-      <div style="
-        transform: rotate(${heading}deg);
-        color: ${color};
-        font-size: 20px;
-        filter: drop-shadow(0 0 6px ${color});
-        transition: all 0.3s ease;
-      ">✈</div>
-    `,
+    html: `<div style="
+            transform: rotate(${heading}deg);
+            color: ${color};
+            font-size: 20px;
+            filter: drop-shadow(0 0 6px ${color});
+            transition: all 0.3s ease;">✈</div>`,
     iconSize: [24, 24],
     iconAnchor: [12, 12]
   });
@@ -93,7 +82,7 @@ function createPopupContent(aircraft) {
         </div>
         <div class="popup-row">
           <span class="popup-label">Heading</span>
-          <span class="popup-value">${aircraft.heading}°</span>
+          <span class="popup-value">${aircraft.heading.toFixed(0)}°</span>
         </div>
         <div class="popup-row">
           <span class="popup-label">Origin Country</span>
@@ -104,16 +93,12 @@ function createPopupContent(aircraft) {
   `;
 }
 
-// =====================================================
 // DATA FETCHING & RENDERING
-// =====================================================
 async function loadAircraftData() {
   showLoading(true);
-  
   try {
     const response = await fetch(CONFIG.API_URL);
     const data = await response.json();
-    
     if (!data.states) {
       console.warn('No aircraft data received');
       showLoading(false);
@@ -126,10 +111,12 @@ async function loadAircraftData() {
 
     data.states.forEach(planeData => {
       const aircraft = parseAircraftData(planeData);
-      
+
       if (!isValidAircraft(aircraft)) return;
       if (!meetsFilterCriteria(aircraft)) return;
-      if (!bounds.contains([aircraft.lat, aircraft.lon])) return;
+
+      // Only apply bounds filter when zoomed in
+      if (map.getZoom() > 4 && !bounds.contains([aircraft.lat, aircraft.lon])) return;
 
       newIcaoSet.add(aircraft.icao);
       visibleCount++;
@@ -139,7 +126,6 @@ async function loadAircraftData() {
 
     removeStaleMarkers(newIcaoSet);
     updateStats(visibleCount);
-    
   } catch (error) {
     console.error('Error loading aircraft data:', error);
   } finally {
@@ -161,7 +147,12 @@ function parseAircraftData(data) {
 }
 
 function isValidAircraft(aircraft) {
-  return aircraft.lat && aircraft.lon;
+  return (
+    aircraft.lat !== null &&
+    aircraft.lon !== null &&
+    !isNaN(aircraft.lat) &&
+    !isNaN(aircraft.lon)
+  );
 }
 
 function meetsFilterCriteria(aircraft) {
@@ -172,12 +163,10 @@ function meetsFilterCriteria(aircraft) {
 
 function updateOrCreateMarker(aircraft) {
   if (state.aircraftMarkers[aircraft.icao]) {
-    // Update existing marker
     const marker = state.aircraftMarkers[aircraft.icao];
     marker.setLatLng([aircraft.lat, aircraft.lon]);
     marker.setIcon(createPlaneIcon(aircraft.heading, aircraft.speed));
   } else {
-    // Create new marker
     const marker = L.marker([aircraft.lat, aircraft.lon], {
       icon: createPlaneIcon(aircraft.heading, aircraft.speed)
     }).addTo(map);
@@ -200,17 +189,15 @@ function removeStaleMarkers(activeIcaoSet) {
   });
 }
 
-// =====================================================
 // UI UPDATES
-// =====================================================
 function updateStats(count) {
   state.planeCount = count;
   document.getElementById('planeCount').textContent = count;
-  
+
   const now = new Date();
-  const timeString = now.toLocaleTimeString('en-US', { 
-    hour: '2-digit', 
-    minute: '2-digit' 
+  const timeString = now.toLocaleTimeString('en-US', {
+    hour: '2-digit',
+    minute: '2-digit'
   });
   document.getElementById('updateTime').textContent = timeString;
 }
@@ -222,17 +209,14 @@ function showLoading(show) {
   }
 }
 
-// =====================================================
 // CONTROLS & INTERACTIONS
-// =====================================================
 function setupControls() {
-  // Altitude slider
   const altSlider = document.getElementById('altSlider');
   const altValue = document.getElementById('altValue');
   const altFill = document.getElementById('altFill');
 
   if (altSlider) {
-    altSlider.addEventListener('input', (e) => {
+    altSlider.addEventListener('change', (e) => {
       const value = e.target.value;
       state.minAltitude = Number(value);
       altValue.textContent = value;
@@ -241,13 +225,12 @@ function setupControls() {
     });
   }
 
-  // Speed slider
   const speedSlider = document.getElementById('speedSlider');
   const speedValue = document.getElementById('speedValue');
   const speedFill = document.getElementById('speedFill');
 
   if (speedSlider) {
-    speedSlider.addEventListener('input', (e) => {
+    speedSlider.addEventListener('change', (e) => {
       const value = e.target.value;
       state.minSpeed = Number(value);
       speedValue.textContent = value;
@@ -256,15 +239,12 @@ function setupControls() {
     });
   }
 
-  // Map event listener for data refresh on move/zoom
   map.on('moveend', () => {
     loadAircraftData();
   });
 }
 
-// =====================================================
-// GLOBAL FUNCTIONS (called from HTML)
-// =====================================================
+// GLOBAL FUNCTIONS
 function refreshData() {
   loadAircraftData();
 }
@@ -273,28 +253,21 @@ function resetView() {
   map.setView(CONFIG.DEFAULT_VIEW, CONFIG.DEFAULT_ZOOM);
 }
 
-// =====================================================
 // INITIALIZATION
-// =====================================================
 function initialize() {
   initializeMap();
   setupControls();
   loadAircraftData();
-  
-  // Set up periodic updates
+
   state.updateInterval = setInterval(loadAircraftData, CONFIG.UPDATE_INTERVAL);
 }
 
-// Start the application when DOM is ready
 if (document.readyState === 'loading') {
   document.addEventListener('DOMContentLoaded', initialize);
 } else {
   initialize();
 }
 
-// Cleanup on page unload
 window.addEventListener('beforeunload', () => {
-  if (state.updateInterval) {
-    clearInterval(state.updateInterval);
-  }
+  if (state.updateInterval) clearInterval(state.updateInterval);
 });
