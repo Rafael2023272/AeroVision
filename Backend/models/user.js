@@ -14,6 +14,20 @@ const userSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+
+    savedAircraft: [
+        {
+            name: String,
+            image: String,
+            passengers: String,
+            range: String,
+            savedAt: {
+                type: Date,
+                default: Date.now
+            }
+        }
+    ],
+
     createdAt: {
         type: Date,
         default: Date.now

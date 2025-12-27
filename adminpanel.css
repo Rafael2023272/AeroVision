@@ -7,7 +7,6 @@
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 100%);
-            min-height: 100vh;
             animation: fadeIn 0.6s ease;
         }
 
@@ -113,46 +112,7 @@
             gap: 0.8rem;
         }
 
-        /* Search box */
-        .search-container {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 25px;
-            padding: 8px 12px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            min-width: 220px; /* compressed */
-            transition: all 0.3s ease;
-        }
-
-        .search-container:focus-within {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(96, 165, 250, 0.5);
-            box-shadow: 0 0 15px rgba(96, 165, 250, 0.3);
-        }
-
-        /* Search icon and input */
-        .search-icon {
-            width: 16px;
-            height: 16px;
-            color: #fff;
-            opacity: 0.6;
-        }
-
-        .search-input {
-            background: transparent;
-            border: none;
-            outline: none;
-            flex: 1;
-            color: #fff;
-            font-size: 13px;
-        }
-
-        .search-input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
+        
         .container {
             max-width: 1400px;
             margin: 0 auto;
@@ -367,58 +327,7 @@
             font-size: 14px;
         }
 
-        /* Stats Cards */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 20px;
-        }
-
-        .stat-card {
-            background: #B7D4FF;
-            padding: 25px;
-            border-radius: 15px;
-            color: rgb(19, 19, 19);
-            box-shadow: 0 5px 20px rgba(59, 130, 246, 0.3);
-            transition: transform 0.3s ease;
-        }
-
-        .stat-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .stat-card:nth-child(2) {
-            background: #B7D4FF;
-            box-shadow: 0 5px 20px rgba(139, 92, 246, 0.3);
-        }
-
-        .stat-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-        }
-
-        .stat-title {
-            font-size: 14px;
-            opacity: 0.9;
-        }
-
-        .stat-icon {
-            font-size: 24px;
-        }
-
-        .stat-value {
-            font-size: 48px;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-
-        .stat-subtitle {
-            font-size: 13px;
-            opacity: 0.8;
-        }
-
+        
 
         @media (max-width: 1024px) {
             .dashboard-grid {
@@ -612,6 +521,7 @@
             color: #fff;
             padding: 20px 0;
             margin-top: 10px;
+            width: 100%;
         }
 
         .footer-content {

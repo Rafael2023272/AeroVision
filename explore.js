@@ -575,3 +575,64 @@ document.addEventListener("DOMContentLoaded", function () {
     
     // Run on page load
     checkLoginState();
+
+// ===============================
+// SAVE AIRCRAFT FUNCTION
+// ===============================
+async function saveAircraftCard(aircraftData) {
+    // Get logged-in user
+    const userData = localStorage.getItem('aerovision_user');
+    if (!userData) {
+        alert('Please log in to save aircraft.');
+        return;
+    }
+
+    const user = JSON.parse(userData);
+    const userId = user.id;
+
+    try {
+        const res = await fetch('/api/users/save-aircraft', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ userId, aircraft: aircraftData })
+        });
+
+        if (res.ok) {
+            alert(`${aircraftData.name} saved to your dashboard!`);
+        } else {
+            alert('Failed to save aircraft. Try again.');
+        }
+    } catch (err) {
+        console.error(err);
+        alert('Error saving aircraft.');
+    }
+}
+
+// ===============================
+// ATTACH SAVE FUNCTION TO ALL CARDS
+// ===============================
+document.querySelectorAll('.save-btn').forEach(button => {
+    button.addEventListener('click', (e) => {
+        e.stopPropagation(); // Prevent card flip
+
+        const card = button.closest('.card-wrapper');
+
+        // Grab aircraft data dynamically
+        const aircraftData = {
+            name: card.querySelector('.card-title').textContent,
+            image: card.querySelector('img').src,
+            passengers: card.querySelector('.spec-item:nth-child(1) .spec-value').textContent,
+            cruiseSpeed: card.querySelector('.spec-item:nth-child(2) .spec-value').textContent,
+            wingspan: card.querySelector('.spec-item:nth-child(3) .spec-value').textContent,
+            fuselageWidth: card.querySelector('.spec-item:nth-child(4) .spec-value').textContent,
+            maxAltitude: card.querySelector('.spec-item:nth-child(5) .spec-value').textContent,
+            maxTakeoffWeight: card.querySelector('.spec-item:nth-child(6) .spec-value').textContent,
+            length: card.querySelector('.spec-item:nth-child(7) .spec-value').textContent,
+            range: card.querySelector('.spec-item:nth-child(8) .spec-value').textContent,
+            cabinWidth: card.querySelector('.spec-item:nth-child(9) .spec-value').textContent
+        };
+
+        saveAircraftCard(aircraftData);
+    });
+});
+

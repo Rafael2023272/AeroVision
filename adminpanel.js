@@ -2,27 +2,46 @@
 // GLOBAL VARIABLES
 // ============================================
 let lastScrollTop = 0;
-let parallaxTicking = false;
-let aircraftTicking = false;
 let currentImageIndex = 0;
-let sectionInView = false;
-let isInteractive = false;
 
 // ============================================
-// AUTHENTICATION CHECK - PROTECT THIS PAGE
+// AUTHENTICATION CHECK - PROTECT ADMIN PAGE
 // ============================================
-window.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', () => {
     const token = localStorage.getItem('aerovision_token');
-    const userData = JSON.parse(localStorage.getItem('aerovision_user'));
+    const userData = localStorage.getItem('aerovision_user');
 
     if (!token || !userData) {
-        alert('Please login to access the admin panel');
         window.location.href = 'account.html';
         return;
     }
 
-    loadUserProfile(userData);
+    const user = JSON.parse(userData);
+    loadUserProfile(user);
+    setupNavbarProfile(user);
+    attachSaveButtons();
 });
+
+// ============================================
+// NAVBAR PROFILE BUTTON (USERNAME + AVATAR)
+// ============================================
+function setupNavbarProfile(user) {
+    const profileBtn = document.getElementById('nav-profile-btn');
+    if (!profileBtn) return;
+
+    const initials = getInitials(user.name);
+
+    profileBtn.innerHTML = `
+        <div class="nav-avatar">${initials}</div>
+        <span class="nav-username">${user.name}</span>
+    `;
+
+    profileBtn.style.display = 'flex';
+
+    profileBtn.addEventListener('click', () => {
+        window.location.href = 'admin.html';
+    });
+}
 
 // ============================================
 // NAVIGATION MENU - Toggle & Click Outside
@@ -41,7 +60,7 @@ document.addEventListener('click', function(event) {
 });
 
 // ============================================
-// NAVIGATION BAR - Hide/Show on Scroll
+// NAVBAR - Hide/Show on Scroll
 // ============================================
 const nav = document.querySelector('nav');
 const scrollThreshold = 100;
@@ -67,67 +86,57 @@ window.addEventListener('scroll', () => {
 // ============================================
 function getInitials(name) {
     if (!name) return 'U';
-    
-    const nameParts = name.trim().split(' ');
-    if (nameParts.length === 1) {
-        return nameParts[0].substring(0, 2).toUpperCase();
-    } else {
-        return (nameParts[0].charAt(0) + nameParts[nameParts.length - 1].charAt(0)).toUpperCase();
-    }
+    const parts = name.trim().split(' ');
+    return parts.length === 1
+        ? parts[0].substring(0, 2).toUpperCase()
+        : (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
 }
 
 // ============================================
 // USER PROFILE MANAGEMENT
 // ============================================
-function loadUserProfile(userData) {
-    const initials = getInitials(userData.name);
+function loadUserProfile(user) {
+    const initials = getInitials(user.name);
 
     const avatarElement = document.getElementById('userAvatar');
-    if (userData.picture && userData.loginMethod === 'google') {
-        avatarElement.innerHTML = `<img src="${userData.picture}" alt="${userData.name}" style="width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">`;
-    } else {
-        avatarElement.textContent = initials;
-    }
+    if (avatarElement) avatarElement.textContent = initials;
 
-    document.getElementById('userName').textContent = userData.name || 'User';
+    const nameEl = document.getElementById('userName');
+    if (nameEl) nameEl.textContent = user.name || 'User';
 
-    const roleElement = document.getElementById('userRole');
-    roleElement.textContent = userData.role || 'Aviation Enthusiast';
+    const roleEl = document.getElementById('userRole');
+    if (roleEl) roleEl.textContent = user.role || 'Aviation Enthusiast';
 
     const headerLeft = document.querySelector('.header-left h1');
     if (headerLeft) {
-        const firstName = userData.name.split(' ')[0];
-        headerLeft.textContent = `Welcome back, ${firstName}!`;
+        headerLeft.textContent = `Welcome back, ${user.name.split(' ')[0]}!`;
     }
 }
 
 // ============================================
-// LOGOUT MODAL FUNCTIONS
+// LOGOUT MODAL & FUNCTIONS
 // ============================================
 function showLogoutModal() {
     const modal = document.getElementById('logoutModal');
-    modal.classList.add('show');
+    if (modal) modal.classList.add('show');
 }
 
 function closeLogoutModal() {
     const modal = document.getElementById('logoutModal');
-    modal.classList.remove('show');
+    if (modal) modal.classList.remove('show');
 }
 
-document.getElementById('logoutModal').addEventListener('click', function(e) {
-    if (e.target === this) closeLogoutModal();
-});
+const logoutModal = document.getElementById('logoutModal');
+if (logoutModal) {
+    logoutModal.addEventListener('click', function(e) {
+        if (e.target === this) closeLogoutModal();
+    });
+}
 
 function confirmLogout() {
     localStorage.removeItem('aerovision_token');
     localStorage.removeItem('aerovision_user');
-
-    document.body.style.opacity = '0';
-    document.body.style.transition = 'opacity 0.5s ease';
-
-    setTimeout(() => {
-        window.location.href = 'index.html';
-    }, 500);
+    window.location.href = 'index.html';
 }
 
 // ============================================
@@ -137,8 +146,77 @@ const notificationBell = document.querySelector('.notification-bell');
 if (notificationBell) {
     notificationBell.addEventListener('click', function() {
         this.style.animation = 'none';
-        setTimeout(() => {
-            this.style.animation = '';
-        }, 10);
+        setTimeout(() => { this.style.animation = ''; }, 10);
     });
 }
+
+// ============================================
+// SAVE AIRCRAFT FUNCTION
+// ============================================
+async function saveAircraftCard(aircraftData) {
+    const userData = localStorage.getItem('aerovision_user');
+    if (!userData) {
+        alert('Please log in to save aircraft.');
+        return;
+    }
+
+    const user = JSON.parse(userData);
+
+    try {
+        const res = await fetch('/api/users/save-aircraft', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                userId: user.id,
+                aircraft: aircraftData
+            })
+        });
+
+        if (res.ok) {
+            alert(`${aircraftData.name} saved to your dashboard!`);
+        } else {
+            alert('Failed to save aircraft.');
+        }
+    } catch (err) {
+        console.error(err);
+        alert('Error saving aircraft.');
+    }
+}
+
+// ============================================
+// ATTACH SAVE BUTTONS (SAFE)
+// ============================================
+function attachSaveButtons() {
+    document.querySelectorAll('.save-btn').forEach(button => {
+        button.addEventListener('click', e => {
+            e.stopPropagation();
+
+            const card = button.closest('.card-wrapper');
+            if (!card) return;
+
+            const aircraftData = {
+                name: card.querySelector('.card-title')?.textContent || '',
+                image: card.querySelector('img')?.src || '',
+                passengers: card.querySelector('.spec-item:nth-child(1) .spec-value')?.textContent || '',
+                cruiseSpeed: card.querySelector('.spec-item:nth-child(2) .spec-value')?.textContent || '',
+                wingspan: card.querySelector('.spec-item:nth-child(3) .spec-value')?.textContent || '',
+                fuselageWidth: card.querySelector('.spec-item:nth-child(4) .spec-value')?.textContent || '',
+                maxAltitude: card.querySelector('.spec-item:nth-child(5) .spec-value')?.textContent || '',
+                maxTakeoffWeight: card.querySelector('.spec-item:nth-child(6) .spec-value')?.textContent || '',
+                length: card.querySelector('.spec-item:nth-child(7) .spec-value')?.textContent || '',
+                range: card.querySelector('.spec-item:nth-child(8) .spec-value')?.textContent || '',
+                cabinWidth: card.querySelector('.spec-item:nth-child(9) .spec-value')?.textContent || ''
+            };
+
+            saveAircraftCard(aircraftData);
+        });
+    });
+}
+
+// ============================================
+// CARD FLIP HANDLER
+// ============================================
+document.addEventListener('click', e => {
+    const card = e.target.closest('.card-wrapper .card');
+    if (card) card.classList.toggle('flipped');
+});

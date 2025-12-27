@@ -67,6 +67,30 @@ router.post("/login", async (req, res) => {
     }
 });
 
+// =============================
+// SAVE aircraft to user dashboard
+// =============================
+router.post("/save-aircraft", async (req, res) => {
+    const { userId, aircraft } = req.body;
+
+    try {
+        const user = await User.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        user.savedAircraft.push(aircraft);
+        await user.save();
+
+        res.status(200).json({ message: "Aircraft saved successfully" });
+
+    } catch (error) {
+        console.error("Save aircraft error:", error);
+        res.status(500).json({ message: error.message });
+    }
+});
+
 // GET all users
 router.get("/", async (req, res) => {
     try {
