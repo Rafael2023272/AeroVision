@@ -119,10 +119,10 @@ function handleGoogleSignIn(response) {
             return;
         }
 
-        // ✅ STORE TOKEN
+        // STORE TOKEN
         localStorage.setItem('aerovision_token', data.token);
 
-        // ✅ STORE USER DATA
+        // STORE USER DATA
         localStorage.setItem('aerovision_user', JSON.stringify({
             email: data.user.email,
             name: data.user.name,
@@ -203,16 +203,18 @@ authForm.addEventListener('submit', async (e) => {
                 return;
             }
 
-            // ✅ STORE TOKEN
+            // STORE TOKEN
             localStorage.setItem('aerovision_token', data.token);
 
-            // ✅ STORE USER DATA
+            // STORE USER DATA
             localStorage.setItem('aerovision_user', JSON.stringify({
+                id: data.user._id,          
                 email: data.user.email,
                 name: data.user.name,
                 role: data.user.role,
                 loginMethod: 'email'
             }));
+
 
             fadeRedirect('adminpanel.html');
         }

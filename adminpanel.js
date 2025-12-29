@@ -163,7 +163,7 @@ async function saveAircraftCard(aircraftData) {
     const user = JSON.parse(userData);
 
     try {
-        const res = await fetch('/api/users/save-aircraft', {
+        const res = await fetch('http://localhost:4000/api/user/save-aircraft', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
