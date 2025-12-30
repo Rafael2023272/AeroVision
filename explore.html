@@ -10,8 +10,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Raleway+Dots&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
-    </head>
-    <body>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>    
+</head>
+
 <body>
         <!-- Navigation -->
         <nav>
@@ -25,10 +26,13 @@
                 </ul>
             </div>
 
-            <!-- AUTH ACTIONS: LOGIN / USER -->
+             <!-- AUTH ACTIONS: LOGIN / USER -->
             <div class="nav-actions">
                 <button id="login-button" class="btn btn-login" onclick="window.location.href='account.html'">Login</button>
-                <div id="user-profile" style="display:none;"></div>
+               <div id="user-profile" class="nav-user" style="display:none;">
+                <i class="fas fa-user-circle"></i>
+                <span id="nav-username"></span>
+                </div>
             </div>
 
             <!-- Hamburger menu -->
@@ -39,16 +43,14 @@
             </div>
         </nav>
 
-   <div class="hero-banner">
-    <h1 class="page-title">About AeroVision</h1>
-</div>
+  
 
  <!-- About Section - 50/50 Layout -->
     <section class="about-section">
         <div class="about-text">
             <div class="about-icon"></div>
             
-            <h2><b>Welcome to AeroVision — where passion for flight meets the power of innovation.</b></h2>
+            <h1><b>Welcome to AeroVision — where passion for flight meets the power of innovation.</b></h1>
             
             <p>Our mission is to bring the world of aviation closer to everyone, from curious learners to true aircraft enthusiasts.</p>
             
@@ -1432,30 +1434,23 @@
         </div>
     </div>
 
-    <section class="creator-section">
-  <div class="creator-container">
-    <div class="creator-text">
-      <h2>Creator Story</h2>
-      <p>
-        AeroVision began as a simple curiosity — a fascination with aircraft and the wonder of flight. 
-        What started as a personal hobby quickly grew into a platform dedicated to sharing the beauty, 
-        innovation, and excitement of aviation with others.
-      </p>
-      <p>
-        From exploring iconic aircraft models to discovering unique liveries and aviation milestones, 
-        AeroVision is a space where enthusiasts, learners, and dreamers can come together. 
-        Every plane tells a story, and our goal is to make those stories accessible and engaging for everyone.
-      </p>
-      <p>
-        Driven by passion and curiosity, AeroVision continues to grow — bringing the skies closer to you, 
-        one aircraft at a time.
-      </p>
-    </div>
+  <section class="liveries-section">
+  <h1>Famous Aircraft Liveries</h1>
+  <p>Spot the most iconic liveries from around the world</p>
 
-    <div class="creator-image">
-      <img src="Frontend/mee.jpg" alt="Creator Portrait">
-      <p class="creator-name"><em>Rafael Sicat Purisima</em></p>
-    </div>
+  <div class="liveries-carousel">
+    <div class="livery-card" data-full="images/livery1.jpg"><img src="Frontend/emirates1.jpg" alt="Airline 1"><div class="livery-overlay">Emirates Airbus A380 - "Dubai Expo"</div></div>
+    <div class="livery-card" data-full="images/livery2.jpg"><img src="Frontend/qatar2.jpg" alt="Airline 2"><div class="livery-overlay">Qatar Boieng 777 - "F1"</div></div>
+    <div class="livery-card" data-full="images/livery3.jpg"><img src="Frontend/ana3.jpg" alt="Airline 3"><div class="livery-overlay">ANA Boeing 787 - "Pokemon"</div></div>
+    <div class="livery-card" data-full="images/livery4.jpg"><img src="Frontend/newzealand4.jpg" alt="Airline 4"><div class="livery-overlay">Air New Zealand Boeing 787 - "Black"</div></div>
+    <div class="livery-card" data-full="images/livery5.jpg"><img src="Frontend/united5.jpg" alt="Airline 5"><div class="livery-overlay">United Airlines Boeing 737 - "Star Wars"</div></div>
+    <div class="livery-card" data-full="images/livery6.jpg"><img src="Frontend/icelandair6.jpeg" alt="Airline 6"><div class="livery-overlay">Icelandair  Boeing 757 - "Northern Lights"</div></div>
+    <div class="livery-card" data-full="images/livery7.jpg"><img src="Frontend/eveair7.jpeg" alt="Airline 7"><div class="livery-overlay">Eva Air  Boeing 787 - "Hello Kitty"</div></div>
+    <div class="livery-card" data-full="images/livery8.jpg"><img src="Frontend/westjet8.jpg" alt="Airline 8"><div class="livery-overlay">WestJet Boeing 737 - "Frozen"</div></div>
+    <div class="livery-card" data-full="images/livery5.jpg"><img src="Frontend/belguim9.jpg" alt="Airline 5"><div class="livery-overlay">Brussels Airlines Airbus A320 - "Best of Belgium"</div></div>
+    <div class="livery-card" data-full="images/livery6.jpg"><img src="Frontend/alaska10.jpg" alt="Airline 6"><div class="livery-overlay">Alaska Airlines Boeing 737 - "Toy Story"</div></div>
+    <div class="livery-card" data-full="images/livery7.jpg"><img src="Frontend/ana11.jpg" alt="Airline 7"><div class="livery-overlay">ANA Airbus A380 - "Ka La Orange turtle"</div></div>
+    <div class="livery-card" data-full="images/livery8.jpg"><img src="Frontend/lufthansa12.jpg" alt="Airline 8"><div class="livery-overlay">Lufthansa Boeing 787 - "100th anniversary"</div></div>
   </div>
 </section>
 

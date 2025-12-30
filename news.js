@@ -116,3 +116,23 @@ window.addEventListener('scroll', () => {
     
     // Run on page load
     checkLoginState();
+
+    document.addEventListener("DOMContentLoaded", () => {
+  const loginBtn = document.getElementById("login-button");
+  const userProfile = document.getElementById("user-profile");
+  const navUsername = document.getElementById("nav-username");
+
+  const fullName = localStorage.getItem("username");
+
+  if (fullName) {
+    const firstName = fullName.split(" ")[0];
+
+    navUsername.textContent = `Hi ${firstName}`;
+
+    loginBtn.style.display = "none";
+    userProfile.style.display = "flex";
+  } else {
+    loginBtn.style.display = "inline-block";
+    userProfile.style.display = "none";
+  }
+});

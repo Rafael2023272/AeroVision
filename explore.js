@@ -636,3 +636,23 @@ document.querySelectorAll('.save-btn').forEach(button => {
     });
 });
 
+const carousel = document.querySelector('.liveries-carousel');
+
+// Add auto-scroll only if not hovered
+let scrollSpeed = 0.2; // pixels per frame
+let animationFrame;
+
+function autoScroll() {
+    carousel.scrollLeft += scrollSpeed;
+    if (carousel.scrollLeft >= carousel.scrollWidth / 2) {
+        carousel.scrollLeft = 0; // loop
+    }
+    animationFrame = requestAnimationFrame(autoScroll);
+}
+
+carousel.addEventListener('mouseenter', () => cancelAnimationFrame(animationFrame));
+carousel.addEventListener('mouseleave', () => autoScroll());
+
+autoScroll(); // start auto-scroll
+
+

@@ -10,7 +10,7 @@
 
         }
 
-/* Navigation */
+        /* Navigation */
         nav {
             display: flex;
             align-items: center;
@@ -74,7 +74,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #ffffff;
+            color: #000000;
             font-weight: 400;
             position: relative;
             transition: color 0.3s ease;
@@ -107,46 +107,6 @@
             gap: 0.8rem;
         }
 
-        /* Search box */
-        .search-container {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 25px;
-            padding: 8px 12px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            min-width: 220px; /* compressed */
-            transition: all 0.3s ease;
-        }
-
-        .search-container:focus-within {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(96, 165, 250, 0.5);
-            box-shadow: 0 0 15px rgba(96, 165, 250, 0.3);
-        }
-
-        /* Search icon and input */
-        .search-icon {
-            width: 16px;
-            height: 16px;
-            color: #fff;
-            opacity: 0.6;
-        }
-
-        .search-input {
-            background: transparent;
-            border: none;
-            outline: none;
-            flex: 1;
-            color: #fff;
-            font-size: 13px;
-        }
-
-        .search-input::placeholder {
-            color: rgba(255, 255, 255, 0.6);
-        }
-
         /* Login button */
         .btn {
             padding: 0.5rem 1.2rem;
@@ -164,6 +124,49 @@
             box-shadow: 0 0 15px rgba(26, 84, 144, 0.5);
         }
 
+        /* USER PROFILE NAV ITEM */
+        #user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            position: relative;
+            font-weight: 400;        
+            color: #000000;           
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        #user-profile:hover {
+            color: #b3e0ff;
+        }
+
+        #user-profile::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1a5490;
+            transition: width 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #user-profile:hover::after {
+            width: 100%;
+            box-shadow: 0 0 10px #1a5490;
+        }
+
+        #user-profile i {
+            font-size: 18px;         
+            line-height: 1;
+            color: #000000;
+        }
+
+        #user-profile .nav-user-name {
+            color: inherit;            
+            font-weight: inherit;    
+        }
 
         .hamburger {
             display: none;
@@ -198,41 +201,6 @@
             transform: rotate(-45deg) translate(7px, -7px);
         }
         
-
-        /* Hero Banner Below Navbar */
-       .hero-banner {
-            height: 40vh;
-            background-image: url("Frontend/image_welcome.png");
-            background-size: cover;
-            background-position: center;
-            position: relative;
-            opacity: 0.9;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .hero-banner::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.5);
-        }
-
-       .page-title {
-            color: white;
-            font-size: 5rem;
-            font-weight: bold;
-            text-align: center;
-            text-shadow: 2px 2px 6px rgba(0,0,0,0.7);
-            position: relative; /* stays above hero bg */
-            z-index: 2;
-        }
-                
-
       /* About Section - 50/50 Split */
         .about-section {
             min-height: 80vh;
@@ -897,7 +865,6 @@
             grid-template-columns: repeat(5, 1fr);
             gap: 5px;
             margin-bottom: 40px;
-            background: url("Frontend/airportBG.jpg") no-repeat center center/cover;
             background-position: center;
             background-attachment: fixed;
             opacity: 90% ;
@@ -1280,65 +1247,94 @@
             }
         }
 
-        .creator-section {
-            background: #fff;
-            padding: 80px 10%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            }
+/* Section styling */
+.liveries-section {
+    margin: 2rem auto;
+    padding: 0 3%;
+}
 
-        .creator-container {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            justify-content: space-between;
-            gap: 50px;
-            max-width: 1200px;
-            }
+.liveries-section h1 {
+    text-align: center;
+    color: black;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+}
 
-        .creator-text {
-            flex: 1 1 550px;
-            }
+.liveries-section p {
+    text-align: center;
+    color: #333;
+    margin-bottom: 2rem;
+}
 
-        .creator-text h2 {
-            font-size: 2em;
-            font-weight: 700;
-            color: #000;
-            margin-bottom: 20px;
-            }
+/* Grid layout for cards */
+.liveries-carousel {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 1.5rem;
+}
 
-        .creator-text p {
-            font-size: 1.1em;
-            line-height: 1.7;
-            color: #333;
-            margin-bottom: 18px;
-            }
+/* Livery cards */
+.livery-card {
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
 
-        .creator-image {
-            flex: 1 1 300px;
-            text-align: center;
-            }
+.livery-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
+}
 
-        .creator-image img {
-            width: 100%;
-            max-width: 320px;
-            border-radius: 15px;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
-            transition: transform 0.4s ease, box-shadow 0.4s ease;
-            }
+/* Hover effect: subtle shadow and lift */
+.livery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
 
-        .creator-image img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.35);
-            }
+/* Overlay text */
+.livery-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.9);
+    color: black;
+    padding: 0.5rem 0;
+    text-align: center;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: background 0.3s ease;
+}
 
-        .creator-name {
-            margin-top: 10px;
-            font-style: italic;
-            color: #444;
-            font-size: 0.95em;
-            }
+.livery-card:hover .livery-overlay {
+    background: rgba(255, 255, 255, 1); /* subtle change on hover */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1200px) {
+    .liveries-carousel {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+@media (max-width: 900px) {
+    .liveries-carousel {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 600px) {
+    .liveries-carousel {
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+
 
         /* Footer */
         .footer {

@@ -271,3 +271,4 @@ if (document.readyState === 'loading') {
 window.addEventListener('beforeunload', () => {
   if (state.updateInterval) clearInterval(state.updateInterval);
 });
+

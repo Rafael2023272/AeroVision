@@ -20,16 +20,17 @@ function checkLoginState() {
             return;
         }
 
-        loginButton.style.display = 'none';
+        const firstName = user.name.split(" ")[0];
 
+        loginButton.style.display = 'none';
         userProfile.style.display = 'flex';
+
         userProfile.innerHTML = `
-            <div class="nav-user-avatar">
-                ${getInitials(user.name)}
-            </div>
-            <span class="nav-user-name">${user.name}</span>
+            <i class="fas fa-user-circle"></i>
+            <span class="nav-user-name">Hi ${firstName}</span>
         `;
 
+        // Click profile → admin panel
         userProfile.onclick = () => {
             window.location.href = 'adminpanel.html';
         };
@@ -42,19 +43,10 @@ function checkLoginState() {
     }
 }
 
-function getInitials(name) {
-    if (!name) return 'U';
-    const parts = name.trim().split(' ');
-    return parts.length === 1
-        ? parts[0].substring(0, 2).toUpperCase()
-        : (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
-}
-
-
-
 // ============================================
 // RUN ONLY ON NON-ADMIN PAGES
 // ============================================
 document.addEventListener('DOMContentLoaded', () => {
     checkLoginState();
 });
+

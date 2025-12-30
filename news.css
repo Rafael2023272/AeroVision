@@ -112,46 +112,7 @@
             gap: 0.8rem;
         }
 
-        /* Search box */
-        .search-container {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(34, 34, 34, 0.4);
-            border-radius: 25px;
-            padding: 8px 12px;
-            display: flex;
-            align-items: center;
-            gap: 6px;
-            min-width: 220px; /* compressed */
-            transition: all 0.3s ease;
-        }
-
-        .search-container:focus-within {
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(96, 165, 250, 0.5);
-            box-shadow: 0 0 15px rgba(96, 165, 250, 0.3);
-        }
-
-        /* Search icon and input */
-        .search-icon {
-            width: 16px;
-            height: 16px;
-            color: #1d1d1d;
-            opacity: 0.6;
-        }
-
-        .search-input {
-            background: transparent;
-            border: none;
-            outline: none;
-            flex: 1;
-            color: #131313;
-            font-size: 13px;
-        }
-
-        .search-input::placeholder {
-            color: rgba(26, 26, 26, 0.6);
-        }
-
+        
         /* Login button */
         .btn {
             padding: 0.5rem 1.2rem;
@@ -167,6 +128,50 @@
         .btn:hover {
             transform: scale(1.05);
             box-shadow: 0 0 15px rgba(26, 84, 144, 0.5);
+        }
+
+        /* USER PROFILE NAV ITEM */
+        #user-profile {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            position: relative;
+            font-weight: 400;        
+            color: #000000;           
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        #user-profile:hover {
+            color: #b3e0ff;
+        }
+
+        #user-profile::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #1a5490;
+            transition: width 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #user-profile:hover::after {
+            width: 100%;
+            box-shadow: 0 0 10px #1a5490;
+        }
+
+        #user-profile i {
+            font-size: 18px;         
+            line-height: 1;
+            color: #000000;
+        }
+
+        #user-profile .nav-user-name {
+            color: inherit;            
+            font-weight: inherit;    
         }
 
         .hamburger {

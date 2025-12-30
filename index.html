@@ -10,7 +10,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Raleway+Dots&family=Sansation:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" rel="stylesheet">
-    </head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+</head>
     <body>
     <!-- Navigation -->
         <nav>
@@ -27,7 +30,10 @@
             <!-- AUTH ACTIONS: LOGIN / USER -->
             <div class="nav-actions">
                 <button id="login-button" class="btn btn-login" onclick="window.location.href='account.html'">Login</button>
-                <div id="user-profile" style="display:none;"></div>
+               <div id="user-profile" class="nav-user" style="display:none;">
+                <i class="fas fa-user-circle"></i>
+                <span id="nav-username"></span>
+                </div>
             </div>
 
             <!-- Hamburger menu -->
