@@ -80,6 +80,11 @@ router.post("/save-aircraft", async (req, res) => {
             return res.status(404).json({ message: "User not found" });
         }
 
+        // SAFETY INITIALIZATION 
+        if (!user.savedAircraft) {
+            user.savedAircraft = [];
+        }
+
         user.savedAircraft.push(aircraft);
         await user.save();
 
@@ -90,6 +95,73 @@ router.post("/save-aircraft", async (req, res) => {
         res.status(500).json({ message: error.message });
     }
 });
+
+// =============================
+// UPDATE saved aircraft by index
+// =============================
+router.patch("/:id/update-aircraft", async (req, res) => {
+    const { index, aircraft } = req.body;
+
+    try {
+        const user = await User.findById(req.params.id);
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        if (!user.savedAircraft || user.savedAircraft.length === 0) {
+            return res.status(400).json({ message: "No saved aircraft to update" });
+        }
+
+        if (index < 0 || index >= user.savedAircraft.length) {
+            return res.status(400).json({ message: "Invalid aircraft index" });
+        }
+
+        // Update the aircraft at the specified index
+        user.savedAircraft[index] = aircraft;
+        await user.save();
+
+        res.status(200).json({ 
+            message: "Aircraft updated successfully",
+            savedAircraft: user.savedAircraft 
+        });
+
+    } catch (error) {
+        console.error("Update aircraft error:", error);
+        res.status(500).json({ message: error.message });
+    }
+});
+
+// =============================
+// REMOVE saved aircraft by index
+// =============================
+router.patch("/:id/remove-aircraft", async (req, res) => {
+    const { index } = req.body; // index of aircraft to remove
+
+    try {
+        const user = await User.findById(req.params.id);
+        if (!user) return res.status(404).json({ message: "User not found" });
+
+        if (!user.savedAircraft || user.savedAircraft.length === 0) {
+            return res.status(400).json({ message: "No saved aircraft to remove" });
+        }
+
+        if (index < 0 || index >= user.savedAircraft.length) {
+            return res.status(400).json({ message: "Invalid index" });
+        }
+
+        // Remove aircraft
+        user.savedAircraft.splice(index, 1);
+        await user.save();
+
+        res.status(200).json({ message: "Aircraft removed successfully" });
+
+    } catch (error) {
+        console.error("Remove aircraft error:", error);
+        res.status(500).json({ message: error.message });
+    }
+});
+
+
 
 // GET all users
 router.get("/", async (req, res) => {

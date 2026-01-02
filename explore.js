@@ -580,7 +580,6 @@ document.addEventListener("DOMContentLoaded", function () {
 // SAVE AIRCRAFT FUNCTION
 // ===============================
 async function saveAircraftCard(aircraftData) {
-    // Get logged-in user
     const userData = localStorage.getItem('aerovision_user');
     if (!userData) {
         alert('Please log in to save aircraft.');
@@ -591,7 +590,7 @@ async function saveAircraftCard(aircraftData) {
     const userId = user.id;
 
     try {
-        const res = await fetch('/api/users/save-aircraft', {
+        const res = await fetch('http://localhost:4000/api/users/save-aircraft', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ userId, aircraft: aircraftData })
@@ -600,6 +599,8 @@ async function saveAircraftCard(aircraftData) {
         if (res.ok) {
             alert(`${aircraftData.name} saved to your dashboard!`);
         } else {
+            const text = await res.text();
+            console.error(text);
             alert('Failed to save aircraft. Try again.');
         }
     } catch (err) {

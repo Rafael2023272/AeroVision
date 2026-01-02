@@ -327,7 +327,183 @@
             font-size: 14px;
         }
 
-        
+        /* ============================================
+   SAVED AIRCRAFT CARDS STYLING
+   ============================================ */
+
+.saved-aircraft-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.saved-aircraft-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.saved-aircraft-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
+}
+
+.saved-aircraft-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 20px;
+}
+
+.saved-aircraft-card h4 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #2c3e50;
+}
+
+.specs-grid {
+    display: grid;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.specs-grid p {
+    font-size: 14px;
+    color: #555;
+    margin: 0;
+}
+
+.specs-grid strong {
+    color: #2c3e50;
+}
+
+.card-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.edit-aircraft-btn,
+.delete-aircraft-btn {
+    flex: 1;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.edit-aircraft-btn {
+    background: #3498db;
+    color: white;
+}
+
+.edit-aircraft-btn:hover {
+    background: #2980b9;
+    transform: scale(1.05);
+}
+
+.delete-aircraft-btn {
+    background: #e74c3c;
+    color: white;
+}
+
+.delete-aircraft-btn:hover {
+    background: #c0392b;
+    transform: scale(1.05);
+}
+
+/* ============================================
+   EDIT MODAL STYLING
+   ============================================ */
+
+#editAircraftModal .logout-modal-content {
+    max-width: 650px;
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
+#editAircraftModal label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 600;
+    color: #2c3e50;
+    font-size: 14px;
+}
+
+#editAircraftModal input {
+    width: 100%;
+    padding: 10px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+#editAircraftModal input:focus {
+    outline: none;
+    border-color: #3498db;
+}
+
+/* ============================================
+   EMPTY STATE STYLING
+   ============================================ */
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: #95a5a6;
+}
+
+.empty-state p:first-child {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #7f8c8d;
+}
+
+.empty-state p:last-child {
+    font-size: 16px;
+    color: #95a5a6;
+}
+
+/* ============================================
+   RESPONSIVE DESIGN
+   ============================================ */
+
+@media (max-width: 768px) {
+    .saved-aircraft-container {
+        grid-template-columns: 1fr;
+        padding: 15px;
+    }
+
+    .card-actions {
+        flex-direction: column;
+    }
+
+    .edit-aircraft-btn,
+    .delete-aircraft-btn {
+        width: 100%;
+    }
+
+    #editAircraftModal .logout-modal-content {
+        margin: 20px;
+        max-height: 85vh;
+    }
+}
 
         @media (max-width: 1024px) {
             .dashboard-grid {

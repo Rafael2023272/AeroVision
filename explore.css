@@ -817,6 +817,7 @@
         .flip-hint {
             position: absolute;
             bottom: 10px;
+            margin-top: 2%;
             left: 50%;
             transform: translateX(-50%);
             background: transparent;
@@ -870,6 +871,24 @@
             background-attachment: fixed;
             opacity: 90% ;
         }
+
+        .learn-more {
+            margin-top: 1rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #1b1b1b;
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.2s ease;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+        }
+
+        .airport-card:hover .learn-more {
+            color: #000000;
+            transform: translateX(4px);
+}
+
 
         .airport-card {
             background: rgba(255, 255, 255, 0.15);
