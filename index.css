@@ -11,7 +11,7 @@
 
         body.fade-out {
             opacity: 0;
-            transition: opacity 0.6s ease; /* adjust speed here */
+            transition: opacity 0.6s ease; 
         }
         
         /* Navigation */
@@ -24,12 +24,12 @@
             top: 1rem;
             left: 50%;
             transform: translateX(-50%);
-            width: 80%; /* You can change to 70% if you want it tighter */
+            width: 80%; 
             border-radius: 50px;
             backdrop-filter: blur(10px);
             z-index: 1000;
             transition: all 0.4s ease;
-            background: transparent; /* No background on first visit */
+            background: transparent; 
         }
 
         /* Only show background when scrolled */
@@ -104,7 +104,7 @@
             box-shadow: 0 0 10px #1a5490;
         }
 
-        /* Nav right (search + login) */
+        /* Nav right (login) */
         .nav-right {
             display: flex;
             align-items: center;
@@ -320,8 +320,8 @@
                 display: grid;
                 grid-template-columns: 1fr 1fr; /* Left = text, Right = image */
                 align-items: stretch;
-                padding: 0; /* remove all section padding */
-                margin: 0; /* remove outer margin */
+                padding: 0;
+                margin: 0; 
                 background: linear-gradient(135deg, #f5f7fa 0%, #e8eef5 100%);
                 position: relative;
                 min-height: 80vh; /* section fills the viewport height */
@@ -376,8 +376,8 @@
             width: 100%;
             height: 100%;
             background-image: url("Frontend/image_welcome.png");
-            background-size: cover; /* fills fully, no empty space */
-            background-position: center right; /* anchored to right side */
+            background-size: cover; 
+            background-position: center right; 
             background-attachment: fixed;
             animation: fadeInRight 1s ease-out;
             transition: transform 0.5s ease, box-shadow 0.5s ease;
@@ -1278,9 +1278,9 @@
         /* Footer */
         .footer {
              background: linear-gradient(
-                to bottom,       /* direction */
-                 rgba(0, 0, 0, 1) 0%,   /* black at top */
-                 #080B24 100%           /* dark blue at bottom */
+                to bottom,       
+                 rgba(0, 0, 0, 1) 0%,   
+                 #080B24 100%          
             );
             color: #fff;
             padding: 20px 0;
@@ -1575,7 +1575,7 @@
 
         .welcome-text {
             margin-left: 5%;
-            margin-right: 5%; /* 🔥 margin added */
+            margin-right: 5%; /* margin added */
         }
 
         .welcome-text h2 {

@@ -104,7 +104,7 @@ function handleGoogleSignIn(response) {
     const originalText = submitBtn.textContent;
     submitBtn.textContent = '';
 
-    fetch('http://localhost:4000/api/user/google-auth', {
+    fetch('http://localhost:4000/api/users/google-auth', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ token: idToken })
@@ -161,7 +161,7 @@ authForm.addEventListener('submit', async (e) => {
                 return;
             }
 
-            const response = await fetch('http://localhost:4000/api/user/register', {
+            const response = await fetch('http://localhost:4000/api/users/register', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -186,7 +186,7 @@ authForm.addEventListener('submit', async (e) => {
 
         } else {
             // ===== LOGIN =====
-            const response = await fetch('http://localhost:4000/api/user/login', {
+            const response = await fetch('http://localhost:4000/api/users/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -208,7 +208,7 @@ authForm.addEventListener('submit', async (e) => {
 
             // STORE USER DATA
             localStorage.setItem('aerovision_user', JSON.stringify({
-                id: data.user._id,          
+                id: data.user.id,          
                 email: data.user.email,
                 name: data.user.name,
                 role: data.user.role,

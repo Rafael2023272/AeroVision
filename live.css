@@ -8,8 +8,6 @@
             font-family: 'Sansation';
             overflow-x: hidden;
             background: #030712;
-            position: relative;
-            z-index: -2;
         }
 
         body.fade-out {
@@ -18,7 +16,7 @@
         }
 
           
-        /* Navigation */
+       /* Navigation */
         nav {
             display: flex;
             align-items: center;
@@ -33,7 +31,7 @@
             backdrop-filter: blur(10px);
             z-index: 1000;
             transition: all 0.4s ease;
-            background: transparent; 
+            background: transparent; /* No background on first visit */
         }
 
         /* Only show background when scrolled */
@@ -132,13 +130,6 @@
             box-shadow: 0 0 15px rgba(26, 84, 144, 0.5);
         }
 
-        .nav-actions {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem; /* spacing between login button / profile */
-        }
-
-
         /* USER PROFILE NAV ITEM */
         #user-profile {
             display: flex;
@@ -182,6 +173,40 @@
             color: inherit;            
             font-weight: inherit;    
         }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        .hamburger span {
+            width: 25px;
+            height: 3px;
+            background: #ffffff;
+            transition: 0.3s;
+            border-radius: 3px;
+        }
+
+        nav.scrolled .hamburger span {
+            background: white;
+        }
+
+        /* Hamburger animation when active */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        
 
         
         :root {

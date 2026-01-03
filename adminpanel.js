@@ -162,23 +162,41 @@ async function saveAircraftCard(aircraftData) {
     }
 
     const user = JSON.parse(userData);
+    const userId = user.id || user._id; // Handle both id and _id
+    
+    console.log('User data:', user);
+    console.log('User ID:', userId);
+    console.log('Aircraft data:', aircraftData);
+
+    if (!userId) {
+        alert('User ID not found. Please log in again.');
+        return;
+    }
 
     try {
         const res = await fetch('http://localhost:4000/api/users/save-aircraft', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
-                userId: user.id,
+                userId: userId,
                 aircraft: aircraftData
             })
         });
 
+        console.log('Response status:', res.status);
+        console.log('Response ok:', res.ok);
+
         if (res.ok) {
             alert(`${aircraftData.name} saved to your dashboard!`);
+            // Reload saved aircraft if on admin page
+            if (window.location.pathname.includes('admin')) {
+                loadSavedAircraft();
+            }
         } else {
             const text = await res.text();
-            console.error('Save aircraft failed:', text);
-            alert('Failed to save aircraft. Try again.');
+            console.error('Save aircraft failed - Status:', res.status);
+            console.error('Save aircraft failed - Response:', text);
+            alert(`Failed to save aircraft. Error: ${text}`);
         }
     } catch (err) {
         console.error('Error saving aircraft:', err);
@@ -192,7 +210,8 @@ async function saveAircraftCard(aircraftData) {
 function attachSaveButtons() {
     document.querySelectorAll('.save-btn').forEach(button => {
         button.addEventListener('click', e => {
-            e.stopPropagation();
+            e.stopPropagation(); // Prevent card flip
+            e.preventDefault(); // Prevent default action
 
             const card = button.closest('.card-wrapper');
             if (!card) return;
@@ -211,6 +230,7 @@ function attachSaveButtons() {
                 cabinWidth: card.querySelector('.spec-item:nth-child(9) .spec-value')?.textContent || ''
             };
 
+            console.log('Saving aircraft:', aircraftData); // Debug log
             saveAircraftCard(aircraftData);
         });
     });
@@ -462,6 +482,14 @@ async function deleteSavedAircraft(index) {
 // CARD FLIP HANDLER
 // ============================================
 document.addEventListener('click', e => {
+    // Don't flip if clicking save button or inside edit modal
+    if (e.target.closest('.save-btn') || e.target.closest('#editAircraftModal')) {
+        return;
+    }
+    
+    // Find the card and flip it
     const card = e.target.closest('.card-wrapper .card');
-    if (card) card.classList.toggle('flipped');
+    if (card) {
+        card.classList.toggle('flipped');
+    }
 });
