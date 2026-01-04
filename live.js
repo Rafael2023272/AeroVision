@@ -52,11 +52,56 @@ function createPlaneIcon(heading = 0, speed = 0) {
 }
 
 function formatSpeed(speedMs) {
-  if (!speedMs) return 'N/A';
-  const speedKmh = (speedMs * 3.6).toFixed(0);
-  const speedKnots = (speedMs * 1.94384).toFixed(0);
-  return `${speedMs.toFixed(0)} m/s (${speedKmh} km/h, ${speedKnots} kts)`;
+  if (speedMs == null) return 'N/A';
+  return `${(speedMs * 3.6).toFixed(0)} km/h`;
 }
+
+function getAirlineName(callsign) {
+  if (!callsign) return "Unknown Airline";
+
+  const clean = callsign.trim().toUpperCase();
+
+  // Check 3-letter ICAO first, then 2-letter IATA
+  for (const prefix of Object.keys(airlineMap)) {
+    if (clean.startsWith(prefix)) {
+      return airlineMap[prefix];
+    }
+  }
+
+  return "Unknown Airline";
+}
+
+function getAirlineName(callsign) {
+  if (!callsign) return "Unknown Airline";
+
+  const clean = callsign.trim().toUpperCase();
+
+  const airlineMap = {
+    EK: "Emirates",
+    QR: "Qatar Airways",
+    QTR: "Qatar Airways",
+    BA: "British Airways",
+    BAW: "British Airways",
+    EY: "Etihad Airways",
+    ETD: "Etihad Airways",
+    LH: "Lufthansa",
+    DL: "Delta Air Lines",
+    AA: "American Airlines",
+    UA: "United Airlines",
+    AF: "Air France",
+    KLM: "KLM Royal Dutch Airlines",
+  };
+
+  for (const prefix in airlineMap) {
+    if (clean.startsWith(prefix)) {
+      return airlineMap[prefix];
+    }
+  }
+
+  return "Unknown Airline";
+}
+
+
 
 function formatAltitude(altitudeM) {
   if (!altitudeM) return 'N/A';
@@ -65,12 +110,17 @@ function formatAltitude(altitudeM) {
 }
 
 function createPopupContent(aircraft) {
+  const airlineName = getAirlineName(aircraft.callsign);
+  const flightNumber = aircraft.callsign?.trim() || "N/A";
+
   return `
     <div class="popup-content">
       <div class="popup-header">
-        <span class="popup-icon">✈️</span>
-        <span class="popup-callsign">${aircraft.callsign}</span>
+        <span class="popup-callsign">
+          ${airlineName} • ${flightNumber}
+        </span>
       </div>
+
       <div class="popup-details">
         <div class="popup-row">
           <span class="popup-label">Altitude</span>
@@ -85,13 +135,14 @@ function createPopupContent(aircraft) {
           <span class="popup-value">${aircraft.heading.toFixed(0)}°</span>
         </div>
         <div class="popup-row">
-          <span class="popup-label">Origin Country</span>
+          <span class="popup-label">Origin</span>
           <span class="popup-value">${aircraft.country}</span>
         </div>
       </div>
     </div>
   `;
 }
+
 
 // DATA FETCHING & RENDERING
 async function loadAircraftData() {
