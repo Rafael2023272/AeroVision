@@ -527,3 +527,282 @@
     .loading-indicator.active {
       opacity: 1;
     }
+
+    /* ==============================================
+   RESPONSIVE BURGER MENU - CLEAN START
+   ============================================== */
+
+/* Tablets: 720px - 1024px */
+@media (max-width: 1024px) and (min-width: 720px) {
+    nav {
+        width: 85%;
+        padding: 1rem 4%;
+    }
+
+    /* Show hamburger */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Hide desktop nav actions */
+    .nav-actions {
+        display: none;
+    }
+
+    /* Burger menu slide-in */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 60%;
+        height: 100vh;
+        background: rgba(10, 15, 30, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 5rem 2rem 2rem;
+        gap: 2rem;
+        transition: right 0.4s ease;
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    /* Show menu when active */
+    .nav-links.active {
+        right: 0 !important;
+    }
+
+    /* Animate links */
+    .nav-links li {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    .nav-links.active li {
+        animation: fadeInSlide 0.5s forwards;
+    }
+
+    .nav-links.active li:nth-child(1) { animation-delay: 0.1s; }
+    .nav-links.active li:nth-child(2) { animation-delay: 0.2s; }
+    .nav-links.active li:nth-child(3) { animation-delay: 0.3s; }
+    .nav-links.active li:nth-child(4) { animation-delay: 0.4s; }
+    .nav-links.active li:nth-child(5) { animation-delay: 0.5s; }
+
+    @keyframes fadeInSlide {
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    .nav-links a {
+        font-size: 1.2rem;
+        display: block;
+        padding: 0.5rem 0;
+    }
+
+    /* Auth section in mobile menu */
+    .nav-links .mobile-auth {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links .mobile-auth .btn {
+        width: 100%;
+        padding: 0.8rem 1.5rem;
+        font-size: 1.1rem;
+    }
+
+    .nav-links .mobile-auth #user-profile {
+        padding: 0.8rem 0;
+        font-size: 1.1rem;
+    }
+
+    .logo {
+        font-size: 1.5rem;
+    }
+}
+
+/* Small Tablets/Large Phones: 520px - 720px */
+@media (max-width: 720px) and (min-width: 520px) {
+    nav {
+        width: 90%;
+        padding: 1rem 4%;
+    }
+
+    /* Show hamburger */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Hide desktop nav actions */
+    .nav-actions {
+        display: none;
+    }
+
+    /* Burger menu slide-in */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: rgba(10, 15, 30, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 5rem 2rem 2rem;
+        gap: 2rem;
+        transition: right 0.4s ease;
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    /* Show menu when active */
+    .nav-links.active {
+        right: 0 !important;
+    }
+
+    /* Animate links */
+    .nav-links li {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    .nav-links.active li {
+        animation: fadeInSlide 0.5s forwards;
+    }
+
+    .nav-links.active li:nth-child(1) { animation-delay: 0.1s; }
+    .nav-links.active li:nth-child(2) { animation-delay: 0.2s; }
+    .nav-links.active li:nth-child(3) { animation-delay: 0.3s; }
+    .nav-links.active li:nth-child(4) { animation-delay: 0.4s; }
+    .nav-links.active li:nth-child(5) { animation-delay: 0.5s; }
+
+    .nav-links a {
+        font-size: 1.2rem;
+        display: block;
+        padding: 0.5rem 0;
+    }
+
+    /* Auth section in mobile menu */
+    .nav-links .mobile-auth {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links .mobile-auth .btn {
+        width: 100%;
+        padding: 0.8rem 1.5rem;
+        font-size: 1.1rem;
+    }
+
+    .nav-links .mobile-auth #user-profile {
+        padding: 0.8rem 0;
+        font-size: 1.1rem;
+    }
+
+    .logo {
+        font-size: 1.3rem;
+    }
+}
+
+/* Small Phones: 375px - 520px */
+@media (max-width: 520px) and (min-width: 375px) {
+    nav {
+        width: 95%;
+        padding: 0.8rem 3%;
+    }
+
+    /* Show hamburger */
+    .hamburger {
+        display: flex;
+    }
+
+    /* Hide desktop nav actions */
+    .nav-actions {
+        display: none;
+    }
+
+    /* Burger menu slide-in */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background: rgba(10, 15, 30, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 5rem 1.5rem 2rem;
+        gap: 1.5rem;
+        transition: right 0.4s ease;
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    /* Show menu when active */
+    .nav-links.active {
+        right: 0 !important;
+    }
+
+    /* Animate links */
+    .nav-links li {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    .nav-links.active li {
+        animation: fadeInSlide 0.5s forwards;
+    }
+
+    .nav-links.active li:nth-child(1) { animation-delay: 0.1s; }
+    .nav-links.active li:nth-child(2) { animation-delay: 0.2s; }
+    .nav-links.active li:nth-child(3) { animation-delay: 0.3s; }
+    .nav-links.active li:nth-child(4) { animation-delay: 0.4s; }
+    .nav-links.active li:nth-child(5) { animation-delay: 0.5s; }
+
+    .nav-links a {
+        font-size: 1.1rem;
+        display: block;
+        padding: 0.5rem 0;
+    }
+
+    /* Auth section in mobile menu */
+    .nav-links .mobile-auth {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .nav-links .mobile-auth .btn {
+        width: 100%;
+        padding: 0.7rem 1.2rem;
+        font-size: 1rem;
+    }
+
+    .nav-links .mobile-auth #user-profile {
+        padding: 0.7rem 0;
+        font-size: 1rem;
+    }
+
+    .logo {
+        font-size: 1.2rem;
+    }
+
+    /* Hide username text on small screens */
+    #user-profile .nav-user-name {
+        display: none;
+    }
+}
+
+/* Animation keyframes */
+@keyframes fadeInSlide {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

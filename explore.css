@@ -74,7 +74,7 @@
 
         .nav-links a {
             text-decoration: none;
-            color: #000000;
+            color: #ffffff;
             font-weight: 400;
             position: relative;
             transition: color 0.3s ease;
@@ -206,6 +206,7 @@
             min-height: 80vh;
             display: flex;
             align-items: stretch;
+            background: rgb(0, 0, 0);
         }
 
         .about-text {
@@ -215,7 +216,7 @@
             margin-top: 5%;
             flex-direction: column;
             justify-content: center;
-            background: white;
+            background: rgba(0, 0, 0, 0.555);
             animation: slideInLeft 1s ease-out;
         }
 
@@ -230,11 +231,12 @@
             }
         }
 
-        .about-icon {
+        .about-text h1{
             display: inline-block;
             font-size: 36px;
             margin-bottom: 20px;
             animation: float 3s ease-in-out infinite;
+            color: #ffffff;
         }
 
         @keyframes float {
@@ -249,13 +251,13 @@
         .about-text p {
             font-size: 18px;
             line-height: 1.8;
-            color: #333;
+            color: #ffffff;
             margin-bottom: 20px;
         }
 
         .about-text p:last-of-type {
             font-style: italic;
-            color: #555;
+            color: #ffffff;
             border-left: 4px solid #0066cc;
             padding-left: 20px;
             margin-top: 30px;
@@ -1531,210 +1533,283 @@
             }
         }
 
+        /* ==============================================
+   RESPONSIVE BURGER MENU - CLEAN START
+   ============================================== */
 
-        @media (max-width: 520px) and (min-width: 375px) {
+/* Tablets: 720px - 1024px */
+@media (max-width: 1024px) and (min-width: 720px) {
+    nav {
+        width: 85%;
+        padding: 1rem 4%;
+    }
 
-            /* NAVIGATION */
-        nav {
-            width: 92%;
-            padding: 0.9rem 1.2rem;
-        }
+    /* Show hamburger */
+    .hamburger {
+        display: flex;
+    }
 
-        .nav-links,
-        .search-container {
-            display: none;
-        }
+    /* Hide desktop nav actions */
+    .nav-actions {
+        display: none;
+    }
 
-        .hamburger {
-            display: flex;
-        }
+    /* Burger menu slide-in */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 60%;
+        height: 100vh;
+        background: rgba(10, 15, 30, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 5rem 2rem 2rem;
+        gap: 2rem;
+        transition: right 0.4s ease;
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
 
-            /* HERO BANNER */
-        .hero-banner {
-            height: 25vh;
-        }
+    /* Show menu when active */
+    .nav-links.active {
+        right: 0 !important;
+    }
 
-        .page-title {
-            font-size: 2.2rem;
-        }
+    /* Animate links */
+    .nav-links li {
+        opacity: 0;
+        transform: translateX(20px);
+    }
 
-            /* ABOUT SECTION */
-        .about-section {
-            flex-direction: column;
-            min-height: auto;
-        }
+    .nav-links.active li {
+        animation: fadeInSlide 0.5s forwards;
+    }
 
-        .about-text,
-        .about-image {
-            width: 100%;
-        }
+    .nav-links.active li:nth-child(1) { animation-delay: 0.1s; }
+    .nav-links.active li:nth-child(2) { animation-delay: 0.2s; }
+    .nav-links.active li:nth-child(3) { animation-delay: 0.3s; }
+    .nav-links.active li:nth-child(4) { animation-delay: 0.4s; }
+    .nav-links.active li:nth-child(5) { animation-delay: 0.5s; }
 
-        .about-text {
-            padding: 40px 25px;
+    @keyframes fadeInSlide {
+        to {
+            opacity: 1;
+            transform: translateX(0);
         }
+    }
 
-        .about-text p {
-            font-size: 15px;
-            line-height: 1.6;
-        }
+    .nav-links a {
+        font-size: 1.2rem;
+        display: block;
+        padding: 0.5rem 0;
+    }
 
-            /* PARALLAX AIRCRAFT SECTION */
-        .aircraft-container {
-            width: 95%;
-            height: 40vh;
-        }
+    /* Auth section in mobile menu */
+    .nav-links .mobile-auth {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-        .featured-header h2 {
-            font-size: 2rem;
-        }
+    .nav-links .mobile-auth .btn {
+        width: 100%;
+        padding: 0.8rem 1.5rem;
+        font-size: 1.1rem;
+    }
 
-        .title-section h1 {
-            font-size: 2.4rem;
-        }
+    .nav-links .mobile-auth #user-profile {
+        padding: 0.8rem 0;
+        font-size: 1.1rem;
+    }
 
-        .description-section p {
-            font-size: 0.85rem;
-        }
+    .logo {
+        font-size: 1.5rem;
+    }
+}
 
-        .nav-arrow {
-            width: 45px;
-            height: 45px;
-        }
+/* Small Tablets/Large Phones: 520px - 720px */
+@media (max-width: 720px) and (min-width: 520px) {
+    nav {
+        width: 90%;
+        padding: 1rem 4%;
+    }
 
-            /* FLIP CARDS */
-        .card-container {
-            grid-template-columns: 1fr;
-            margin-left: 0;
-            padding: 20px;
-        }
+    /* Show hamburger */
+    .hamburger {
+        display: flex;
+    }
 
-        .card-wrapper {
-            height: 700px;
-        }
+    /* Hide desktop nav actions */
+    .nav-actions {
+        display: none;
+    }
 
-        .card-title {
-            font-size: 1.2rem;
-        }
+    /* Burger menu slide-in */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 70%;
+        height: 100vh;
+        background: rgba(10, 15, 30, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 5rem 2rem 2rem;
+        gap: 2rem;
+        transition: right 0.4s ease;
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
 
-            /* AIRPORT GRID */
-        .airports-grid {
-            grid-template-columns: 1fr;
-        }
+    /* Show menu when active */
+    .nav-links.active {
+        right: 0 !important;
+    }
 
-        .airport-card {
-            margin: 25px 10px;
-        }
+    /* Animate links */
+    .nav-links li {
+        opacity: 0;
+        transform: translateX(20px);
+    }
 
-            /* MODAL */
-        .modal-body {
-            padding: 20px;
-        }
+    .nav-links.active li {
+        animation: fadeInSlide 0.5s forwards;
+    }
 
-        .modal-title h2 {
-            font-size: 1.5em;
-        }
+    .nav-links.active li:nth-child(1) { animation-delay: 0.1s; }
+    .nav-links.active li:nth-child(2) { animation-delay: 0.2s; }
+    .nav-links.active li:nth-child(3) { animation-delay: 0.3s; }
+    .nav-links.active li:nth-child(4) { animation-delay: 0.4s; }
+    .nav-links.active li:nth-child(5) { animation-delay: 0.5s; }
 
-            /* CREATOR SECTION */
-        .creator-section {
-            padding: 50px 20px;
-        }
+    .nav-links a {
+        font-size: 1.2rem;
+        display: block;
+        padding: 0.5rem 0;
+        color: #ffffff;
+    }
 
-        .creator-container {
-            flex-direction: column;
-            text-align: center;
-        }
+    /* Auth section in mobile menu */
+    .nav-links .mobile-auth {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-            /* FOOTER */
-        .footer-content {
-            grid-template-columns: 1fr;
-            padding: 0 20px;
-            text-align: center;
-        }
+    .nav-links .mobile-auth .btn {
+        width: 100%;
+        padding: 0.8rem 1.5rem;
+        font-size: 1.1rem;
+    }
 
-        .social-icons {
-            justify-content: center;
-        }
-        }
+    .nav-links .mobile-auth #user-profile {
+        padding: 0.8rem 0;
+        font-size: 1.1rem;
+    }
 
-        @media (max-width: 1024px) and (min-width: 520px) {
+    .logo {
+        font-size: 1.3rem;
+    }
+}
 
-            /* NAV */
-        .nav {
-            width: 90%;
-        }
+/* Small Phones: 375px - 520px */
+@media (max-width: 520px) and (min-width: 375px) {
+    nav {
+        width: 95%;
+        padding: 0.8rem 3%;
+    }
 
-        .nav-links,
-        .search-container {
-            display: none;
-        }
+    /* Show hamburger */
+    .hamburger {
+        display: flex;
+    }
 
-        .hamburger {
-            display: flex;
-        }
+    /* Hide desktop nav actions */
+    .nav-actions {
+        display: none;
+    }
 
-            /* HERO */
-        .hero-banner {
-            height: 30vh;
-        }
+    /* Burger menu slide-in */
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 80%;
+        height: 100vh;
+        background: rgba(10, 15, 30, 0.98);
+        backdrop-filter: blur(20px);
+        flex-direction: column;
+        padding: 5rem 1.5rem 2rem;
+        gap: 1.5rem;
+        transition: right 0.4s ease;
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: -5px 0 25px rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
 
-        .page-title {
-            font-size: 3.5rem;
-        }
+    /* Show menu when active */
+    .nav-links.active {
+        right: 0 !important;
+    }
 
-            /* ABOUT */
-        .about-section {
-            flex-direction: column;
-        }
+    /* Animate links */
+    .nav-links li {
+        opacity: 0;
+        transform: translateX(20px);
+    }
 
-        .about-text,
-        .about-image {
-            width: 100%;
-        }
+    .nav-links.active li {
+        animation: fadeInSlide 0.5s forwards;
+    }
 
-        .about-text {
-            padding: 50px 35px;
-        }
+    .nav-links.active li:nth-child(1) { animation-delay: 0.1s; }
+    .nav-links.active li:nth-child(2) { animation-delay: 0.2s; }
+    .nav-links.active li:nth-child(3) { animation-delay: 0.3s; }
+    .nav-links.active li:nth-child(4) { animation-delay: 0.4s; }
+    .nav-links.active li:nth-child(5) { animation-delay: 0.5s; }
 
-            /* PARALLAX */
-        .aircraft-container {
-            width: 90%;
-            height: 50vh;
-        }
+    .nav-links a {
+        font-size: 1.1rem;
+        display: block;
+        padding: 0.5rem 0;
+        color: #ffffff;
+    }
 
-        .title-section h1 {
-            font-size: 3.5rem;
-        }
+    /* Auth section in mobile menu */
+    .nav-links .mobile-auth {
+        margin-top: 1rem;
+        padding-top: 1rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-        .description-section p {
-            font-size: 0.95rem;
-        }
+    .nav-links .mobile-auth .btn {
+        width: 100%;
+        padding: 0.7rem 1.2rem;
+        font-size: 1rem;
+    }
 
-            /* CARDS */
-        .card-container {
-            grid-template-columns: repeat(2, 1fr);
-            margin-left: 0;
-            padding: 20px;
-        }
+    .nav-links .mobile-auth #user-profile {
+        padding: 0.7rem 0;
+        font-size: 1rem;
+    }
 
-            /* AIRPORTS */
-        .airports-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
+    .logo {
+        font-size: 1.2rem;
+    }
 
-        .airport-card {
-            margin: 5%;
-        }
+    /* Hide username text on small screens */
+    #user-profile .nav-user-name {
+        display: none;
+    }
+}
 
-            /* CREATOR */
-        .creator-container {
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-        }
-
-            /* FOOTER */
-        .footer-content {
-            grid-template-columns: repeat(2, 1fr);
-            padding: 0 30px;
-        }
-        }
+/* Animation keyframes */
+@keyframes fadeInSlide {
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}

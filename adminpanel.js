@@ -493,3 +493,103 @@ document.addEventListener('click', e => {
         card.classList.toggle('flipped');
     }
 });
+
+
+// ==============================================
+// BURGER MENU 
+// ==============================================
+
+// Toggle mobile menu
+function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    const hamburger = document.querySelector('.hamburger');
+    
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('active');
+    
+    // Move auth buttons to mobile menu
+    moveAuthToMobile();
+}
+
+// Move auth elements based on screen size
+function moveAuthToMobile() {
+    const navLinks = document.getElementById('navLinks');
+    const navActions = document.querySelector('.nav-actions');
+    const loginButton = document.getElementById('login-button');
+    const userProfile = document.getElementById('user-profile');
+    
+    // Check if we're on mobile/tablet (1024px and below)
+    if (window.innerWidth <= 1024) {
+        // Check if mobile-auth container exists, if not create it
+        let mobileAuth = navLinks.querySelector('.mobile-auth');
+        if (!mobileAuth) {
+            mobileAuth = document.createElement('li');
+            mobileAuth.className = 'mobile-auth';
+            navLinks.appendChild(mobileAuth);
+        }
+        
+        // Move login button and user profile to mobile menu
+        if (loginButton && !mobileAuth.contains(loginButton)) {
+            mobileAuth.appendChild(loginButton);
+        }
+        if (userProfile && !mobileAuth.contains(userProfile)) {
+            mobileAuth.appendChild(userProfile);
+        }
+    } else {
+        // Move back to nav-actions on desktop (above 1024px)
+        if (loginButton && !navActions.contains(loginButton)) {
+            navActions.appendChild(loginButton);
+        }
+        if (userProfile && !navActions.contains(userProfile)) {
+            navActions.appendChild(userProfile);
+        }
+        
+        // Remove mobile-auth container if it exists
+        const mobileAuth = navLinks.querySelector('.mobile-auth');
+        if (mobileAuth) {
+            mobileAuth.remove();
+        }
+    }
+}
+
+// Close menu when clicking on a link
+document.addEventListener('DOMContentLoaded', () => {
+    // Initialize auth placement
+    moveAuthToMobile();
+    
+    // Add click handlers to nav links
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.addEventListener('click', () => {
+            const navLinks = document.getElementById('navLinks');
+            const hamburger = document.querySelector('.hamburger');
+            
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+        });
+    });
+});
+
+// Close menu when clicking outside
+document.addEventListener('click', (e) => {
+    const nav = document.querySelector('nav');
+    const navLinks = document.getElementById('navLinks');
+    const hamburger = document.querySelector('.hamburger');
+    
+    if (!nav.contains(e.target) && navLinks.classList.contains('active')) {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+    }
+});
+
+// Re-check on window resize
+window.addEventListener('resize', () => {
+    moveAuthToMobile();
+    
+    // Close menu if resized to desktop
+    if (window.innerWidth > 1024) {
+        const navLinks = document.getElementById('navLinks');
+        const hamburger = document.querySelector('.hamburger');
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+    }
+});
