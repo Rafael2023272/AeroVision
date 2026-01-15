@@ -1074,22 +1074,6 @@
             }
         }
 
-        @media (max-width: 1400px) {
-            .airports-grid {
-                grid-template-columns: repeat(3, 1fr);
-            }
-        }
-
-        @media (max-width: 900px) {
-            .airports-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            header h1 {
-                font-size: 2.5em;
-            }
-        }
-
         .modal {
             display: none;
             position: fixed;
@@ -1336,22 +1320,6 @@
     background: rgba(255, 255, 255, 1); /* subtle change on hover */
 }
 
-/* Responsive adjustments */
-@media (max-width: 1200px) {
-    .liveries-carousel {
-        grid-template-columns: repeat(3, 1fr);
-    }
-}
-@media (max-width: 900px) {
-    .liveries-carousel {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-@media (max-width: 600px) {
-    .liveries-carousel {
-        grid-template-columns: 1fr;
-    }
-}
 
 .livery-fun-facts.advanced {
     margin: 3rem;
@@ -1403,11 +1371,6 @@
     line-height: 1.6;
     color: #333333;
 }
-
-
-
-
-
 
         /* Footer */
         .footer {
@@ -1533,11 +1496,6 @@
             }
         }
 
-        /* ==============================================
-   RESPONSIVE BURGER MENU - CLEAN START
-   ============================================== */
-
-/* Tablets: 720px - 1024px */
 @media (max-width: 1024px) and (min-width: 720px) {
     nav {
         width: 85%;
@@ -1627,6 +1585,191 @@
     .logo {
         font-size: 1.5rem;
     }
+
+     .about-text {
+        padding: 60px 40px;
+        margin-top: 0;
+    }
+
+    .about-text h1 {
+        font-size: 30px;
+    }
+
+    .about-text p {
+        font-size: 16px;
+    }
+
+    .about-image {
+        background-attachment: scroll; /* IMPORTANT */
+    }
+
+    .aircraft-container {
+        width: 85%;
+        height: 55vh;
+    }
+
+    .sticky-container {
+        height: 110vh;
+    }
+
+    /* Featured Header */
+    .featured-header h2 {
+        font-size: 2.5rem;
+        letter-spacing: 3px;
+    }
+
+    /* Title Section */
+    .title-section {
+        top: 12%;
+    }
+
+    .title-section h1 {
+        font-size: 4.5rem;
+        letter-spacing: -2px;
+    }
+
+    .title-section .subtitle {
+        font-size: 1rem;
+        letter-spacing: 2.5px;
+    }
+
+    /* Annotations */
+    .annotation-value {
+        font-size: 1.6rem;
+    }
+
+    .annotation-text {
+        font-size: 0.65rem;
+        letter-spacing: 1.5px;
+    }
+
+    /* Navigation Arrows */
+    .nav-arrow {
+        width: 50px;
+        height: 50px;
+    }
+
+    .nav-arrow.left {
+        left: 3%;
+    }
+
+    .nav-arrow.right {
+        right: 3%;
+    }
+
+    .nav-arrow svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    /* Description Section */
+    .description-section {
+        max-width: 700px;
+        bottom: 2%;
+    }
+
+    .description-section p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+
+    .learn-btn {
+        padding: 0.9rem 1.8rem;
+        font-size: 1rem;
+        margin: 2.5rem auto 0;
+    }
+
+    /* Image Indicators */
+    .image-indicators {
+        bottom: 8%;
+        gap: 10px;
+    }
+
+    .indicator-dot {
+        width: 9px;
+        height: 9px;
+    }
+
+    .indicator-dot.active {
+        width: 26px;
+    }
+
+    .facts-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.3rem;
+    }
+
+    .airports-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .liveries-carousel {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .modal-content {
+        max-width: 85%;
+    }
+
+    .modal-rank-number {
+        font-size: 10em;
+        top: 15px;
+        left: 15px;
+    }
+
+    .modal-header {
+        height: 300px;
+    }
+
+    .modal-title h2 {
+        font-size: 2em;
+    }
+
+    .description {
+        font-size: 1.05em;
+    }
+
+    .details-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+
+    .livery-fun-facts.advanced {
+        margin: 2.5rem;
+        padding: 1.8rem;
+    }
+
+    .fact h4 {
+        font-size: 0.95rem;
+    }
+
+    .fact p {
+        font-size: 0.88rem;
+    }
+
+    .footer-content {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+        text-align: left;
+    }
+
+    .footer-section h3 {
+        font-size: 1.3rem;
+    }
+
+    .footer-section p,
+    .footer-section a {
+        font-size: 0.95rem;
+    }
+
+    .social-icons {
+        gap: 1.2rem;
+    }
+
+    .footer-bottom {
+        font-size: 0.85rem;
+        padding: 1.5rem 2rem;
+    }
 }
 
 /* Small Tablets/Large Phones: 520px - 720px */
@@ -1712,6 +1855,240 @@
 
     .logo {
         font-size: 1.3rem;
+    }
+
+    .about-section {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .about-text,
+    .about-image {
+        width: 100%;
+    }
+
+    .about-image {
+        height: 300px;
+        background-attachment: scroll;
+    }
+
+    .about-text {
+        padding: 50px 30px;
+        margin-top: 0;
+        text-align: center;
+    }
+
+    .about-text h1 {
+        font-size: 28px;
+    }
+
+    .about-text p {
+        font-size: 16px;
+        line-height: 1.7;
+    }
+
+    .about-text p:last-of-type {
+        border-left: none;
+        padding-left: 0;
+        border-top: 3px solid #0066cc;
+        padding-top: 15px;
+    }
+
+    .aircraft-container {
+        width: 90%;
+        height: 45vh;
+    }
+
+    .sticky-container {
+        height: 100vh;
+    }
+
+    /* Featured Header */
+    .featured-header {
+        top: 3%;
+    }
+
+    .featured-header h2 {
+        font-size: 2rem;
+        letter-spacing: 2px;
+    }
+
+    /* Title Section */
+    .title-section {
+        top: 10%;
+    }
+
+    .title-section h1 {
+        font-size: 3.5rem;
+        letter-spacing: -1.5px;
+        margin-bottom: 6px;
+    }
+
+    .title-section .subtitle {
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+
+    /* Annotations */
+    .annotation-value {
+        font-size: 1.4rem;
+    }
+
+    .annotation-text {
+        font-size: 0.6rem;
+        letter-spacing: 1.2px;
+    }
+
+    /* Reposition annotations for smaller screens */
+    .wingspan-annotation { top: 5%; right: 10%; }
+    .passenger-annotation { top: 18%; left: 3%; }
+    .length-annotation { bottom: 48%; left: 10%; }
+    .speed-annotation { top: 8%; left: 20%; }
+    .range-annotation { bottom: 15%; right: 12%; }
+    .weight-annotation { bottom: 20%; left: 30%; }
+    .height-annotation { top: 1%; left: 10%; }
+    .Altitude-annotation { top: 28%; right: 8%; }
+    .Fusalage-annotation { top: 58%; left: 8%; }
+    .Cabin-annotation { bottom: 28%; right: 5%; }
+
+    /* Navigation Arrows */
+    .nav-arrow {
+        width: 45px;
+        height: 45px;
+    }
+
+    .nav-arrow.left {
+        left: 2%;
+    }
+
+    .nav-arrow.right {
+        right: 2%;
+    }
+
+    .nav-arrow svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    /* Description Section */
+    .description-section {
+        max-width: 600px;
+        bottom: 3%;
+        padding: 0 15px;
+    }
+
+    .description-section p {
+        font-size: 0.9rem;
+        line-height: 1.5;
+    }
+
+    .learn-btn {
+        padding: 0.8rem 1.6rem;
+        font-size: 0.95rem;
+        margin: 2rem auto 0;
+    }
+
+    /* Image Indicators */
+    .image-indicators {
+        bottom: 6%;
+        gap: 8px;
+    }
+
+    .indicator-dot {
+        width: 8px;
+        height: 8px;
+    }
+
+    .indicator-dot.active {
+        width: 22px;
+    }
+
+    .airports-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .liveries-carousel {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .modal-content {
+        max-width: 90%;
+        padding: 20px;
+    }
+
+    .modal-rank-number {
+        font-size: 8em;
+        top: 15px;
+        left: 15px;
+    }
+
+    .modal-header {
+        height: 250px;
+    }
+
+    .modal-title h2 {
+        font-size: 1.8em;
+    }
+
+    .description {
+        font-size: 1em;
+    }
+
+    .details-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .detail-value {
+        font-size: 1.1em;
+    }
+
+    .facts-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .livery-fun-facts.advanced {
+        margin: 2rem;
+        padding: 1.5rem;
+    }
+
+    .fact h4 {
+        font-size: 0.9rem;
+    }
+
+    .fact p {
+        font-size: 0.85rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+        text-align: center;
+    }
+
+    .footer-section {
+        align-items: center;
+    }
+
+    .footer-section h3 {
+        font-size: 1.2rem;
+    }
+
+    .footer-section p,
+    .footer-section a {
+        font-size: 0.9rem;
+    }
+
+    .social-icons {
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    .footer-bottom {
+        font-size: 0.8rem;
+        padding: 1.2rem 1.5rem;
+        line-height: 1.6;
     }
 }
 
@@ -1803,6 +2180,274 @@
     /* Hide username text on small screens */
     #user-profile .nav-user-name {
         display: none;
+    }
+
+     .about-section {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .about-text,
+    .about-image {
+        width: 100%;
+    }
+
+    .about-image {
+        height: 240px;
+        width: 100%;
+        background-attachment: scroll;
+    }
+
+    .about-text {
+        padding: 40px 20px;
+        margin-top: 0;
+        text-align: center;
+    }
+
+    .about-text h1 {
+        font-size: 24px;
+        margin-top: 10%;
+    }
+
+    .about-text p {
+        font-size: 15px;
+        line-height: 1.6;
+    }
+
+    .about-text p:last-of-type {
+        border-left: none;
+        padding-left: 0;
+        border-top: 3px solid #0066cc;
+        padding-top: 12px;
+        margin-top: 20px;
+    }
+
+    .scroll-section {
+        height: 70vh;
+    }
+
+    .scroll-section::before {
+        height: 70vh;
+    }
+
+    .aircraft-container {
+        width: 95%;
+        height: 30vh;
+        perspective: 1500px;
+        margin-top: 0;
+        position: relative;
+        z-index: 2;
+    }
+
+    .sticky-container {
+        height: 100vh;
+        padding: 0 10px;
+        justify-content: flex-start;
+        padding-top: 15vh;
+    }
+
+    /* Featured Header */
+    .featured-header {
+        top: 2vh;
+        width: 100%;
+        padding: 0 15px;
+    }
+
+    .featured-header h2 {
+        font-size: 1.1rem;
+        letter-spacing: 1px;
+    }
+
+    /* Title Section */
+    .title-section {
+        top: 8vh;
+        padding: 0 20px;
+        width: 100%;
+        z-index: 3;
+    }
+
+    .title-section h1 {
+        font-size: 2rem;
+        letter-spacing: -0.5px;
+        margin-bottom: 4px;
+    }
+
+    .title-section .subtitle {
+        font-size: 0.65rem;
+        letter-spacing: 1px;
+    }
+
+    /* Hide annotations on mobile for cleaner look */
+    .annotation {
+        display: none;
+    }
+    
+    .specs-overlay {
+        display: none;
+    }
+
+    /* Navigation Arrows */
+    .nav-arrow {
+        width: 40px;
+        height: 40px;
+    }
+
+    .nav-arrow.left {
+        left: 1%;
+    }
+
+    .nav-arrow.right {
+        right: 1%;
+    }
+
+    .nav-arrow svg {
+        width: 16px;
+        height: 16px;
+    }
+
+    .nav-arrow:hover {
+        transform: translateY(-50%) scale(1.05);
+    }
+
+    /* Description Section */
+    .description-section {
+        max-width: 100%;
+        bottom: 8vh;
+        padding: 0 20px;
+        margin-top: 0;
+        position: relative;
+        z-index: 1;
+    }
+
+    .description-section p {
+        font-size: 0.8rem;
+        line-height: 1.5;
+    }
+
+    .learn-btn {
+        padding: 0.7rem 1.3rem;
+        font-size: 0.85rem;
+        margin: 1.5rem auto 0;
+        margin-bottom: 2vh;
+    }
+
+    /* Image Indicators */
+    .image-indicators {
+        bottom: 4%;
+        gap: 6px;
+    }
+
+    .indicator-dot {
+        display: none;
+    }
+
+    .indicator-dot.active {
+        width: 20px;
+    }
+
+    .airports-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+     .modal-content {
+        max-width: 95%;
+        padding: 15px;
+    }
+
+    .modal-rank-number {
+        font-size: 5em;
+        top: 10px;
+        left: 10px;
+    }
+
+    .modal-header {
+        height: 200px;
+    }
+
+    .modal-title h2 {
+        font-size: 1.6em;
+    }
+
+    .description {
+        font-size: 0.95em;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .detail-value {
+        font-size: 1em;
+    }
+
+    .key-facts {
+        padding: 15px;
+    }
+
+    .key-facts h3 {
+        font-size: 1.2em;
+    }
+
+    .liveries-carousel {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .facts-grid {
+        grid-template-columns: 1fr;
+        gap: 0.9rem;
+    }
+
+    .livery-fun-facts.advanced {
+        margin: 1.5rem;
+        padding: 1.2rem;
+    }
+
+    .fact h4 {
+        font-size: 0.85rem;
+    }
+
+    .fact p {
+        font-size: 0.8rem;
+    }
+
+    .fact i {
+        font-size: 1.2rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        text-align: center;
+        padding: 2.5rem 1.5rem;
+    }
+
+    .footer-section h3 {
+        font-size: 1.15rem;
+        margin-bottom: 0.8rem;
+    }
+
+    .footer-section p {
+        font-size: 0.85rem;
+        line-height: 1.6;
+    }
+
+    .footer-section a {
+        font-size: 0.85rem;
+    }
+
+    .social-icons {
+        justify-content: center;
+        gap: 0.9rem;
+    }
+
+    .social-icons a {
+        font-size: 1.1rem;
+    }
+
+    .footer-bottom {
+        font-size: 0.75rem;
+        padding: 1rem;
+        line-height: 1.5;
     }
 }
 

@@ -1005,26 +1005,7 @@
             transform: scale(1.02);
         }
 
-        .compare-btn {
-            display: block;
-            margin: 2rem auto 0;
-            padding: 1rem 3rem;
-            background: #ffffff;
-            color: rgb(0, 0, 0);
-            font-size: 1.1rem;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .compare-btn:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
-        }
-
-       
-
+        
         /* News Section */
         .news-card-link {
             text-decoration: none;
@@ -1630,6 +1611,30 @@
         width: 26px;
     }
 
+     .comparison {
+        padding: 4rem 4%;
+        background-attachment: scroll;
+    }
+
+    .comparison h2 {
+        font-size: 2.2rem;
+    }
+
+    .comparison-subtitle {
+        font-size: 1rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .comparison-table {
+        max-width: 95%;
+    }
+
+    .table-header,
+    .table-row {
+        padding: 1.5rem;
+        grid-template-columns: 2fr 1fr 1fr;
+    }
+
     .news {
         padding: 2rem 3%;
         margin: 4%;
@@ -1980,6 +1985,37 @@
         width: 22px;
     }
 
+    .comparison {
+        padding: 3.5rem 5%;
+        background-attachment: scroll;
+    }
+
+    .comparison h2 {
+        font-size: 2rem;
+    }
+
+    .comparison-subtitle {
+        font-size: 0.95rem;
+        margin-bottom: 2rem;
+    }
+
+    .comparison-table {
+        max-width: 100%;
+    }
+
+    .table-header,
+    .table-row {
+        padding: 1.2rem;
+        grid-template-columns: 2fr 1fr 1fr;
+        font-size: 0.95rem;
+    }
+
+    /* Reduce hover chaos */
+    .table-row:hover,
+    .table-row:nth-child(even):hover {
+        transform: scale(1.01);
+    }
+
 
     .news {
         padding: 1.5rem 3%;
@@ -2110,11 +2146,6 @@
         display: flex;
     }
 
-    /* Hide desktop nav actions */
-    .nav-actions {
-        display: none;
-    }
-
     /* Burger menu slide-in */
     .nav-links {
         position: fixed;
@@ -2140,7 +2171,7 @@
 
     /* Animate links */
     .nav-links li {
-        opacity: 0;
+        opacity: 1;
         transform: translateX(20px);
     }
 
@@ -2184,7 +2215,7 @@
 
     /* Hide username text on small screens */
     #user-profile .nav-user-name {
-        display: none;
+        display: flex;
     }
 
     .hero {

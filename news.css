@@ -787,7 +787,7 @@
 /* Small Phones: 375px - 520px */
 @media (max-width: 520px) and (min-width: 375px) {
     nav {
-        width: 70%;
+        width: 90%;
     }
 
     /* Show hamburger */
@@ -825,7 +825,7 @@
 
     /* Animate links */
     .nav-links li {
-        opacity: 0;
+        opacity: 1;
         transform: translateX(20px);
     }
 
