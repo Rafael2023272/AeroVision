@@ -132,7 +132,7 @@
             cursor: pointer;
             position: relative;
             font-weight: 400;        
-            color: #000000;           
+            color: #ffffff;           
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -160,7 +160,7 @@
         #user-profile i {
             font-size: 18px;         
             line-height: 1;
-            color: #000000;
+            color: #ffffff;
         }
 
         #user-profile .nav-user-name {
@@ -1585,14 +1585,26 @@
     .logo {
         font-size: 1.5rem;
     }
+ 
+     .about-section {
+        flex-direction: column;
+        min-height: auto;
+    }
 
-     .about-text {
-        padding: 60px 40px;
+     .about-text,
+    .about-image {
+        width: 100%;
+    }
+    
+    .about-text {
+        padding: 50px 30px;
         margin-top: 0;
+        text-align: center;
     }
 
     .about-text h1 {
         font-size: 30px;
+        margin-top: 10%;
     }
 
     .about-text p {
@@ -1600,7 +1612,7 @@
     }
 
     .about-image {
-        background-attachment: scroll; /* IMPORTANT */
+        display: none;
     }
 
     .aircraft-container {
@@ -1609,13 +1621,14 @@
     }
 
     .sticky-container {
-        height: 110vh;
+        height: 90vh;
     }
 
     /* Featured Header */
     .featured-header h2 {
         font-size: 2.5rem;
         letter-spacing: 3px;
+        margin: 5px;
     }
 
     /* Title Section */
@@ -1624,13 +1637,14 @@
     }
 
     .title-section h1 {
-        font-size: 4.5rem;
+        font-size: 4rem;
         letter-spacing: -2px;
+        margin: 20px;
     }
 
     .title-section .subtitle {
         font-size: 1rem;
-        letter-spacing: 2.5px;
+        letter-spacing: 2px;
     }
 
     /* Annotations */
@@ -1664,8 +1678,8 @@
 
     /* Description Section */
     .description-section {
-        max-width: 700px;
-        bottom: 2%;
+        width: 700px;
+        margin-top: 50%;
     }
 
     .description-section p {
@@ -1868,8 +1882,7 @@
     }
 
     .about-image {
-        height: 300px;
-        background-attachment: scroll;
+        display: none;
     }
 
     .about-text {
@@ -1880,6 +1893,7 @@
 
     .about-text h1 {
         font-size: 28px;
+        margin-top: 10%;
     }
 
     .about-text p {
@@ -1972,20 +1986,14 @@
 
     /* Description Section */
     .description-section {
-        max-width: 600px;
-        bottom: 3%;
+        width: 500px;
+        margin-top: 60%;
         padding: 0 15px;
     }
 
     .description-section p {
         font-size: 0.9rem;
         line-height: 1.5;
-    }
-
-    .learn-btn {
-        padding: 0.8rem 1.6rem;
-        font-size: 0.95rem;
-        margin: 2rem auto 0;
     }
 
     /* Image Indicators */
@@ -2177,9 +2185,8 @@
         font-size: 1.2rem;
     }
 
-    /* Hide username text on small screens */
-    #user-profile .nav-user-name {
-        display: none;
+     #user-profile .nav-user-name {
+        display: flex;
     }
 
      .about-section {
@@ -2192,11 +2199,6 @@
         width: 100%;
     }
 
-    .about-image {
-        height: 240px;
-        width: 100%;
-        background-attachment: scroll;
-    }
 
     .about-text {
         padding: 40px 20px;
@@ -2223,11 +2225,11 @@
     }
 
     .scroll-section {
-        height: 70vh;
+        height: 60vh;
     }
 
     .scroll-section::before {
-        height: 70vh;
+        height: 60vh;
     }
 
     .aircraft-container {
@@ -2240,7 +2242,7 @@
     }
 
     .sticky-container {
-        height: 100vh;
+        height: 70vh;
         padding: 0 10px;
         justify-content: flex-start;
         padding-top: 15vh;

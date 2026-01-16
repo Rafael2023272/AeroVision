@@ -145,11 +145,8 @@
             transform: rotate(-45deg) translate(7px, -7px);
         }
         
-
-        
         .container {
-            max-width: 1400px;
-            margin: 0 auto;
+            margin: 10%;
         }
 
         /* Header */
@@ -796,8 +793,8 @@
    ============================================== */
 
 /* Tablets: 720px - 1024px */
-@media (max-width: 1024px) and (min-width: 720px) {
-          nav {
+@media (max-width: 1023px) and (min-width: 720px) {
+    nav {
         width: 85%;
         padding: 1rem 4%;
     }
@@ -886,12 +883,18 @@
         font-size: 1.5rem;
     }
 
+    .container {
+        margin: 10%;
+    }
+
    .header {
         flex-direction: row; /* keep bell/logout on right */
         align-items: center;
         justify-content: space-between;
         padding: 30px 5%;
         margin-top: 12%;
+        margin-left: 5%;
+        margin-right: 5%;
     }
 
     .profile-card {
@@ -902,14 +905,17 @@
         margin: 5%;
     }
 
-    .dashboard-grid {
-        display: grid;
-        grid-template-columns: 2fr 1fr;
+   .dashboard-grid {
+        flex-direction: column;
         gap: 20px;
     }
 
+    .dashboard-grid > div {
+        width: 100%;
+    }
+
     .card {
-        padding: 25px;
+        padding: 22px;
         margin: 5%;
     }
 
@@ -930,9 +936,8 @@
     }
 
     .saved-aircraft-container {
-        grid-template-columns: repeat(2, 1fr);
-        padding: 20px;
-        gap: 20px;
+        grid-template-columns: repeat(1, 1fr);
+        padding: 10px;
     }
 
     .saved-aircraft-card img {
@@ -940,7 +945,7 @@
     }
 
     .card-content {
-        padding: 18px;
+        padding: 12px;
     }
 
     .saved-aircraft-card h4 {
@@ -963,7 +968,7 @@
         font-size: 14px;
     }
 
-     .footer-content {
+    .footer-content {
         grid-template-columns: repeat(2, 1fr);
         gap: 2.5rem;
         text-align: left;
@@ -1072,8 +1077,8 @@
         font-size: 1.3rem;
     }
 
-        .header {
-        flex-direction: column;
+    .header {
+        flex-direction: row;
         align-items: flex-start;
         padding: 25px;
         margin-top: 18%;
@@ -1082,7 +1087,7 @@
     }
 
     .profile-card {
-        flex-direction: column;
+        flex-direction: row;
         align-items: flex-start;
         padding: 22px;
         margin: 5%;

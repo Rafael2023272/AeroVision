@@ -139,7 +139,7 @@
             cursor: pointer;
             position: relative;
             font-weight: 400;        
-            color: #000000;           
+            color: #ffffff;           
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -167,7 +167,7 @@
         #user-profile i {
             font-size: 18px;         
             line-height: 1;
-            color: #000000;
+            color: #ffffff;
         }
 
         #user-profile .nav-user-name {
@@ -867,11 +867,10 @@
         font-size: 1.2rem;
     }
 
-    /* Hide username text on small screens */
-    #user-profile .nav-user-name {
-        display: none;
+     #user-profile .nav-user-name {
+        display: flex;
     }
-    
+
     .news {
         padding: 1.5rem;
         margin-top: 15%;

@@ -1185,44 +1185,48 @@
             border: 1px solid rgba(148, 148, 148, 0.445);
         }
 
-        .quote-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, 
-                rgba(102, 126, 234, 0.1) 0%, 
-                rgba(118, 75, 162, 0.1) 100%);
-            pointer-events: none;
+       .quote-section {
+            max-width: 1200px;
+            width: 90%;
+            min-height: 40vh;
+            margin: 0 auto 3%;
+            padding: 60px 80px;
+
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.1),
+                inset 0 1px 0 rgba(255, 255, 255, 0.6);
+
+            border-radius: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+            z-index: 5;
+
+            background: rgba(255, 255, 255, 0.6);
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(148, 148, 148, 0.445);
         }
 
-        .section-title {
-            font-size: 2.8rem;
+      .section-title {
+            font-size: clamp(2rem, 3vw, 3rem);
             color: #2c3e50;
-            margin-bottom: 40px;
-            font-weight: 700;
-            letter-spacing: 1px;
-            z-index: 1;
         }
 
-        .quote-container {
+       .quote-container {
             display: flex;
             align-items: center;
-            gap: 60px;
-            z-index: 1;
+            gap: clamp(30px, 5vw, 80px);
         }
 
-        .profile-image {
-            width: 200px;
-            height: 200px;
+       .profile-image {
+            width: clamp(160px, 18vw, 240px);
+            height: clamp(160px, 18vw, 240px);
             border-radius: 50%;
-            object-fit: cover;
-            border: 5px solid rgba(10, 20, 65, 0.836);
+            border: 5px solid rgba(10, 20, 65, 0.836); 
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            transition: transform 0.3s ease;
-            flex-shrink: 0;
         }
 
         .profile-image:hover {
@@ -1234,22 +1238,17 @@
             text-align: left;
         }
 
+        
         .quote-text {
-            font-size: 1.6rem;
-            font-style: italic;
-            color: #34495e;
-            line-height: 1.8;
-            margin-bottom: 25px;
+            font-size: clamp(1.2rem, 2vw, 1.6rem);
         }
 
+
         .author-name {
-            font-size: 1.4rem;
-            color: #091030;
-            font-weight: 600;
-            margin-top: 15px;
+            font-size: clamp(1.1rem, 1.8vw, 1.4rem);
+            color: #021879;
             text-decoration: none;
-            display: inline-block;
-            transition: all 0.3s ease;
+            margin-top: 15px;
         }
 
         .author-name:hover {
@@ -1581,8 +1580,7 @@
 
     /* Description Section */
     .description-section {
-        max-width: 700px;
-        bottom: 2%;
+        width: 500px;
     }
 
     .description-section p {
@@ -1594,12 +1592,14 @@
         padding: 0.9rem 1.8rem;
         font-size: 1rem;
         margin: 2.5rem auto 0;
+        margin-bottom: 3%;
     }
 
     /* Image Indicators */
     .image-indicators {
         bottom: 8%;
         gap: 10px;
+        display: none;
     }
 
     .indicator-dot {
@@ -2089,6 +2089,7 @@
     .profile-image {
         width: 150px;
         height: 150px;
+        margin-top: 2%;
     }
 
     .profile-image:hover {
@@ -2097,6 +2098,7 @@
 
     .quote-text {
         font-size: 1.3rem;
+        margin-top: 5%;
     }
 
     .author-name {
@@ -2213,7 +2215,6 @@
         font-size: 1.2rem;
     }
 
-    /* Hide username text on small screens */
     #user-profile .nav-user-name {
         display: flex;
     }
@@ -2292,11 +2293,11 @@
     }
 
     .scroll-section {
-        height: 70vh;
+        height: 80vh;
     }
 
     .scroll-section::before {
-        height: 70vh;
+        height: 80vh;
     }
 
     .aircraft-container {
@@ -2309,7 +2310,7 @@
     }
 
     .sticky-container {
-        height: 100vh;
+        height: 90vh;
         padding: 0 10px;
         justify-content: flex-start;
         padding-top: 15vh;

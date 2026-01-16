@@ -207,8 +207,6 @@
             transform: rotate(-45deg) translate(7px, -7px);
         }
         
-
-        
         :root {
             --primary-bg: #0a0e27;
             --secondary-bg: #151b3d;
@@ -529,7 +527,7 @@
     }
 
     /* ==============================================
-   RESPONSIVE BURGER MENU - CLEAN START
+   RESPONSIVE 
    ============================================== */
 
 /* Tablets: 720px - 1024px */
@@ -622,6 +620,23 @@
     .logo {
         font-size: 1.5rem;
     }
+
+   .sidebar {
+    width: 280px;
+    padding: 20px;
+  }
+
+  .header-text h1 {
+    font-size: 24px;
+  }
+
+  .stats-card {
+    grid-template-columns: 1fr;
+  }
+
+   .map-container {
+    min-height: auto;
+  }
 }
 
 /* Small Tablets/Large Phones: 520px - 720px */
@@ -707,13 +722,105 @@
     .logo {
         font-size: 1.3rem;
     }
+    
+    :root {
+    --sidebar-width: 260px;
+  }
+
+  .app-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    max-height: 40vh;
+    border-right: none;
+    border-bottom: 1px solid var(--glass-border);
+    padding: 20px;
+    gap: 16px;
+  }
+
+  .header {
+    padding-bottom: 16px;
+     margin-top: 10%;
+     display: none;
+  }
+
+  .header-text h1 {
+    font-size: 20px;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .header-text p {
+    font-size: 11px;
+  }
+
+  .stats-card {
+    padding: 14px;
+    gap: 10px;
+    margin-top: 10%;
+  }
+
+  .stat-value {
+    font-size: 18px;
+  }
+
+  .stat-label {
+    font-size: 10px;
+  }
+
+  .section-title {
+    font-size: 12px;
+  }
+
+  .control-group label {
+    font-size: 11px;
+  }
+
+  .info-panel {
+    font-size: 10px;
+    padding: 12px;
+    display: none;
+  }
+
+  .info-panel strong {
+    font-size: 11px;
+  }
+
+  .map-container {
+    height: 60vh;
+  }
+
+  .loading-indicator {
+    bottom: 10px;
+    padding: 10px 20px;
+    font-size: 11px;
+  }
+
+  .popup-content {
+    min-width: 180px;
+    padding: 14px;
+  }
+
+  .popup-callsign {
+    font-size: 14px;
+  }
+
+  .popup-label,
+  .popup-value {
+    font-size: 11px;
+  }
+    
 }
 
 /* Small Phones: 375px - 520px */
 @media (max-width: 520px) and (min-width: 375px) {
-    nav {
-        width: 95%;
-        padding: 0.8rem 3%;
+     nav {
+        width: 90%;
     }
 
     /* Show hamburger */
@@ -751,7 +858,7 @@
 
     /* Animate links */
     .nav-links li {
-        opacity: 0;
+        opacity: 1;
         transform: translateX(20px);
     }
 
@@ -793,10 +900,132 @@
         font-size: 1.2rem;
     }
 
-    /* Hide username text on small screens */
-    #user-profile .nav-user-name {
-        display: none;
+     #user-profile .nav-user-name {
+        display: flex;
     }
+
+    .app-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+    max-height: 35vh;
+    border-right: none;
+    border-bottom: 1px solid var(--glass-border);
+    padding: 16px;
+    gap: 14px;
+  }
+
+  .header {
+    padding-bottom: 12px;
+    gap: 10px;
+    display: none;
+  }
+
+  .header-text h1 {
+    font-size: 18px;
+  }
+
+  .logo {
+    font-size: 22px;
+  }
+
+  .header-text p {
+    font-size: 10px;
+  }
+
+  .stats-card {
+    padding: 12px;
+    gap: 8px;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 15%;
+  }
+
+  .stat-value {
+    font-size: 16px;
+  }
+
+  .stat-label {
+    font-size: 9px;
+  }
+
+  .section-title {
+    font-size: 11px;
+    margin-bottom: 6px;
+  }
+
+  .control-group {
+    gap: 6px;
+  }
+
+  .control-group label {
+    font-size: 10px;
+  }
+
+  .info-panel {
+    font-size: 9px;
+    padding: 10px;
+    display: none;
+  }
+
+  .info-panel strong {
+    font-size: 10px;
+    margin-bottom: 6px;
+  }
+
+  .info-panel li {
+    padding: 3px 0;
+  }
+
+  .sidebar-footer {
+    font-size: 9px;
+    padding-top: 16px;
+  }
+
+  .map-container {
+    height: 65vh;
+  }
+
+  .loading-indicator {
+    bottom: 8px;
+    padding: 8px 16px;
+    font-size: 10px;
+  }
+
+  .popup-content {
+    min-width: 160px;
+    padding: 12px;
+  }
+
+  .popup-header {
+    gap: 8px;
+    margin-bottom: 12px;
+    padding-bottom: 10px;
+  }
+
+  .popup-icon {
+    font-size: 16px;
+  }
+
+  .popup-callsign {
+    font-size: 13px;
+  }
+
+  .popup-details {
+    gap: 8px;
+  }
+
+  .popup-row {
+    padding: 6px 0;
+  }
+
+  .popup-label,
+  .popup-value {
+    font-size: 10px;
+  }
+   
 }
 
 /* Animation keyframes */
