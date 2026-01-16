@@ -2,8 +2,8 @@
 // GLOBAL VARIABLES
 // ============================================
 let lastScrollTop = 0;
-let parallaxTicking = false;  // Renamed to avoid conflict
-let aircraftTicking = false;  // Renamed to avoid conflict
+let parallaxTicking = false;  
+let aircraftTicking = false; 
 let currentImageIndex = 0;
 let sectionInView = false;
 let isInteractive = false;

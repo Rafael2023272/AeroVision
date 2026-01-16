@@ -208,11 +208,11 @@ document.addEventListener('DOMContentLoaded', function() {
 // AIRCRAFT SHOWCASE SECTION - Main variables
 // ============================================
 
-let currentImageIndex = 0; // ADD THIS LINE
-let isInteractive = false; // ADD THIS LINE
-let sectionInView = false; // ADD THIS LINE
-let aircraftTicking = false; // ADD THIS LINE
-let parallaxTicking = false; // ADD THIS LINE (if not already there)
+let currentImageIndex = 0;
+let isInteractive = false; 
+let sectionInView = false; 
+let aircraftTicking = false; 
+let parallaxTicking = false; 
 
 const aircraftImages = document.querySelectorAll('.aircraft-image');
 const aircraftWrapper = document.getElementById('aircraftWrapper');

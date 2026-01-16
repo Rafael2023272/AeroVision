@@ -20,7 +20,7 @@
             top: 1rem;
             left: 50%;
             transform: translateX(-50%);
-            width: 80%; /* You can change to 70% if you want it tighter */
+            width: 80%; 
             border-radius: 50px;
             backdrop-filter: blur(10px);
             z-index: 1000;
@@ -1253,131 +1253,131 @@
             }
         }
 
-/* Section styling */
-.liveries-section {
-    margin: 2rem auto;
-    padding: 0 3%;
-}
+        /* Section styling */
+        .liveries-section {
+            margin: 2rem auto;
+            padding: 0 3%;
+        }
 
-.liveries-section h1 {
-    text-align: center;
-    color: black;
-    font-size: 2.5rem;
-    margin-bottom: 0.5rem;
-}
+        .liveries-section h1 {
+            text-align: center;
+            color: black;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
 
-.liveries-section p {
-    text-align: center;
-    color: #333;
-    margin-bottom: 2rem;
-}
+        .liveries-section p {
+            text-align: center;
+            color: #333;
+            margin-bottom: 2rem;
+        }
 
-/* Grid layout for cards */
-.liveries-carousel {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
-    gap: 1.5rem;
-}
+        /* Grid layout for cards */
+        .liveries-carousel {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 columns */
+            gap: 1.5rem;
+        }
 
-/* Livery cards */
-.livery-card {
-    border-radius: 16px;
-    overflow: hidden;
-    position: relative;
-    cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
+        /* Livery cards */
+        .livery-card {
+            border-radius: 16px;
+            overflow: hidden;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
 
-.livery-card img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    display: block;
-}
+        .livery-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            display: block;
+        }
 
-/* Hover effect: subtle shadow and lift */
-.livery-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-}
+        /* Hover effect: subtle shadow and lift */
+        .livery-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
 
-/* Overlay text */
-.livery-overlay {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(255, 255, 255, 0.9);
-    color: black;
-    padding: 0.5rem 0;
-    text-align: center;
-    font-weight: 500;
-    font-size: 0.95rem;
-    transition: background 0.3s ease;
-}
+        /* Overlay text */
+        .livery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.9);
+            color: black;
+            padding: 0.5rem 0;
+            text-align: center;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: background 0.3s ease;
+        }
 
-.livery-card:hover .livery-overlay {
-    background: rgba(255, 255, 255, 1); /* subtle change on hover */
-}
+        .livery-card:hover .livery-overlay {
+            background: rgba(255, 255, 255, 1); /* subtle change on hover */
+        }
 
 
-.livery-fun-facts.advanced {
-    margin: 3rem;
-    padding: 2rem;
-    background: #dbdbdb;
-    border: 1px solid #e6e6e6;
-    border-radius: 14px;
-}
+        .livery-fun-facts.advanced {
+            margin: 3rem;
+            padding: 2rem;
+            background: #dbdbdb;
+            border: 1px solid #e6e6e6;
+            border-radius: 14px;
+        }
 
-.livery-fun-facts h2 {
-    color: #0a2540;
-    font-weight: 600;
-    margin-bottom: 2rem;
-}
+        .livery-fun-facts h2 {
+            color: #0a2540;
+            font-weight: 600;
+            margin-bottom: 2rem;
+        }
 
-.facts-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 1.5rem;
-}
+        .facts-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
 
-.fact {
-    border: 1px solid #ededed;
-    border-radius: 12px;
-    padding: 1.4rem;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    background: #ffffff;
-}
+        .fact {
+            border: 1px solid #ededed;
+            border-radius: 12px;
+            padding: 1.4rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            background: #ffffff;
+        }
 
-.fact:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-}
+        .fact:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+        }
 
-.fact i {
-    font-size: 1.4rem;
-    color: #1f6feb;
-    margin-bottom: 0.6rem;
-}
+        .fact i {
+            font-size: 1.4rem;
+            color: #1f6feb;
+            margin-bottom: 0.6rem;
+        }
 
-.fact h4 {
-    margin: 0.3rem 0 0.6rem;
-    font-size: 1rem;
-    color: #0a2540;
-}
+        .fact h4 {
+            margin: 0.3rem 0 0.6rem;
+            font-size: 1rem;
+            color: #0a2540;
+        }
 
-.fact p {
-    font-size: 0.92rem;
-    line-height: 1.6;
-    color: #333333;
-}
+        .fact p {
+            font-size: 0.92rem;
+            line-height: 1.6;
+            color: #333333;
+        }
 
         /* Footer */
         .footer {
              background: linear-gradient(
-                to bottom,       /* direction */
-                 rgba(0, 0, 0, 1) 0%,   /* black at top */
-                 #080B24 100%           /* dark blue at bottom */
+                to bottom,       
+                 rgba(0, 0, 0, 1) 0%,   
+                 #080B24 100%           
             );
             color: #fff;
             padding: 20px 0;

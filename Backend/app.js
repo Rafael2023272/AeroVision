@@ -28,7 +28,7 @@ app.get('/api/users/test-direct', (req, res) => {
   res.json({ message: 'Direct route works!' });
 });
 
-app.use('/api/users', userRoutes); // ✅ FIXED: Changed from '/api/user' to '/api/users'
+app.use('/api/users', userRoutes); 
 
 // Another test after mounting
 app.get('/test-after', (req, res) => {

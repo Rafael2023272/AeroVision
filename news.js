@@ -2,8 +2,8 @@
 // GLOBAL VARIABLES
 // ============================================
 let lastScrollTop = 0;
-let parallaxTicking = false;  // Renamed to avoid conflict
-let aircraftTicking = false;  // Renamed to avoid conflict
+let parallaxTicking = false;  
+let aircraftTicking = false;  
 let currentImageIndex = 0;
 let sectionInView = false;
 let isInteractive = false;
@@ -82,8 +82,8 @@ window.addEventListener('scroll', () => {
         // Check if user is logged in
     function checkLoginState() {
         const userData = localStorage.getItem('aerovision_user');
-        const loginButton = document.getElementById('login-button'); // Your login button
-        const userProfile = document.getElementById('user-profile'); // User profile element (create this)
+        const loginButton = document.getElementById('login-button'); 
+        const userProfile = document.getElementById('user-profile'); 
         
         if (userData) {
             const user = JSON.parse(userData);

@@ -13,7 +13,7 @@
 
         body.fade-out {
             opacity: 0;
-            transition: opacity 0.6s ease; /* adjust speed here */
+            transition: opacity 0.6s ease; 
         }
 
         /* Navigation */
@@ -26,12 +26,12 @@
             top: 1rem;
             left: 50%;
             transform: translateX(-50%);
-            width: 80%; /* You can change to 70% if you want it tighter */
+            width: 80%; 
             border-radius: 50px;
             backdrop-filter: blur(12px);
             z-index: 1000;
             transition: all 0.4s ease;
-            background: transparent; /* No background on first visit */
+            background: transparent; 
         }
 
         /* Only show background when scrolled */
@@ -340,9 +340,9 @@
         /* Footer */
         .footer {
              background: linear-gradient(
-                to bottom,       /* direction */
-                 rgba(0, 0, 0, 1) 0%,   /* black at top */
-                 #080B24 100%           /* dark blue at bottom */
+                to bottom,       
+                 rgba(0, 0, 0, 1) 0%,   
+                 #080B24 100%           
             );
             color: #fff;
             padding: 20px 0;
